@@ -1014,8 +1014,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.75294125, g: 0.7960785, b: 0.9803922, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3906,6 +3906,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1530248208052337631, guid: acfaf448df5dfc046ad75bb158ea2be5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b8a7d1d3ef9afb4db235782e4347f07, type: 2}
     - target: {fileID: 2950199504049482585, guid: acfaf448df5dfc046ad75bb158ea2be5, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -4785,6 +4789,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3223508041503738262, guid: 13e276f9201d3aa43b2100a39b266a50, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b8a7d1d3ef9afb4db235782e4347f07, type: 2}
     - target: {fileID: 6650914200842069876, guid: 13e276f9201d3aa43b2100a39b266a50, type: 3}
       propertyPath: m_RootOrder
       value: 22
