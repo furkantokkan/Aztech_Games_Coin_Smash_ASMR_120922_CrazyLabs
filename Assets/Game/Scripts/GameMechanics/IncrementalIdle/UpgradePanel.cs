@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EC.GameMechanics.IncrementalIdle
-{
+
     public class UpgradePanel : MonoBehaviour
     {
         [SerializeField] private UpgradeItemData[] itemDatas;
@@ -44,5 +43,5 @@ namespace EC.GameMechanics.IncrementalIdle
             }
         }
     }
-}
+
 

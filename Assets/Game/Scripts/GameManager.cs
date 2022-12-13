@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _distanceBetweenBalss = 2.5f;
     [SerializeField] private float maxBallCount = 8;
     [SerializeField] private float ballCountIncrease = 2;
-
+    [SerializeField] private UpgradeItemData ballData;
+    [SerializeField] private UpgradeItemData platformData;
+    [SerializeField] private UpgradeItemData incomeData;
 
     private List<BallMovement> ActiveBalls = new List<BallMovement>();
 
@@ -39,7 +41,13 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        platformData?.Initialize();
+        platformData.OnLevelUp += OnPlatformLevelUp;
         Initialize();
+    }
+    private void OnDisable()
+    {
+        platformData.OnLevelUp -= OnPlatformLevelUp;
     }
 
     private void Initialize()
@@ -47,12 +55,14 @@ public class GameManager : MonoBehaviour
         int ballCount = PlayerPrefs.GetInt(GameConst.BALL_COUNT_KEY, 0);
         int platformCount = PlayerPrefs.GetInt(GameConst.PLATFORM_COUNT_KEY, 0);
 
+        maxBallCount += platformData.currentLevel * ballCountIncrease;
+
         //spawn ball
         BallPath.Instance.StartSpawnBalls(8);
     }
     public void OnPlatformLevelUp()
     {
-
+        maxBallCount += ballCountIncrease;
     }
     private void OnLevelStart()
     {

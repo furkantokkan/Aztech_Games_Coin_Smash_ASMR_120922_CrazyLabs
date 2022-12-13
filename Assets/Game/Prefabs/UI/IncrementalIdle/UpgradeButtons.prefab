@@ -167,7 +167,7 @@ RectTransform:
   m_GameObject: {fileID: 932959425642859921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.726, y: 0.726, z: 0.726}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932959427256706106}
@@ -175,9 +175,9 @@ RectTransform:
   m_Father: {fileID: 4203866231296464237}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -249}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 628.61, y: -395}
   m_SizeDelta: {x: 304, y: 467}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &932959425642860010
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9c21423e449864598b0831d4a4a2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}
+  item: {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
@@ -721,7 +721,7 @@ RectTransform:
   m_GameObject: {fileID: 932959426796554521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.726, y: 0.726, z: 0.726}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932959426079565391}
@@ -729,9 +729,9 @@ RectTransform:
   m_Father: {fileID: 4203866231296464237}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 338, y: -249}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 938.37, y: -395}
   m_SizeDelta: {x: 304, y: 467}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &932959426796554514
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9c21423e449864598b0831d4a4a2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
+  item: {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
@@ -1184,7 +1184,7 @@ RectTransform:
   m_GameObject: {fileID: 932959427402336163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.726, y: 0.726, z: 0.726}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4203866229451094095}
@@ -1193,9 +1193,9 @@ RectTransform:
   m_Father: {fileID: 4203866231296464237}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -338, y: -249}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 318.85, y: -395}
   m_SizeDelta: {x: 304, y: 467}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &932959427402336188
@@ -1316,7 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9c21423e449864598b0831d4a4a2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
+  item: {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
@@ -1989,7 +1989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cc1377000cd0245a112a66ed04b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priorityLevel: -1
   itemDatas:
   - {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
   - {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}

@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
 {
+    [Header("Design")]
+    public int[] ballAddAmount;
+    public int[] platformAddAmount;
+    public int[] incomeAddAmount;
+
     private static EconomyManager instance;
     public static EconomyManager Instance { get { return instance; } }
 
