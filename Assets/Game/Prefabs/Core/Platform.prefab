@@ -4258,6 +4258,7 @@ MonoBehaviour:
   ballsOnThisPath: []
   spline: {fileID: 438864123}
   firePlatform: {fileID: 866262877}
+  moneyFloor: {fileID: 1237972926}
   xOffset: 0
   yOffset: 0
 --- !u!1001 &1298155017246929651

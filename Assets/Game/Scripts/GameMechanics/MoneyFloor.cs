@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class MoneyFloor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<Transform> coins = new List<Transform>();
+    private List<Transform> activeCoins = new List<Transform>();
+
+    [SerializeField] Transform platformToMove;
+
+    private void Start()
     {
-        
+        coins.AddRange(GetComponentsInChildren<Transform>());
+        coins.Remove(transform);
+        activeCoins.AddRange(coins);
     }
 
-    // Update is called once per frame
-    void Update()
+    public Transform GetRandomActiveCoin()
     {
-        
+        int index = Random.Range(0, activeCoins.Count);
+        return activeCoins[index];
     }
 }

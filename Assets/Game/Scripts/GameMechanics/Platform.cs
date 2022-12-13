@@ -10,6 +10,7 @@ public class Platform : MonoBehaviour
 
     [SerializeField] private SplineComputer spline;
     [SerializeField] private FirePlatform firePlatform;
+    [SerializeField] private MoneyFloor moneyFloor;
     [SerializeField] private float xOffset;
     [SerializeField] private float yOffset;
 
@@ -83,6 +84,6 @@ public class Platform : MonoBehaviour
     }
     public void OnBallEndReach(Transform ball)
     {
-        firePlatform.Shoot(ball);
+        firePlatform.Shoot(ball, moneyFloor.GetRandomActiveCoin());
     }
 }
