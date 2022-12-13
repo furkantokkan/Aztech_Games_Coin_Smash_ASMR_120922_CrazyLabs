@@ -4,36 +4,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallPath : MonoBehaviour
+public class Platform : MonoBehaviour
 {
-    private static BallPath instance;
-    public static BallPath Instance { get { return instance; } }
-
     public List<BallMovement> ballsOnThisPath = new List<BallMovement>();
 
-    [SerializeField] private SplineComputer _spline;
-    [SerializeField] private float _xOffset;
-    [SerializeField] private float _yOffset;
+    [SerializeField] private SplineComputer spline;
+    [SerializeField] private FirePlatform firePlatform;
+    [SerializeField] private float xOffset;
+    [SerializeField] private float yOffset;
 
 
     public static event Action<bool> _onPathUpdateFinished;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+
     }
     public SplineComputer GetCurrentSplineComputer()
     {
-        return _spline;
+        return spline;
     }
     public Vector3 GetInitialPostion()
     {
-        Vector3 position = _spline.GetPoint(0).position;
-        position.x += _xOffset;
-        position.y += _yOffset;
+        Vector3 position = spline.GetPoint(0).position;
+        position.x += xOffset;
+        position.y += yOffset;
         return position;
     }
     public void RemoveMergedBall(BallMovement ball)
@@ -56,25 +51,27 @@ public class BallPath : MonoBehaviour
         splinePoint.color = Color.white;
 
         //Write the points to the spline
-        _spline.SetPoint(IndexToAdd, splinePoint);
+        spline.SetPoint(IndexToAdd, splinePoint);
         _onPathUpdateFinished?.Invoke(true);
     }
     public void StartSpawnBalls(int ballCount)
     {
-        SplineComputer _spline = BallPath.Instance.GetCurrentSplineComputer();
-        float splineLength = _spline.CalculateLength();
+        float splineLength = spline.CalculateLength();
         float distance = splineLength / ballCount;
 
         Debug.Log("Start Spawn Balls On Start, Ball Count is: " + ballCount);
 
         for (int i = 0; i < ballCount; i++)
         {
-            double travel = _spline.Travel(0.0, i * distance, Spline.Direction.Forward);
-            Vector3 pos = _spline.EvaluatePosition(travel);
+            double travel = spline.Travel(0.0, i * distance, Spline.Direction.Forward);
+            Vector3 pos = spline.EvaluatePosition(travel);
             GameObject ball = Pool.instance.Get(PoolItems.Ball1);
-            ball.gameObject.SetActive(true);
             ball.transform.position = pos;
-            ball.GetComponent<BallMovement>().SetStartPosition(travel);
+            BallMovement ballMovement = ball.GetComponent<BallMovement>();
+            ballMovement.Platform = this;
+            ballMovement.SetStartPosition(travel);
+            ballsOnThisPath.Add(ballMovement);
+            ball.gameObject.SetActive(true);
         }
     }
     public void SpawnBallToPath()
@@ -83,5 +80,9 @@ public class BallPath : MonoBehaviour
         //double travel = _spline.Travel(0.0, splineLength / distance, Spline.Direction.Forward);
         //Vector3 nextPos = _spline.EvaluatePosition(travel);
         //Debug.DrawRay(nextPos, Vector3.up, Color.red, 10f);
+    }
+    public void OnBallEndReach(Transform ball)
+    {
+        firePlatform.Shoot(ball);
     }
 }

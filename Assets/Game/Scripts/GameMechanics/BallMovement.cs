@@ -9,18 +9,22 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private ParticleSystem _myTrail;
     [SerializeField] private SplineFollower _follower;
 
-    //private Tween speed;
+    private Platform platform;
+
+    public Platform Platform { set { platform = value; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        _follower.spline = BallPath.Instance.GetCurrentSplineComputer();
-        ActivateSplineFollow(false);
-        BallPath._onPathUpdateFinished += ActivateSplineFollow;
+        _follower.spline = platform.GetCurrentSplineComputer();
+        _follower.onEndReached += OnEndOfThePath;
+        ActivateSplineFollow(true);
+        Platform._onPathUpdateFinished += ActivateSplineFollow;
     }
     private void OnDisable()
     {
-        BallPath._onPathUpdateFinished -= ActivateSplineFollow;
+        Platform._onPathUpdateFinished -= ActivateSplineFollow;
+        _follower.onEndReached -= OnEndOfThePath;
     }
 
     // Update is called once per frame
@@ -51,6 +55,11 @@ public class BallMovement : MonoBehaviour
         _follower.startPosition = pos;
     }
 
+    public void OnEndOfThePath(double value)
+    {
+        ActivateSplineFollow(false);
+        platform.OnBallEndReach(transform);
+    }
     //public void SetSplineFollowerSpeed(float value)
     //{
     //    float current = _follower.followSpeed;
