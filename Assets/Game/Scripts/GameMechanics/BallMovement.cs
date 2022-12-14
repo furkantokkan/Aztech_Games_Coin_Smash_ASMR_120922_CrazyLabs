@@ -21,11 +21,9 @@ public class BallMovement : MonoBehaviour
         _follower.spline = platform.GetCurrentSplineComputer();
         _follower.onEndReached += OnEndOfThePath;
         ActivateSplineFollow(true);
-        Platform._onPathUpdateFinished += ActivateSplineFollow;
     }
     private void OnDisable()
     {
-        Platform._onPathUpdateFinished -= ActivateSplineFollow;
         _follower.onEndReached -= OnEndOfThePath;
     }
 

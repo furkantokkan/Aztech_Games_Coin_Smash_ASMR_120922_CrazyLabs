@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     [Header("Design")]
-    [SerializeField] List<Platform> platforms = new List<Platform>();
+    [SerializeField] private Platform platform;
     [SerializeField] private float _gameSpeedTime = 1.0f;
     [SerializeField] private float _fastGameSpeedTime = 1.6f;
     [SerializeField] private float _spawnInterval = 2.5f;
@@ -59,10 +59,7 @@ public class GameManager : MonoBehaviour
         maxBallCount += platformData.currentLevel * ballCountIncrease;
 
         //spawn ball
-        foreach (Platform item in platforms)
-        {
-            item.StartSpawnBalls(8);
-        }
+        platform.StartSpawnBalls(8);
     }
     public void OnPlatformLevelUp()
     {
