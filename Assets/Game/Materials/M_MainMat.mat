@@ -25,8 +25,15 @@ Material:
   m_ValidKeywords:
   - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
+<<<<<<< HEAD
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
   - _MK_LIGHT_CEL
+=======
+  - _MK_COLOR_GRADING_ALBEDO
+  - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
+  - _MK_LIGHT_CEL
+  - _MK_RIM_DEFAULT
+>>>>>>> Bilal
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
   - _MK_LIGHTMODEL_LAMBERT
@@ -204,13 +211,21 @@ Material:
     - _BlendSrc: 1
     - _Brightness: 1
     - _BumpScale: 1
+<<<<<<< HEAD
     - _ColorGrading: 0
+=======
+    - _ColorGrading: 1
+>>>>>>> Bilal
     - _Contrast: 1
     - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DetailTint: 0.5
+<<<<<<< HEAD
     - _DiffuseSmoothness: 0
+=======
+    - _DiffuseSmoothness: 0.3
+>>>>>>> Bilal
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
@@ -230,7 +245,11 @@ Material:
     - _Initialized: 1
     - _InputTab: 1
     - _Iridescence: 0
+<<<<<<< HEAD
     - _IridescenceSize: 1
+=======
+    - _IridescenceSize: 1.43
+>>>>>>> Bilal
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 1
@@ -239,7 +258,7 @@ Material:
     - _LightCuts: 2.89
     - _LightModel: 1
     - _LightSmoothness: 0
-    - _LightThreshold: 0.3
+    - _LightThreshold: 0.514
     - _LightType: 0
     - _MKEditorShowDetailBehavior: 0
     - _MKEditorShowDissolveBehavior: 0
@@ -265,13 +284,17 @@ Material:
     - _ReflectSmoothness: 0.241
     - _RenderFace: 2
     - _RenderPriority: 0
+<<<<<<< HEAD
     - _Rim: 0
+=======
+    - _Rim: 1
+>>>>>>> Bilal
     - _RimIntensity: 0.5
-    - _RimSize: 1.89
+    - _RimSize: 1.78
     - _RimSmoothness: 0.78
     - _RimThresholdOffset: 0.25
     - _Roughness: 1
-    - _Saturation: 1
+    - _Saturation: 1.1
     - _ShadowIntensity: 1
     - _Shininess: 0.275
     - _SketchMapScale: 1
@@ -315,14 +338,23 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
+<<<<<<< HEAD
     - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
+=======
+    - _AlbedoColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+>>>>>>> Bilal
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+<<<<<<< HEAD
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
+=======
+    - _GoochBrightColor: {r: 1, g: 0.99583334, b: 0.95, a: 1}
+    - _GoochDarkColor: {r: 0.61512506, g: 0.45402083, b: 0.703, a: 1}
+>>>>>>> Bilal
     - _HighlightColor: {r: 1, g: 0.985, b: 0.85, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
