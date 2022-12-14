@@ -26,7 +26,6 @@ Material:
   - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
-  - _MK_LIGHT_CEL
   - _MK_RIM_SPLIT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
@@ -155,7 +154,7 @@ Material:
     - _IridescenceSize: 0.94
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
-    - _Light: 1
+    - _Light: 0
     - _LightBands: 4
     - _LightBandsScale: 0.5
     - _LightThreshold: 0.5
