@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 932959425642860011}
   - component: {fileID: 3937742255135046882}
   m_Layer: 5
-  m_Name: UpgradableButton2
+  m_Name: Income
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 932959426796554515}
   - component: {fileID: 3937742255841875204}
   m_Layer: 5
-  m_Name: UpgradableButton3
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1169,7 +1169,7 @@ GameObject:
   - component: {fileID: 932959427402336189}
   - component: {fileID: 3937742255135046881}
   m_Layer: 5
-  m_Name: UpgradableButton1
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1990,9 +1990,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDatas:
-  - {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
   - {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}
   - {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
+  - {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
   upgradeButtons:
   - {fileID: 3937742255135046881}
   - {fileID: 3937742255135046882}
