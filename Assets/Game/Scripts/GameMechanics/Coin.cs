@@ -17,15 +17,11 @@ public class Coin : MonoBehaviour
         if (other.gameObject.tag == "Ball")
         {
             Debug.Log(other.gameObject.name + "Is hit that: " + gameObject.name);
-            other.GetComponent<BallMovement>().KillTheCurrentTween();
+            BallMovement ballMovement = other.GetComponent<BallMovement>();
+            ballMovement.KillTheCurrentTween();
+            ballMovement.GetBackSequence();
             other.GetComponent<SphereCollider>().isTrigger = false;
 
-            Sequence mySequence = DOTween.Sequence();
-            Vector3[] vectorArray = new Vector3[] { GameManager.Instance.platform.GetWarpHoldEdge().position, GameManager.Instance.platform.GetWarpHole().position };
-
-            mySequence.Append(other.transform.DOJump(GameManager.Instance.platform.GetMoneyPlatformEdge().position, 1f, 1, 0.5f, false).SetEase(Ease.Linear));
-            mySequence.Append(other.transform.DOLocalJump(new Vector3(GameManager.Instance.platform.GetWarpHoldEdge().position.x, other.transform.position.y, other.transform.position.z), 1f, 1, 0.5f, false).SetEase(Ease.Linear));
-            mySequence.Append(other.transform.DOPath(vectorArray, 2f, PathType.CatmullRom, PathMode.Full3D, 10, Color.green));
             //mySequence.Append(other.transform.DOJump(GameManager.Instance.platform.GetWarpHole().position, 1f, 1, 1, false).SetEase(Ease.Linear));
 
             //other.transform.DOJump(GameManager.Instance.platform.GetMoneyPlatformEdge().position, 1f, 1, 1f, false).OnComplete(delegate
@@ -40,12 +36,12 @@ public class Coin : MonoBehaviour
         }
     }
 
-    private static void SetBallToInterectable(Collider other)
-    {
-        Rigidbody ballrigidbody = other.GetComponent<Rigidbody>();
-        ballrigidbody.isKinematic = false;
-        ballrigidbody.useGravity = true;
-    }
+    //private static void SetBallToInterectable(Collider other)
+    //{
+    //    Rigidbody ballrigidbody = other.GetComponent<Rigidbody>();
+    //    ballrigidbody.isKinematic = false;
+    //    ballrigidbody.useGravity = true;
+    //}
 
     private void MakeVisible()
     {

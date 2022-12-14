@@ -31,7 +31,7 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void ActivateTrail(bool isActive)
     {
@@ -44,7 +44,22 @@ public class BallMovement : MonoBehaviour
             _myTrail.Stop();
         }
     }
+    public void GetBackSequence()
+    {
+        Sequence mySequence = DOTween.Sequence();
+        Vector3[] vectorArray = new Vector3[] { platform.GetWarpHoldEdge().position, platform.GetWarpHole().position };
 
+        mySequence.Append(transform.DOJump(platform.GetMoneyPlatformEdge().position, 1f, 1, 0.5f, false).SetEase(Ease.Linear));
+        mySequence.Append(transform.DOLocalJump(new Vector3(platform.GetWarpHoldEdge().position.x, transform.position.y, transform.position.z), 1f, 1, 0.5f, false).SetEase(Ease.Linear));
+        mySequence.Append(transform.DOPath(vectorArray, 1f, PathType.CatmullRom, PathMode.Full3D, 10, Color.green).SetEase(Ease.Linear)).OnComplete(delegate
+        {
+            transform.position = platform.GetWarpHole().position;
+            SetStartPosition(0);
+            SetSpline(platform.GetCurrentSplineComputer());
+            ActivateSplineFollow(true);
+            GetComponent<SphereCollider>().isTrigger = true;
+        });
+    }
     public void SetCurrentTween(Tween tween)
     {
         currentTween = tween;
