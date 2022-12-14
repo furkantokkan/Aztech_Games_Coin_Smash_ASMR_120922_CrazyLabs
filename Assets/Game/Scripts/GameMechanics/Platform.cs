@@ -24,9 +24,9 @@ public class Platform : MonoBehaviour
     {
         return currentSpline;
     }
-    public Vector3 GetInitialPostion()
+    public Vector3 GetStartPostion()
     {
-        Vector3 position = currentSpline.GetPoint(0).position;
+        Vector3 position = currentSpline.GetPoint(8).position;
         position.x += xOffset;
         position.y += yOffset;
         return position;
@@ -63,7 +63,7 @@ public class Platform : MonoBehaviour
 
         for (int i = 0; i < ballCount; i++)
         {
-            double travel = currentSpline.Travel(0.0, i * distance, Spline.Direction.Forward);
+            double travel = currentSpline.Travel(0.221f, i * distance, Spline.Direction.Forward);
             Vector3 pos = currentSpline.EvaluatePosition(travel);
             GameObject ball = Pool.instance.Get(PoolItems.Ball1);
             ball.transform.position = pos;
