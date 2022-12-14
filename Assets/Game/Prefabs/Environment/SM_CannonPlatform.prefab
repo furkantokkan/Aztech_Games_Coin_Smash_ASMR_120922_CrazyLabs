@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 843330288071690826}
+  - {fileID: 1981199538959840289}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
@@ -108,12 +108,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7662081545690706845}
-  m_LocalRotation: {x: -0.13088931, y: -0.000000029802326, z: 0.000000029802326, w: -0.991397}
-  m_LocalPosition: {x: -0.000083898136, y: 0, z: 0.84578323}
+  m_LocalRotation: {x: -0.1308893, y: -0.000000029802319, z: 0.000000059604638, w: -0.99139696}
+  m_LocalPosition: {x: -0.00008402417, y: 0, z: 0.84578335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6985888387679416424}
+  m_Father: {fileID: 1981199538959840289}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &2127021054634375249
@@ -169,3 +169,35 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.27278292, y: -0.2059885, z: 0.19755617}
     m_Extent: {x: 0.757699, y: 0.9787357, z: 0.74432266}
   m_DirtyAABB: 0
+--- !u!1 &8183467701846310675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981199538959840289}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1981199538959840289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183467701846310675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 843330288071690826}
+  m_Father: {fileID: 6985888387679416424}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

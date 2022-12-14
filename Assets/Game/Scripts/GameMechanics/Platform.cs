@@ -14,8 +14,9 @@ public class Platform : MonoBehaviour
     [SerializeField] private Transform warpHoleTransform;
     [SerializeField] private Transform warpHoleEdgeTransform;
     [SerializeField] private Transform MoneyPlatformTransform;
-    [SerializeField] private float xOffset;
-    [SerializeField] private float yOffset;
+    [SerializeField] private float startXOffset;
+    [SerializeField] private float startYOffset;
+    [SerializeField] private float endOffset = 23f;
 
     private void Awake()
     {
@@ -40,8 +41,8 @@ public class Platform : MonoBehaviour
     public Vector3 GetStartPostion()
     {
         Vector3 position = currentSpline.GetPoint(8).position;
-        position.x += xOffset;
-        position.y += yOffset;
+        position.x += startXOffset;
+        position.y += startYOffset;
         return position;
     }
     //public void AddNewPathToIndex(Vector3 pos, int IndexToAdd)
@@ -61,7 +62,8 @@ public class Platform : MonoBehaviour
     //}
     public void StartSpawnBalls(int ballCount)
     {
-        float splineLength = currentSpline.CalculateLength();
+        float splineLength = currentSpline.CalculateLength() - endOffset;
+        print(splineLength);
         float distance = splineLength / ballCount;
 
         Debug.Log("Start Spawn Balls On Start, Ball Count is: " + ballCount);
