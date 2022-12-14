@@ -23,8 +23,11 @@ Material:
   m_Name: M_TransparentPlastic
   m_Shader: {fileID: 4800000, guid: 418a1adfe2e75f34da8aaf192ff8e296, type: 3}
   m_ValidKeywords:
+  - _MK_ARTISTIC_ANIMATION_STUTTER
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
+  - _MK_IRIDESCENCE_DEFAULT
+  - _MK_RIM_SPLIT
   - _MK_SURFACE_TYPE_TRANSPARENT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
@@ -107,7 +110,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DrawnMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 49ae84ca6217403468e1d82e12a4337f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -127,7 +130,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _IridescenceRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fd73710cbf11310419a04e535c62c0e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -167,7 +170,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SketchMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e834763757c76c248bf1ce07ed887723, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -241,7 +244,7 @@ Material:
     - _DissolveRampSize: 0.25
     - _DrawnClampMax: 1
     - _DrawnClampMin: 0
-    - _DrawnMapScale: 1
+    - _DrawnMapScale: 3
     - _DstBlend: 10
     - _EnvironmentReflections: 1
     - _FlatRimEdgeSmoothness: 0.5
@@ -263,8 +266,8 @@ Material:
     - _HatchingMapScale: 1
     - _Initialized: 1
     - _InputTab: 1
-    - _Iridescence: 0
-    - _IridescenceSize: 1
+    - _Iridescence: 1
+    - _IridescenceSize: 0.21
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 0
@@ -304,10 +307,10 @@ Material:
     - _ReflectSmoothness: 0.22
     - _RenderFace: 2
     - _RenderPriority: 0
-    - _Rim: 0
+    - _Rim: 2
     - _RimEnabled: 0
     - _RimIntensity: 0.141
-    - _RimSize: 1.68
+    - _RimSize: 0.64
     - _RimSmoothness: 0.448
     - _RimThresholdOffset: 0.25
     - _Roughness: 1
@@ -318,7 +321,7 @@ Material:
     - _ShadowEdgeSizeExtra: 0.05
     - _ShadowIntensity: 1
     - _Shininess: 0.275
-    - _SketchMapScale: 1
+    - _SketchMapScale: 0.2
     - _SketchScale: 16
     - _SketchToneMax: 1
     - _SketchToneMin: 0.5
@@ -368,7 +371,7 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     m_Colors:
-    - _AlbedoColor: {r: 0.3372549, g: 0.67058825, b: 0.65792626, a: 0.64705884}
+    - _AlbedoColor: {r: 0.7311321, g: 0.8931478, b: 1, a: 0.29803923}
     - _Color: {r: 0.8537736, g: 0.9599056, b: 1, a: 1}
     - _ColorDim: {r: 0.13127448, g: 0.29414394, b: 0.4716981, a: 0.2901961}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
@@ -382,15 +385,15 @@ Material:
     - _FlatRimColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0.3930855, g: 0.16260235, b: 0.5471698, a: 1}
+    - _GoochDarkColor: {r: 0.46004462, g: 0.042452812, b: 1, a: 1}
     - _HighlightColor: {r: 1, g: 0.985, b: 0.85, a: 1}
-    - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _IridescenceColor: {r: 0.9150943, g: 0.867613, b: 0.867613, a: 0.5}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
-    - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimBrightColor: {r: 1, g: 0.98894334, b: 0.5613208, a: 1}
     - _RimColor: {r: 1, g: 0.95943725, b: 0.75, a: 1}
-    - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimDarkColor: {r: 0.30308342, g: 0, b: 1, a: 1}
     - _ShadowColor: {r: 0.511894, g: 0.46168566, b: 0.7830189, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

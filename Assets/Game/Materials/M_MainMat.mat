@@ -25,8 +25,9 @@ Material:
   m_ValidKeywords:
   - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
+  - _MK_COLOR_GRADING_ALBEDO
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
-  - _MK_LIGHT_CEL
+  - _MK_RIM_DEFAULT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
   - _MK_LIGHTMODEL_LAMBERT
@@ -204,13 +205,13 @@ Material:
     - _BlendSrc: 1
     - _Brightness: 1
     - _BumpScale: 1
-    - _ColorGrading: 0
+    - _ColorGrading: 1
     - _Contrast: 1
     - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DetailTint: 0.5
-    - _DiffuseSmoothness: 0
+    - _DiffuseSmoothness: 0.3
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
@@ -230,16 +231,16 @@ Material:
     - _Initialized: 1
     - _InputTab: 1
     - _Iridescence: 0
-    - _IridescenceSize: 1
+    - _IridescenceSize: 1.43
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
-    - _Light: 1
+    - _Light: 0
     - _LightBands: 4
     - _LightBandsScale: 0.5
     - _LightCuts: 2.89
     - _LightModel: 1
     - _LightSmoothness: 0
-    - _LightThreshold: 0.3
+    - _LightThreshold: 0.514
     - _LightType: 0
     - _MKEditorShowDetailBehavior: 0
     - _MKEditorShowDissolveBehavior: 0
@@ -265,13 +266,13 @@ Material:
     - _ReflectSmoothness: 0.241
     - _RenderFace: 2
     - _RenderPriority: 0
-    - _Rim: 0
+    - _Rim: 1
     - _RimIntensity: 0.5
-    - _RimSize: 1.89
+    - _RimSize: 1.78
     - _RimSmoothness: 0.78
     - _RimThresholdOffset: 0.25
     - _Roughness: 1
-    - _Saturation: 1
+    - _Saturation: 1.1
     - _ShadowIntensity: 1
     - _Shininess: 0.275
     - _SketchMapScale: 1
@@ -294,7 +295,7 @@ Material:
     - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
-    - _StylizeTab: 0
+    - _StylizeTab: 1
     - _Surface: 0
     - _ThresholdMapScale: 1
     - _TranslucentIntensity: 0.5
@@ -321,8 +322,8 @@ Material:
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GoochBrightColor: {r: 1, g: 0.99583334, b: 0.95, a: 1}
+    - _GoochDarkColor: {r: 0.8835111, g: 0.6650944, b: 1, a: 1}
     - _HighlightColor: {r: 1, g: 0.985, b: 0.85, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
