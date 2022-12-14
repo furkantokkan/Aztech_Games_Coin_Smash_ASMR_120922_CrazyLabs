@@ -7,7 +7,8 @@ public class FirePlatform : MonoBehaviour
 {
     public void Shoot(Transform ball, Transform target)
     {
-        ball.DOMove(target.position, 1f, false);
-        Debug.Log("Shoot");
+        Tween shootTween;
+        shootTween = ball.DOMove(target.position, 0.3f, false);
+        ball.GetComponent<BallMovement>().SetCurrentTween(shootTween);
     }
 }

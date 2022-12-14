@@ -11,6 +11,8 @@ public class BallMovement : MonoBehaviour
 
     private Platform platform;
 
+    private Tween currentTween;
+
     public Platform Platform { set { platform = value; } }
 
     // Start is called before the first frame update
@@ -42,6 +44,21 @@ public class BallMovement : MonoBehaviour
         {
             _myTrail.Stop();
         }
+    }
+
+    public void SetCurrentTween(Tween tween)
+    {
+        currentTween = tween;
+    }
+    public void KillTheCurrentTween()
+    {
+        if (currentTween == null)
+        {
+            Debug.LogWarning("Tween is null");
+            return;
+        }
+
+        currentTween?.Kill();
     }
 
     #region Spline

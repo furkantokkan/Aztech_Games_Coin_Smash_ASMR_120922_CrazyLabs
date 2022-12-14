@@ -14,6 +14,23 @@ public class MoneyFloor : MonoBehaviour
         coins.AddRange(GetComponentsInChildren<Transform>());
         coins.Remove(transform);
         activeCoins.AddRange(coins);
+        Coin.onCoinInvisible += RemoveFromList;
+        Coin.onCoinVisible += AddToList;
+    }
+    private void OnDisable()
+    {
+        Coin.onCoinInvisible -= RemoveFromList;
+        Coin.onCoinVisible -= AddToList;
+    }
+
+    public void RemoveFromList(Transform transform)
+    {
+        activeCoins.Remove(transform);
+    }
+
+    public void AddToList(Transform transform)
+    {
+        activeCoins.Add(transform);
     }
 
     public Transform GetRandomActiveCoin()
