@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    public List<BallMovement> ballsOnThisPath = new List<BallMovement>();
-
     public List<GameObject> platformLevels = new List<GameObject>();
 
     [SerializeField] private SplineComputer currentSpline;
@@ -46,14 +44,6 @@ public class Platform : MonoBehaviour
         position.y += yOffset;
         return position;
     }
-    public void RemoveMergedBall(BallMovement ball)
-    {
-        if (ballsOnThisPath.Contains(ball))
-        {
-            ballsOnThisPath.Remove(ball);
-        }
-    }
-
     //public void AddNewPathToIndex(Vector3 pos, int IndexToAdd)
     //{
     //    onPathUpdateFinished?.Invoke(false);
@@ -85,8 +75,8 @@ public class Platform : MonoBehaviour
             BallMovement ballMovement = ball.GetComponent<BallMovement>();
             ballMovement.Platform = this;
             ballMovement.SetStartPosition(travel);
-            ballsOnThisPath.Add(ballMovement);
             ball.gameObject.SetActive(true);
+            GameManager.Instance.ActiveBalls.Add(ballMovement);
         }
     }
     public void ActivateNewPlatformLevel(int level)

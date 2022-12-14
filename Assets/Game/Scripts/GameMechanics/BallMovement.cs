@@ -35,6 +35,11 @@ public class BallMovement : MonoBehaviour
     }
     public void ActivateTrail(bool isActive)
     {
+        if (_myTrail == null)
+        {
+            return;
+        }
+
         if (isActive)
         {
             _myTrail.Play();
