@@ -73,9 +73,17 @@ public class GameManager : MonoBehaviour
 
         //spawn ball
         platform.StartSpawnBalls(8);
-
         //late
         ActivateInput(true);
+
+        if (ActiveBalls.Count > 0)
+        {
+            foreach (BallMovement ball in ActiveBalls)
+            {
+                ball.ActivateTrail(false);
+            }
+        }
+
         canMerge = true;
         canSpeedUp = true;
     }

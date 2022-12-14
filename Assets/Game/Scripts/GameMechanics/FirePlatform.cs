@@ -9,6 +9,7 @@ public class FirePlatform : MonoBehaviour
     [SerializeField] Transform parrentWeapon;
     [SerializeField] float animationTime = 0.5f;
     [SerializeField] float fireAnimationTime = 0.25f;
+    [SerializeField] float resetAnimationTime = 0.15f;
 
     [SerializeField] [Range(0, 100f)] float shootOnThisMotion = 95f;
 
@@ -39,6 +40,7 @@ public class FirePlatform : MonoBehaviour
                 }).OnComplete(delegate
                 {
                     weapon.SetBlendShapeWeight(0, targetAmount);
+                    parrentWeapon.DOLocalRotate(new Vector3(90f, 0f, 0f), resetAnimationTime, RotateMode.Fast);
                 });
             });
 
@@ -47,7 +49,21 @@ public class FirePlatform : MonoBehaviour
 
     private void SendTheBallToTarget(Transform ball, Transform target)
     {
-        Tween shootTween = ball.DOMove(target.position, 0.3f, false);
-        ball.GetComponent<BallMovement>().SetCurrentTween(shootTween);
+        BallMovement ballMovement = ball.GetComponent<BallMovement>();
+        Tween shootTween = ball.DOMove(target.position, 0.3f, false).OnStart(delegate
+        {
+            Debug.Log("Set Fire Speed To Trail");
+            ballMovement.SetTrailTime(ballMovement.GetTrailTime(true));
+            ballMovement.PreventOverrideTrailTime(true);
+        }).OnComplete(delegate
+        {
+            Debug.Log("Set Slow Speed To Trail");
+            ballMovement.PreventOverrideTrailTime(false);
+        }).OnKill(delegate
+        {
+            Debug.Log("Set Slow Speed To Trail");
+            ballMovement.PreventOverrideTrailTime(false);
+        });
+        ballMovement.SetCurrentMoveTween(shootTween);
     }
 }

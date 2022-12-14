@@ -6,14 +6,19 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _myTrail;
+    [SerializeField] private TrailRenderer myTrail;
     [SerializeField] private SplineFollower _follower;
+    [SerializeField] private float fastTrailTime = 1.5f;
+    [SerializeField] private float ShootTrailTime = 0.5f;
+    [SerializeField] private float slowTrailTime = 0f;
 
     private Platform platform;
 
-    private Tween currentTween;
-
+    private Tween currentMoveTween;
+    private Tween trailTween;
     public Platform Platform { set { platform = value; } }
+
+    private bool preventOverrideTrail = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,22 +36,44 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        print(myTrail.time);
     }
     public void ActivateTrail(bool isActive)
     {
-        if (_myTrail == null)
+        if (myTrail == null)
         {
             return;
         }
 
         if (isActive)
         {
-            _myTrail.Play();
+            trailTween?.Kill();
+            myTrail.time = fastTrailTime;
         }
         else
         {
-            _myTrail.Stop();
+            Debug.Log("Close The Trail");
+            float motion = myTrail.time;
+            float targetAmount = slowTrailTime;
+
+            trailTween = DOTween.To(() => motion, x => motion = x, targetAmount, 0.5f).OnUpdate(delegate
+             {
+                 SetTrailTime(motion);
+             }).OnComplete(delegate
+             {
+                 SetTrailTime(slowTrailTime);
+             });
+        }
+    }
+    public float GetTrailTime(bool isShootTime)
+    {
+        if (isShootTime)
+        {
+            return ShootTrailTime;
+        }
+        else
+        {
+            return slowTrailTime;
         }
     }
     public void GetBackSequence()
@@ -65,19 +92,31 @@ public class BallMovement : MonoBehaviour
             GetComponent<SphereCollider>().isTrigger = true;
         });
     }
-    public void SetCurrentTween(Tween tween)
+    public void PreventOverrideTrailTime(bool value)
     {
-        currentTween = tween;
+        preventOverrideTrail = value;
     }
-    public void KillTheCurrentTween()
+    public void SetTrailTime(float time)
     {
-        if (currentTween == null)
+        if (preventOverrideTrail)
+        {
+            return;
+        }
+        myTrail.time = time;
+    }
+    public void SetCurrentMoveTween(Tween tween)
+    {
+        currentMoveTween = tween;
+    }
+    public void KillTheCurrentMoveTween()
+    {
+        if (currentMoveTween == null)
         {
             Debug.LogWarning("Tween is null");
             return;
         }
 
-        currentTween?.Kill();
+        currentMoveTween?.Kill();
     }
 
     #region Spline

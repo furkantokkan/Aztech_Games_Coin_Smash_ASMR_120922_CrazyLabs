@@ -18,7 +18,7 @@ public class Coin : MonoBehaviour
         {
             Debug.Log(other.gameObject.name + "Is hit that: " + gameObject.name);
             BallMovement ballMovement = other.GetComponent<BallMovement>();
-            ballMovement.KillTheCurrentTween();
+            ballMovement.KillTheCurrentMoveTween();
             ballMovement.GetBackSequence();
             other.GetComponent<SphereCollider>().isTrigger = false;
 
