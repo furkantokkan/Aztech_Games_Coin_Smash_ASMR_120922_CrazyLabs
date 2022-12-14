@@ -13,6 +13,9 @@ public class Platform : MonoBehaviour
     [SerializeField] private SplineComputer currentSpline;
     [SerializeField] private FirePlatform firePlatform;
     [SerializeField] private MoneyFloor moneyFloor;
+    [SerializeField] private Transform warpHoleTransform;
+    [SerializeField] private Transform warpHoleEdgeTransform;
+    [SerializeField] private Transform MoneyPlatformTransform;
     [SerializeField] private float xOffset;
     [SerializeField] private float yOffset;
 
@@ -23,6 +26,18 @@ public class Platform : MonoBehaviour
     public SplineComputer GetCurrentSplineComputer()
     {
         return currentSpline;
+    }
+    public Transform GetWarpHole()
+    {
+        return warpHoleTransform;
+    }
+    public Transform GetMoneyPlatformEdge()
+    {
+        return MoneyPlatformTransform;
+    }
+    public Transform GetWarpHoldEdge()
+    {
+        return warpHoleEdgeTransform;
     }
     public Vector3 GetStartPostion()
     {

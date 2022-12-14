@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     [Header("Design")]
-    [SerializeField] private Platform platform;
+    public Platform platform;
     [SerializeField] private float _gameSpeedTime = 1.0f;
     [SerializeField] private float _fastGameSpeedTime = 1.6f;
     [SerializeField] private float _spawnInterval = 2.5f;
