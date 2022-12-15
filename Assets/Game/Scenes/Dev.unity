@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -142,6 +142,18 @@ PrefabInstance:
       propertyPath: upgradeButtons.Array.data[2]
       value: 
       objectReference: {fileID: 2075080449}
+    - target: {fileID: 3513400180999053405, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1859271510}
+    - target: {fileID: 3513400180999053405, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FirstMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400180999053405, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3513400181131995605, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -233,6 +245,30 @@ PrefabInstance:
     - target: {fileID: 3513400181307051659, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400181416864228, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400181446263501, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182730039580, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182882212517, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1859271510}
+    - target: {fileID: 3513400182882212517, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SecondMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182882212517, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
@@ -883,6 +919,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1859271509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1859271511}
+  - component: {fileID: 1859271510}
+  m_Layer: 0
+  m_Name: 'UIManager '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1859271510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859271509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ca6fa25b2db0044bcbcc3171596cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingsPanel: {fileID: 0}
+  DebugPanel: {fileID: 0}
+  MutesSprites:
+  - {fileID: 21300000, guid: 4ae13c31d513f8549ae4ccca18e0dd82, type: 3}
+  - {fileID: 21300000, guid: b28c778540348c7468bb8a007c7a2de0, type: 3}
+  TapticSprites:
+  - {fileID: 21300000, guid: 7b5f439d5b9fb074fab9513dde69590e, type: 3}
+  - {fileID: 21300000, guid: 4f764f00a98adc140912c795ba549670, type: 3}
+  muteImage: {fileID: 0}
+  "taptic\u0131mage": {fileID: 0}
+  FirstMaterials:
+  - {fileID: 2100000, guid: 1b8a7d1d3ef9afb4db235782e4347f07, type: 2}
+  - {fileID: 2100000, guid: 11f1e8e4f14431d4fb2f15057030a7c4, type: 2}
+  - {fileID: 2100000, guid: c246c433fa7b60b4582021c4c01d3f39, type: 2}
+  - {fileID: 2100000, guid: c82d3a7a495a92549a5f811741c903ac, type: 2}
+  SecondMaterials:
+  - {fileID: 2100000, guid: 7aa5d983af499cf48bb4aa579a64a0c9, type: 2}
+  - {fileID: 2100000, guid: ea46e5a05bd4ee84d818c6996631d8bc, type: 2}
+  - {fileID: 2100000, guid: baea42a13b8620840b63aa0028f69976, type: 2}
+  - {fileID: 2100000, guid: ad8b3fded9f62f54baa6c2a2f5e1e439, type: 2}
+  material: 0
+--- !u!4 &1859271511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859271509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 289.64423, y: 126.11111, z: -0.47476286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1937478458
 GameObject:

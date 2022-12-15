@@ -7439,8 +7439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 1588093767}
-  megrePoints: []
-  middleMergePoint: {fileID: 0}
   ballSpawnDistance: 4
   gameSpeedTime: 1.7
   fastGameSpeedTime: 2
