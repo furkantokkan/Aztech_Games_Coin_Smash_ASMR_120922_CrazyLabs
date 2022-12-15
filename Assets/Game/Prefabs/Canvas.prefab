@@ -58,8 +58,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
   - {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
   upgradeButtons:
-  - {fileID: 3513400180962049826}
   - {fileID: 3513400180892831069}
+  - {fileID: 3513400180962049826}
   - {fileID: 3513400182446836541}
 --- !u!225 &762578150326185135
 CanvasGroup:

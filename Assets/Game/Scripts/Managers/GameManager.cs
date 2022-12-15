@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
         ballData.OnLevelUp += OnBallLevelUp;
         pinData.OnLevelUp += OnPinLevelUp;
         InputManager.Instance.onTouchStart += ListenInput;
-        EconomyManager.Instance.EarnMoney(100000);
         Initialize();
     }
     private void OnDisable()
