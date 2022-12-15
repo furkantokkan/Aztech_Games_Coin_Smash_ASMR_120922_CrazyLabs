@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1333433413840769395}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7744103991210637020}
   - {fileID: 3703850545228136957}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 8836361372816258005}
   - component: {fileID: 8675785852946677054}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell.006
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 7867918548304307458}
   - component: {fileID: 3972529482065228659}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell.007
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 2407276272998549075}
   - component: {fileID: 7301752307916788543}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell.003
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 8139381200099241348}
   - component: {fileID: 2478537091051640681}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell.004
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 8347598381125120766}
   - component: {fileID: 4949569234189006541}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 5906966726778422786}
   - component: {fileID: 8580215430886450319}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell.005
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 2342796171303785833}
   - component: {fileID: 8899072622744483098}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell.002
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 8894511463507676824}
   - component: {fileID: 3845997748339854745}
   m_Layer: 0
-  m_Name: SM_BitcoinExplode_cell.001
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

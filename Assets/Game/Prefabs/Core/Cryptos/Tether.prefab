@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 626235360020828274}
   - component: {fileID: 5112513180010088646}
   m_Layer: 0
-  m_Name: SM_TetherExplode_cell.001
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4891314972208832680}
   - component: {fileID: 8594162622746904650}
   m_Layer: 0
-  m_Name: SM_TetherExplode_cell.006
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,8 +225,8 @@ Transform:
   m_GameObject: {fileID: 1333433413840769395}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 628989279146685465}
   - {fileID: 6354859340543692733}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 8688142588400520985}
   - component: {fileID: 4464360970056977681}
   m_Layer: 0
-  m_Name: SM_TetherExplode_cell.005
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 106670225234843100}
   - component: {fileID: 640765183689908070}
   m_Layer: 0
-  m_Name: SM_TetherExplode_cell.002
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 108752555178190655}
   - component: {fileID: 7926424635975800406}
   m_Layer: 0
-  m_Name: SM_TetherExplode_cell
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 8870693853159457837}
   - component: {fileID: 8841848593387093723}
   m_Layer: 0
-  m_Name: SM_TetherExplode_cell.003
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 5376166140962874789}
   - component: {fileID: 534893286869611173}
   m_Layer: 0
-  m_Name: SM_TetherExplode_cell.007
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
