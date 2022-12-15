@@ -102,8 +102,8 @@ MonoBehaviour:
   isPositive: 1
   turnValue: 75
   turnTime: 0.3
-  turnBackTime: 0.18
-  easeType: 8
+  turnBackTime: 0.3
+  easeType: 10
   getBackEaseType: 30
 --- !u!65 &234882521491519529
 BoxCollider:
