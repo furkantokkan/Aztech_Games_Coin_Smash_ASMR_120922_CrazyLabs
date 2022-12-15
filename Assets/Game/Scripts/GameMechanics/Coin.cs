@@ -8,6 +8,7 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] float notVisibleTime = 3f;
+    [SerializeField] private List<GameObject> childs = new List<GameObject>();
 
     public static event Action<Transform> onCoinInvisible;
     public static event Action<Transform> onCoinVisible;
@@ -31,8 +32,33 @@ public class Coin : MonoBehaviour
             //other.transform.DOPath(vectorArray, 2f, PathType.CatmullRom, PathMode.Full3D, 10, Color.green);
             meshRenderer.enabled = false;
             onCoinInvisible?.Invoke(transform);
-            Invoke("MakeVisible", notVisibleTime);
+            GetComponent<MeshCollider>().enabled = false;
+
+            StartCoroutine(DestructionProcess());
         }
+    }
+
+    private IEnumerator DestructionProcess()
+    {
+        foreach (GameObject item in childs)
+        {
+            item.SetActive(true);
+            item.GetComponent<Rigidbody>().useGravity = true;
+            item.GetComponent<Rigidbody>().isKinematic = false;
+            item.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * 125f, ForceMode.Impulse);
+            item.transform.DOScale(0.1f, notVisibleTime).SetEase(Ease.InCirc).SetDelay(0.12f);
+        }
+
+        yield return new WaitForSeconds(notVisibleTime);
+
+        foreach (GameObject item in childs)
+        {
+            item.SetActive(false);
+            item.GetComponent<Rigidbody>().useGravity = false;
+            item.GetComponent<Rigidbody>().isKinematic = true;
+            item.transform.localScale = Vector3.one;
+        }
+        MakeVisible();
     }
 
     //private static void SetBallToInterectable(Collider other)
@@ -44,6 +70,7 @@ public class Coin : MonoBehaviour
 
     private void MakeVisible()
     {
+        GetComponent<MeshCollider>().enabled = true;
         meshRenderer.enabled = true;
         onCoinVisible?.Invoke(transform);
     }
