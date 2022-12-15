@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
 
         //spawn ball
         platform.StartSpawnBalls(8);
+        platform.ActivateNewPlatformLevel(platformData.currentLevel);
         //late
         ActivateInput(true);
 
@@ -180,7 +181,7 @@ public class GameManager : MonoBehaviour
     public void OnPlatformLevelUp()
     {
         maxBallCount += ballCountIncrease;
-        platform.ActivateNewPlatformLevel(2);
+        platform.ActivateNewPlatformLevel(platformData.currentLevel);
         foreach (BallMovement ball in ActiveBalls)
         {
             ball.ActivateSplineFollow(false);

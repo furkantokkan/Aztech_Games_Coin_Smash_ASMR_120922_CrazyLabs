@@ -135,6 +135,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1014251464}
     m_Modifications:
+    - target: {fileID: 932959427402336190, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 932959427402336190, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 932959427402336190, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1886362977}
+    - target: {fileID: 932959427402336190, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 932959427402336190, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 932959427402336190, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.ParticleSystem, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 932959427402336190, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4203866231296464236, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
       propertyPath: m_Name
       value: UpgradeButtons
@@ -922,6 +950,11 @@ Transform:
 --- !u!4 &1773091081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3967913406110398527, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
+  m_PrefabInstance: {fileID: 5106367107930303737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1886362977 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 858293100420763688, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
   m_PrefabInstance: {fileID: 5106367107930303737}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1937478458
