@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FirePlatform : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class FirePlatform : MonoBehaviour
     [SerializeField] float resetAnimationTime = 0.15f;
 
     [SerializeField] [Range(0, 100f)] float shootOnThisMotion = 95f;
+    [SerializeField] private UnityEvent onShootBall;   
+
 
     public void Shoot(Transform ball, Transform target)
     {
@@ -34,6 +37,7 @@ public class FirePlatform : MonoBehaviour
                     if (motion <= shootOnThisMotion && !isFire)
                     {
                         SendTheBallToTarget(ball, target);
+                        onShootBall?.Invoke();
                         isFire = true;
                     }
                     weapon.SetBlendShapeWeight(0, motion);

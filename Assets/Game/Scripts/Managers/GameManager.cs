@@ -16,8 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxBallCount = 8;
     [SerializeField] private float ballCountIncrease = 2;
     [SerializeField] private UpgradeItemData ballData;
+    [SerializeField] private UpgradeItemData mergeData;
     [SerializeField] private UpgradeItemData platformData;
-    [SerializeField] private UpgradeItemData incomeData;
+    [SerializeField] private UpgradeItemData pinData;
 
     public List<BallMovement> ActiveBalls = new List<BallMovement>();
 
@@ -41,6 +42,10 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        ballData.Initialize();
+        platformData.Initialize();
+        mergeData.Initialize();
     }
     private void Update()
     {
