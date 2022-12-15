@@ -9,6 +9,15 @@ public class PumpStart : MonoBehaviour
     [SerializeField] float animationTime = 0.5f;
     [SerializeField] float resetAnimationTime = 0.5f;
 
+    private static PumpStart _instance;
+    public static PumpStart Instance { get { return _instance; } }
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+    }
     void Start()
     {
         Platform.OnNewBallSpawned += OnAddNewBall;

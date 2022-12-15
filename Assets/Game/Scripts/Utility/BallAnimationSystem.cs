@@ -56,16 +56,20 @@ public class BallAnimationSystem : MonoBehaviour
         {
             BallSpawnPosition.transform.DORotate(new Vector3(360f, 360f, 360f), 1.5f, RotateMode.FastBeyond360).SetLoops(1).OnStart(delegate
             {
-                balls[0].transform.DOMove(BallSpawnPosition.position, 1.5f, false);
-                balls[1].transform.DOMove(BallSpawnPosition.position, 1.5f, false);
-                balls[2].transform.DOMove(BallSpawnPosition.position, 1.5f, false);
+                balls[0].transform.DOMove(BallSpawnPosition.position, 1f, false);
+                balls[1].transform.DOMove(BallSpawnPosition.position, 1f, false);
+                balls[2].transform.DOMove(BallSpawnPosition.position, 1f, false);
             }).OnComplete(delegate
              {
                  BallMovement currentBall = Pool.instance.Get(balls[0].GetComponent<MergeHandler>().evolveToThis).GetComponent<BallMovement>();
                  currentBall.GetComponent<SplineFollower>().enabled = false;
                  currentBall.gameObject.SetActive(true);
                  currentBall.transform.position = BallSpawnPosition.position;
-                 
+                 currentBall.transform.DOMove(PumpStart.Instance.transform.position, 1f, false).OnComplete(delegate
+                 {
+                     currentBall.gameObject.SetActive(false);
+                     GameManager.Instance.platform.SpawnNewBall(balls[0].GetComponent<MergeHandler>().evolveToThis);
+                 });
                  for (int i = 0; i < balls.Length; i++)
                  {
                      balls[i].gameObject.SetActive(false);
