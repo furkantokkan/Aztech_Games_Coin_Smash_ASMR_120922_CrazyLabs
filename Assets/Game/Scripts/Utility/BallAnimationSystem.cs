@@ -65,9 +65,10 @@ public class BallAnimationSystem : MonoBehaviour
                  currentBall.GetComponent<SplineFollower>().enabled = false;
                  currentBall.gameObject.SetActive(true);
                  currentBall.transform.position = BallSpawnPosition.position;
-                 currentBall.transform.DOMove(PumpStart.Instance.transform.position, 1f, false).OnComplete(delegate
+                 currentBall.transform.DOMove(PumpStart.Instance.transform.position, 2f, false).OnComplete(delegate
                  {
                      currentBall.gameObject.SetActive(false);
+                     GameManager.Instance.ActiveBalls.Remove(currentBall);
                      GameManager.Instance.platform.SpawnNewBall(balls[0].GetComponent<MergeHandler>().evolveToThis);
                  });
                  for (int i = 0; i < balls.Length; i++)
