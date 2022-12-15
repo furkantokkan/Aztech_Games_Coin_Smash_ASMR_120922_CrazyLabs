@@ -852,7 +852,7 @@ MonoBehaviour:
   gameSpeedTime: 1.5
   fastGameSpeedTime: 2
   distanceBetweenBalss: 2.5
-  maxBallCount: 4
+  maxBallCount: 15
   ballCountIncrease: 2
   ballData: {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
   mergeData: {fileID: 11400000, guid: ccf0f5af1d73ad64b852e4a24a1fd6d2, type: 2}

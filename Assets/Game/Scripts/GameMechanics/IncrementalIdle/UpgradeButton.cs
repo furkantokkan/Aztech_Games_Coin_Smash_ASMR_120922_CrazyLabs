@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,11 +33,15 @@ public class UpgradeButton : MonoBehaviour
     private void OnDisable()
     {
         EconomyManager.Instance.onSpendMoney -= UpdateButton;
+        GameManager.Instance.updateUI -= UpdateButton;
+        BallMovement.onBallsStartToMove -= UpdateButton;
     }
     public void Initialize()
     {
         group = GetComponent<CanvasGroup>();
         EconomyManager.Instance.onSpendMoney += UpdateButton;
+        BallMovement.onBallsStartToMove += UpdateButton;
+        GameManager.Instance.updateUI += UpdateButton;
         UpdateButton();
     }
 

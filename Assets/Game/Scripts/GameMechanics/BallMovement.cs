@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Dreamteck.Splines;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,24 +23,19 @@ public class BallMovement : MonoBehaviour
     private bool preventOverrideTrail = false;
     private bool preventOverrideFollowMode = false;
 
+    public static event Action onBallsStartToMove;
+
     // Start is called before the first frame update
     void Start()
     {
         follower.spline = platform.GetCurrentSplineComputer();
         follower.onEndReached += OnEndOfThePath;
         follower.followSpeed = trailFollowSpeed;
+        follower.onMotionApplied += OnBallStartToMove;
     }
     private void OnDisable()
     {
         follower.onEndReached -= OnEndOfThePath;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Ball"))
-        {
-
-        }
     }
 
     // Update is called once per frame
@@ -143,6 +139,10 @@ public class BallMovement : MonoBehaviour
         follower.startPosition = pos;
     }
 
+    public void OnBallStartToMove()
+    {
+        onBallsStartToMove?.Invoke();
+    }
     public void OnEndOfThePath(double value)
     {
         ActivateSplineFollow(false);

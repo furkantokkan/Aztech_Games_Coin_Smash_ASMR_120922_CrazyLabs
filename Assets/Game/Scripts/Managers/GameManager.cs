@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private bool canMerge;
     private bool takeInput;
 
+    public event Action updateUI; 
+
     private static readonly string _directory = "/SaveData/";
     private static readonly string _fileName = "BallData.txt";
 
@@ -99,6 +101,8 @@ public class GameManager : MonoBehaviour
         canMerge = true;
         canSpeedUp = true;
         canAddBall = true;
+
+        updateUI?.Invoke();
     }
 
     private void ListenInput()
@@ -156,7 +160,12 @@ public class GameManager : MonoBehaviour
     }
     public bool GetCanAddBall()
     {
-        return canAddBall;
+        if (ActiveBalls.Count < maxBallCount && canAddBall)
+        {
+            return true;
+        }
+
+        return false;
     }
     public void ActivateInput(bool value = true)
     {
