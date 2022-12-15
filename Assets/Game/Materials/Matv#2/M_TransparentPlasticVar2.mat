@@ -20,39 +20,45 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Cryptos
+  m_Name: M_TransparentPlasticVar2
   m_Shader: {fileID: 4800000, guid: 418a1adfe2e75f34da8aaf192ff8e296, type: 3}
   m_ValidKeywords:
-  - _MK_ALBEDO_MAP
+  - _MK_ARTISTIC_ANIMATION_STUTTER
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
-  - _MK_COLOR_GRADING_ALBEDO
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
-  - _MK_LIGHT_BANDED
-  - _MK_RIM_DEFAULT
+  - _MK_IRIDESCENCE_DEFAULT
+  - _MK_RIM_SPLIT
+  - _MK_SURFACE_TYPE_TRANSPARENT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
+  - _ALLOWALPHAOVERFLOW_OFF
+  - _ALPHAPREMULTIPLY_ON
+  - _CELPRIMARYMODE_SINGLE
   - _MK_LIGHTMODEL_LAMBERT
   - _MK_RECEIVE_SHADOWS
   - _MK_REFLECTIVE_DEFAULT
   - _MK_RIM
   - _RECEIVESHADOWS_ON
+  - _TEXTUREBLENDINGMODE_MULTIPLY
+  - _UNITYSHADOWMODE_NONE
   - _USEREFLECTION_ON
   - _USERIM_ON
   - _WRAPPEDLIGHTING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    IGNOREPROJECTOR: False
+    IGNOREPROJECTOR: true
     QUEUE: Geometry
-    RenderType: Opaque
-  disabledShaderPasses: []
+    RenderType: Transparent
+  disabledShaderPasses:
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoMap:
-        m_Texture: {fileID: 2800000, guid: dbb77bc9048bdc144aec648630463129, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisoMap:
@@ -64,6 +70,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CelCurveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CelStepTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -96,7 +110,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DrawnMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 49ae84ca6217403468e1d82e12a4337f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -116,11 +130,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _IridescenceRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fd73710cbf11310419a04e535c62c0e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: dbb77bc9048bdc144aec648630463129, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatcapTexture:
@@ -156,7 +170,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SketchMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e834763757c76c248bf1ce07ed887723, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -191,6 +205,8 @@ Material:
     m_Floats:
     - _AdvancedTab: 0
     - _AlbedoMap: 0
+    - _AllowAlphaOverflow: 0
+    - _AlphaClip: 0
     - _AlphaClipping: 0
     - _AlphaCutoff: 0.5
     - _AnisoOffset: -0.2
@@ -202,17 +218,24 @@ Material:
     - _Blend: 0
     - _Blend0: 1
     - _Blend1: 0
-    - _BlendDst: 0
-    - _BlendSrc: 1
-    - _Brightness: 1.1
+    - _BlendDst: 10
+    - _BlendSrc: 5
+    - _Brightness: 1
     - _BumpScale: 1
-    - _ColorGrading: 1
+    - _CameraDistanceFadeClose: 0
+    - _CameraDistanceFadeFar: 10
+    - _CelExtraEnabled: 0
+    - _CelNumSteps: 3
+    - _CelPrimaryMode: 1
+    - _ColorGrading: 0
     - _Contrast: 1
+    - _Cull: 2
     - _CullMode: 2
     - _Cutoff: 0.5
+    - _Depth: 500
     - _DetailNormalMapScale: 1
     - _DetailTint: 0.5
-    - _DiffuseSmoothness: 0.103
+    - _DiffuseSmoothness: 0
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
@@ -221,68 +244,91 @@ Material:
     - _DissolveRampSize: 0.25
     - _DrawnClampMax: 1
     - _DrawnClampMin: 0
-    - _DrawnMapScale: 1
-    - _DstBlend: 0
+    - _DrawnMapScale: 3
+    - _DstBlend: 10
     - _EnvironmentReflections: 1
+    - _FlatRimEdgeSmoothness: 0.5
+    - _FlatRimLightAlign: 0
+    - _FlatRimSize: 0.5
+    - _FlatSpecularEdgeSmoothness: 0
+    - _FlatSpecularSize: 0.1
+    - _Flatness: 0.738
+    - _FlatnessExtra: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.78
     - _GlossyReflections: 1
     - _GoochRampIntensity: 0.5
+    - _GradientAngle: 0
+    - _GradientCenterX: 0
+    - _GradientCenterY: 0
+    - _GradientEnabled: 0
+    - _GradientSize: 10
     - _HatchingMapScale: 1
     - _Initialized: 1
     - _InputTab: 1
-    - _Iridescence: 0
-    - _IridescenceSize: 1.43
+    - _Iridescence: 1
+    - _IridescenceSize: 0.21
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
-    - _Light: 2
-    - _LightBands: 3
-    - _LightBandsScale: 0.65
+    - _Light: 0
+    - _LightBands: 4
+    - _LightBandsScale: 0.5
+    - _LightContribution: 0
     - _LightCuts: 2.89
     - _LightModel: 1
     - _LightSmoothness: 0
-    - _LightThreshold: 0.103
+    - _LightThreshold: 0.3
     - _LightType: 0
-    - _MKEditorShowDetailBehavior: 0
+    - _LightmapDirectionPitch: 0
+    - _LightmapDirectionYaw: 0
+    - _MKEditorShowDetailBehavior: 1
     - _MKEditorShowDissolveBehavior: 0
     - _MKEditorShowLightBehavior: 0
     - _MKEditorShowMainBehavior: 1
     - _MKEditorShowOutlineBehavior: 0
-    - _MKEditorShowReflectionBehavior: 0
+    - _MKEditorShowReflectionBehavior: 1
     - _MKEditorShowRenderBehavior: 0
-    - _MKEditorShowRimBehavior: 1
+    - _MKEditorShowRimBehavior: 0
     - _MKEditorShowShadowBehavior: 1
     - _MKEditorShowSketchBehavior: 0
     - _MKEditorShowSpecularBehavior: 0
     - _MKEditorShowTranslucentBehavior: 0
-    - _Metallic: 0
+    - _Metallic: 0.028
     - _Mode: 0
     - _NormalMapIntensity: 1
     - _OcclusionStrength: 1
     - _OptionsTab: 1
     - _OutlineSize: 0.02
+    - _OverrideLightmapDir: 0
     - _Parallax: 0.02
+    - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ReflectIntensity: 0.163
-    - _ReflectSmoothness: 0.241
+    - _ReflectSmoothness: 0.22
     - _RenderFace: 2
     - _RenderPriority: 0
-    - _Rim: 1
-    - _RimIntensity: 0.5
-    - _RimSize: 1.2
-    - _RimSmoothness: 0.641
+    - _Rim: 2
+    - _RimEnabled: 0
+    - _RimIntensity: 0.141
+    - _RimSize: 0.64
+    - _RimSmoothness: 0.448
     - _RimThresholdOffset: 0.25
     - _Roughness: 1
-    - _Saturation: 1.1
+    - _Saturation: 1
+    - _SelfShadingSize: 0.559
+    - _SelfShadingSizeExtra: 0.6
+    - _ShadowEdgeSize: 0.12
+    - _ShadowEdgeSizeExtra: 0.05
     - _ShadowIntensity: 1
     - _Shininess: 0.275
-    - _SketchMapScale: 1
+    - _SketchMapScale: 0.2
     - _SketchScale: 16
     - _SketchToneMax: 1
     - _SketchToneMin: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _Specular: 0
+    - _SpecularEnabled: 0
     - _SpecularHighlights: 1
     - _SpecularIntensity: 0.5
     - _SpecularSmoothness: 0
@@ -297,11 +343,16 @@ Material:
     - _StencilWriteMask: 255
     - _StencilZFail: 0
     - _StylizeTab: 1
-    - _Surface: 0
+    - _Surface: 1
+    - _TextureBlendingMode: 0
+    - _TextureImpact: 1
     - _ThresholdMapScale: 1
     - _TranslucentIntensity: 0.5
     - _TranslucentShininess: 0.275
     - _UVSec: 0
+    - _UnityShadowMode: 0
+    - _UnityShadowPower: 0.2
+    - _UnityShadowSharpness: 1
     - _UseAnisotropicSpecular: 0
     - _UseBumpMap: 0
     - _UseDissolve: 0
@@ -310,31 +361,43 @@ Material:
     - _UseRim: 1
     - _UseSketch: 0
     - _UseTranslucent: 0
+    - _UvFadeX: 0.1
+    - _UvFadeY: 0.1
     - _VertexAnimation: 0
     - _VertexAnimationIntensity: 0.05
     - _VertexAnimationStutter: 0
+    - _VertexColorsEnabled: 0
     - _WrappedLighting: 1
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor: {r: 0.7311321, g: 0.8931478, b: 1, a: 0.29803923}
+    - _Color: {r: 0.8537736, g: 0.9599056, b: 1, a: 1}
+    - _ColorDim: {r: 0.13127448, g: 0.29414394, b: 0.4716981, a: 0.2901961}
+    - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
+    - _ColorDimExtra: {r: 0, g: 0.47820997, b: 1, a: 0.23529412}
+    - _ColorDimSteps: {r: 0, g: 0.47820997, b: 1, a: 0.23529412}
+    - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlatRimColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
+    - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0.27828598, g: 0.1260235, b: 0.4528302, a: 1}
+    - _GoochDarkColor: {r: 0.46004462, g: 0.042452812, b: 1, a: 1}
     - _HighlightColor: {r: 1, g: 0.985, b: 0.85, a: 1}
-    - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _IridescenceColor: {r: 0.9150943, g: 0.867613, b: 0.867613, a: 0.5}
+    - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
-    - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 1, g: 0.95689374, b: 0.7490196, a: 1}
-    - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimBrightColor: {r: 1, g: 0.98894334, b: 0.5613208, a: 1}
+    - _RimColor: {r: 1, g: 0.95943725, b: 0.75, a: 1}
+    - _RimDarkColor: {r: 0.30308342, g: 0, b: 1, a: 1}
     - _ShadowColor: {r: 0.511894, g: 0.46168566, b: 0.7830189, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _TranslucentColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}
   m_BuildTextureStacks: []
