@@ -24,13 +24,7 @@ public class Platform : MonoBehaviour
     {
 
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnNewBall(PoolItems.Ball1);
-        }
-    }
+
     public SplineComputer GetCurrentSplineComputer()
     {
         return currentSpline;

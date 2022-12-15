@@ -18,6 +18,7 @@ public class PumpStart : MonoBehaviour
     {
         StartCoroutine(WaitForOtherBalls(ball));
         ball.transform.position = transform.position;
+        GameManager.Instance.SetCanAddBall(false);
 
         float motion = 100f;
         float targetAmount = 0f;
@@ -83,6 +84,7 @@ public class PumpStart : MonoBehaviour
                         }
                         Debug.Log("Ball Can Move, Current Count Is: " + checkedCount);
                         currentBallMovement.ActivateSplineFollow(true);
+                        GameManager.Instance.SetCanAddBall(true);
                         finished = true;
                         yield break;
                     }

@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1014251464}
     m_Modifications:
+    - target: {fileID: 932959427402336163, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 932959427402336189, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4203866231296464236, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
       propertyPath: m_Name
       value: UpgradeButtons
@@ -218,6 +226,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6316503777810548454, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 643
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316503777810548454, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -61
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
 --- !u!224 &95373690 stripped
@@ -291,7 +307,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381329851
 GameObject:
@@ -872,7 +888,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1937478458
 GameObject:

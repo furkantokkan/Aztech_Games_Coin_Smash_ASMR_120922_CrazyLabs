@@ -29,7 +29,7 @@ public class UpgradeItemData : ScriptableObject
 
     public int CurrentPrice => (int)currentPrice;
 
-    public UnityAction OnLevelUp;
+    public Action OnLevelUp;
 
     private void SetLevel()
     {
@@ -65,7 +65,6 @@ public class UpgradeItemData : ScriptableObject
         MMVibrationManager.Haptic(HapticTypes.Success);
 
         OnLevelUp?.Invoke();
-
         return true;
     }
 

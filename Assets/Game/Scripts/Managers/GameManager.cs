@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Dreamteck.Splines;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     //DEFAULT GAMEPLAY INTERVAL ==== 2.5F
     //BALL 2 REPLACED
 
+    private bool canAddBall;
     private bool canSpeedUp;
     private bool canMerge;
     private bool takeInput;
@@ -48,9 +50,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        platformData?.Initialize();
         platformData.OnLevelUp += OnPlatformLevelUp;
         ballData.OnLevelUp += OnBallLevelUp;
+
         InputManager.Instance.onTouchStart += ListenInput;
         EconomyManager.Instance.EarnMoney(100000);
         Initialize();
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         platformData.OnLevelUp -= OnPlatformLevelUp;
+        ballData.OnLevelUp -= OnBallLevelUp;
         InputManager.Instance.onTouchStart += ListenInput;
     }
 
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
 
         canMerge = true;
         canSpeedUp = true;
+        canAddBall = true;
     }
 
     private void ListenInput()
@@ -139,12 +143,17 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void SetCanAddBall(bool value)
+    {
+        canAddBall = value;
+    }
     public void ActivateInput(bool value = true)
     {
         takeInput = value;
     }
     public void OnBallLevelUp()
     {
+        Debug.Log("OnBallLevelUp");
         platform.SpawnNewBall(PoolItems.Ball1);
     }
     public void OnPlatformLevelUp()
