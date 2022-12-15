@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     public List<BallMovement> ActiveBalls = new List<BallMovement>();
 
+    public UpgradeItemData PlatformData => platformData;
+
     //DEFAULT GAMEPLAY INTERVAL ==== 2.5F
     //BALL 2 REPLACED
 
@@ -52,12 +54,20 @@ public class GameManager : MonoBehaviour
         platformData.Initialize();
         mergeData.Initialize();
         pinData.Initialize();
+
+        //early
+        int ballCount = PlayerPrefs.GetInt(GameConst.BALL_COUNT_KEY, 0);
+        int platformCount = PlayerPrefs.GetInt(GameConst.PLATFORM_COUNT_KEY, 0);
+
+        maxBallCount += platformData.currentLevel <= 1 ? 0 : platformData.currentLevel * ballCountIncrease;
+        maxUnlockablePinCount += pinData.currentLevel <= 1 ? 0 : pinData.currentLevel * pinCountIncrese;
+        //spawn ball
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnPinLevelUp();
+            OnBallLevelUp();
         }
     }
     void Start()
@@ -83,17 +93,11 @@ public class GameManager : MonoBehaviour
     }
     private void Initialize()
     {
-        //early
-        int ballCount = PlayerPrefs.GetInt(GameConst.BALL_COUNT_KEY, 0);
-        int platformCount = PlayerPrefs.GetInt(GameConst.PLATFORM_COUNT_KEY, 0);
-
-        maxBallCount += platformData.currentLevel <= 1 ? 0 : platformData.currentLevel * ballCountIncrease;
-        maxUnlockablePinCount += pinData.currentLevel <= 1 ? 0 : pinData.currentLevel * pinCountIncrese;
-
-        //spawn ball
-        platform.StartSpawnBalls(8);
-        platform.ActivateNewPlatformLevel(platformData.currentLevel);
         //late
+        platform.ActivateNewPlatformLevel(platformData.currentLevel);
+        platform.UnlockPins(pinData.currentLevel - 1);
+        platform.StartSpawnBalls(8);
+
         ActivateInput(true);
 
         if (ActiveBalls.Count > 0)

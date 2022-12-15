@@ -26,9 +26,22 @@ public class BallMovement : MonoBehaviour
     public static event Action onBallsStartToMove;
 
     // Start is called before the first frame update
-    void Start()
+
+    IEnumerator Start()
     {
-        follower.spline = platform.GetCurrentSplineComputer();
+        do
+        {
+            try
+            {
+                follower.spline = platform.GetCurrentSplineComputer();
+            }
+            catch 
+            {
+
+            }
+            yield return null;
+        } while (follower.spline == null);
+
         follower.onEndReached += OnEndOfThePath;
         follower.followSpeed = trailFollowSpeed;
         follower.onMotionApplied += OnBallStartToMove;

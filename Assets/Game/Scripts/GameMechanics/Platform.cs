@@ -23,6 +23,10 @@ public class Platform : MonoBehaviour
 
     public SplineComputer GetCurrentSplineComputer()
     {
+        if (currentSpline == null)
+        {
+            return null;
+        }
         return currentSpline;
     }
     public Transform GetWarpHole()
@@ -39,7 +43,7 @@ public class Platform : MonoBehaviour
     }
     public Vector3 GetStartPostion()
     {
-        Vector3 position = currentSpline.GetPoint(8).position;
+        Vector3 position = currentSpline.GetPoint(7).position;
         position.x += startXOffset;
         position.y += startYOffset;
         return position;
@@ -87,7 +91,9 @@ public class Platform : MonoBehaviour
         ball.gameObject.SetActive(true);
         BallMovement ballMovement = ball.GetComponent<BallMovement>();
         ballMovement.Platform = this;
-        ballMovement.SetStartPosition(GameConst.START_VALUE_KEY);
+        SplineSample result = new SplineSample();
+        result = currentSpline.Project(GetStartPostion(), 0, 1);
+        ballMovement.SetStartPosition(result.percent);
         ballMovement.ActivateSplineFollow(false);
         OnNewBallSpawned?.Invoke(ball);
         GameManager.Instance.ActiveBalls.Add(ballMovement);
