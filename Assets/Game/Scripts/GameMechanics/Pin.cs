@@ -33,4 +33,11 @@ public class Pin : MonoBehaviour
             //gain money
         }
     }
+
+    private void Update()
+    {
+        if (UIManager.Instance.material)
+            GetComponent<Renderer>().material = UIManager.Instance.FirstMaterials[1];
+        else GetComponent<Renderer>().material = UIManager.Instance.SecondMaterials[1];
+    }
 }
