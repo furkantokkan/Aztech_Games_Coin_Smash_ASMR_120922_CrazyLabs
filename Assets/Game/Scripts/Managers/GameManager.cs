@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Design")]
     public Platform platform;
+    public Transform[] megrePoints;
+    public Transform middleMergePoint;
     public float ballSpawnDistance = 4f;
     [SerializeField] private float gameSpeedTime = 1.7f;
     [SerializeField] private float fastGameSpeedTime = 2f;
