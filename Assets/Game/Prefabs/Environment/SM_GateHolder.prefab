@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7749584551218720584}
   - component: {fileID: 5491468528488870394}
   - component: {fileID: 2509049210815671172}
+  - component: {fileID: 5110701471109200382}
+  - component: {fileID: 234882521491519529}
   m_Layer: 0
   m_Name: SM_GateHolder
   m_TagString: Untagged
@@ -84,6 +86,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5110701471109200382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135995800654305261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e894b5a372cab47ab5c8261affe484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arm: {fileID: 5601712042623803324}
+  isPositive: 1
+  turnValue: 75
+  turnTime: 0.3
+  turnBackTime: 0.18
+  easeType: 22
+  getBackEaseType: 1
+--- !u!65 &234882521491519529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135995800654305261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.37689638, y: 0.80746293, z: 1.0328372}
+  m_Center: {x: -0.004748583, y: -0.20000735, z: 0.39673755}
 --- !u!1 &6695110523827708739
 GameObject:
   m_ObjectHideFlags: 0

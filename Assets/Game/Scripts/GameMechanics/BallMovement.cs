@@ -34,10 +34,6 @@ public class BallMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        print(myTrail.time);
-    }
     public void ActivateTrail(bool isActive)
     {
         if (myTrail == null)
