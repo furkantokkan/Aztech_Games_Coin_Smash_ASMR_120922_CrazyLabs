@@ -154,6 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingsPanel: {fileID: 8739247775715301812}
   DebugPanel: {fileID: 1003002023}
+  MutesSprites:
+  - {fileID: 21300000, guid: 4ae13c31d513f8549ae4ccca18e0dd82, type: 3}
+  - {fileID: 21300000, guid: b28c778540348c7468bb8a007c7a2de0, type: 3}
+  TapticSprites:
+  - {fileID: 21300000, guid: 7b5f439d5b9fb074fab9513dde69590e, type: 3}
+  - {fileID: 21300000, guid: 4f764f00a98adc140912c795ba549670, type: 3}
+  muteImage: {fileID: 7871460064351909426}
+  "taptic\u0131mage": {fileID: 7871460065252194311}
 --- !u!4 &102696639
 Transform:
   m_ObjectHideFlags: 0
@@ -576,7 +584,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126315646}
-  m_LocalRotation: {x: 0.0000000068471717, y: 0.973249, z: -0.22975294, w: 0.000000029005083}
+  m_LocalRotation: {x: -0.0000000068471717, y: 0.973249, z: -0.22975294, w: -0.000000029005083}
   m_LocalPosition: {x: 6.9756675, y: 7.1546183, z: 29.45919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4629,7 +4637,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.0000000068471717, y: 0.973249, z: -0.22975294, w: 0.000000029005083}
+  m_LocalRotation: {x: -0.0000000068471717, y: 0.973249, z: -0.22975294, w: -0.000000029005083}
   m_LocalPosition: {x: 8.543274, y: 19.977222, z: 44.379337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
