@@ -6,15 +6,13 @@ public class MoneyFloor : MonoBehaviour
 {
     public List<Transform> coins = new List<Transform>();
     private List<Transform> activeCoins = new List<Transform>();
+    [SerializeField] private List<Transform> childs = new List<Transform>();
     [SerializeField] TargetData[] targetsToShoot;
 
     [SerializeField] Transform platformToMove;
 
     private void Start()
     {
-        coins.AddRange(GetComponentsInChildren<Transform>());
-        coins.Remove(transform);
-        activeCoins.AddRange(coins);
         Coin.onCoinInvisible += RemoveFromList;
         Coin.onCoinVisible += AddToList;
         ActivateTargetToShoot(0, 0);
@@ -40,13 +38,10 @@ public class MoneyFloor : MonoBehaviour
         coins.Clear();
         activeCoins.Clear();
 
-        List<Transform> allChilds = new List<Transform>();
-        allChilds.AddRange(GetComponentsInChildren<Transform>());
-        allChilds.Remove(transform);
-        for (int i = 0; i < allChilds.Count; i++)
+        for (int i = 0; i < childs.Count; i++)
         {
-            allChilds[i].gameObject.SetActive(false);
-            if (i == allChilds.Count - 1)
+            childs[i].gameObject.SetActive(false);
+            if (i == childs.Count - 1)
             {
                 targetsToShoot[buildingIndex].targets[incomeIndex].gameObject.SetActive(true);
                 coins.AddRange(targetsToShoot[buildingIndex].targets[incomeIndex].GetComponentsInChildren<Transform>());
