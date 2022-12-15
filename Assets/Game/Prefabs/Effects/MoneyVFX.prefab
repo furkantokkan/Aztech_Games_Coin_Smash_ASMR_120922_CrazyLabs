@@ -205,7 +205,7 @@ MonoBehaviour:
   tweenTargetIsTargetGO: 1
   delay: 0
   duration: 0.5
-  easeType: 1
+  easeType: 14
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -310,7 +310,7 @@ MonoBehaviour:
   tweenTargetIsTargetGO: 1
   delay: 0
   duration: 0.5
-  easeType: 1
+  easeType: 9
   easeCurve:
     serializedVersion: 2
     m_Curve:
