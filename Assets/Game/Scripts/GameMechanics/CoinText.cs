@@ -11,6 +11,7 @@ public class CoinText : MonoBehaviour
     {
         EconomyManager.Instance.onAddMoney += UpdateText;
         EconomyManager.Instance.onSpendMoney += UpdateText;
+        UpdateText();
     }
 
     private void UpdateText()
