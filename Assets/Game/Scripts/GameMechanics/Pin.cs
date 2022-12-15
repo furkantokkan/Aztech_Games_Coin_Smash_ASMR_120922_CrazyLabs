@@ -30,7 +30,14 @@ public class Pin : MonoBehaviour
             {
                 arm.DOLocalRotate(Vector3.zero, turnBackTime, RotateMode.Fast).SetEase(getBackEaseType);
             });
-            //gain money
+            EconomyManager.Instance.EarnMoney(index+1);
         }
+    }
+
+    private void Update()
+    {
+        if (UIManager.Instance.material)
+            GetComponent<Renderer>().material = UIManager.Instance.FirstMaterials[1];
+        else GetComponent<Renderer>().material = UIManager.Instance.SecondMaterials[1];
     }
 }
