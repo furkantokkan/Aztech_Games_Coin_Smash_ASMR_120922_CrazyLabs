@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1333433413840769395}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3701583348348864365}
   - {fileID: 8004131646046907991}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8860368645074348660}
   - component: {fileID: 5475336797291924986}
   m_Layer: 0
-  m_Name: SM_EtherumExplode_cell
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 8909567564942304777}
   - component: {fileID: 1877751721203287444}
   m_Layer: 0
-  m_Name: SM_EtherumExplode_cell.005
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 4366359316834132235}
   - component: {fileID: 3029132405434715118}
   m_Layer: 0
-  m_Name: SM_EtherumExplode_cell.006
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 6193207750948780640}
   - component: {fileID: 4926853243726829160}
   m_Layer: 0
-  m_Name: SM_EtherumExplode_cell.001
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 1319556684455426980}
   - component: {fileID: 5299484791556603415}
   m_Layer: 0
-  m_Name: SM_EtherumExplode_cell.007
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 5771277641842298870}
   - component: {fileID: 5037878721351150427}
   m_Layer: 0
-  m_Name: SM_EtherumExplode_cell.002
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 3096650487577736091}
   - component: {fileID: 7985800981257513674}
   m_Layer: 0
-  m_Name: SM_EtherumExplode_cell.004
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

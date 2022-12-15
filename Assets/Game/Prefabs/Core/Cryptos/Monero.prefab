@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3303753700516291472}
   - component: {fileID: 4995590752253214622}
   m_Layer: 0
-  m_Name: SM_MoneroExplode_cell.001
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 510371553166105875}
   - component: {fileID: 2737731080982311326}
   m_Layer: 0
-  m_Name: SM_MoneroExplode_cell.006
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,8 +225,8 @@ Transform:
   m_GameObject: {fileID: 1333433413840769395}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 521007866420898421}
   - {fileID: 448325300869490806}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 1445973226272972623}
   - component: {fileID: 633467900267438778}
   m_Layer: 0
-  m_Name: SM_MoneroExplode_cell.004
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 457227774037383191}
   - component: {fileID: 7470372308731142262}
   m_Layer: 0
-  m_Name: SM_MoneroExplode_cell.005
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 322094728891446043}
   - component: {fileID: 4083138080219103967}
   m_Layer: 0
-  m_Name: SM_MoneroExplode_cell
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 8702657832913338703}
   - component: {fileID: 3370872463372686296}
   m_Layer: 0
-  m_Name: SM_MoneroExplode_cell.002
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 4831344952029672413}
   - component: {fileID: 4257047622173770565}
   m_Layer: 0
-  m_Name: SM_MoneroExplode_cell.007
+  m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
