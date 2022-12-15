@@ -45,18 +45,28 @@ public class PumpStart : MonoBehaviour
 
     private IEnumerator WaitForOtherBalls(GameObject newBall)
     {
-        List<BallMovement> lookUp = new List<BallMovement>();
-        BallMovement currentBallMovement = newBall.GetComponent<BallMovement>();
-        lookUp.AddRange(GameManager.Instance.ActiveBalls);
-        lookUp.Remove(currentBallMovement);
         int checkedCount = 0;
         bool finished = false;
 
         while (!finished)
         {
+            List<BallMovement> lookUp = new List<BallMovement>();
+            BallMovement currentBallMovement = newBall.GetComponent<BallMovement>();
+            lookUp.AddRange(GameManager.Instance.ActiveBalls);
+            lookUp.Remove(currentBallMovement);
+            print(lookUp.Count);
             for (int i = 0; i < lookUp.Count; i++)
             {
-                Debug.Log("Checked: " + checkedCount);
+                float distance = Vector3.Distance(newBall.transform.position, new Vector3(lookUp[i].transform.position.x, newBall.transform.position.y, lookUp[i].transform.position.z));
+                if (distance >= GameManager.Instance.ballSpawnDistance)
+                {
+                    checkedCount += 1;
+                }
+                else
+                {
+                    checkedCount = 0;
+                }
+
 
                 if (i >= lookUp.Count - 1)
                 {
@@ -64,6 +74,13 @@ public class PumpStart : MonoBehaviour
 
                     if (checkedCount >= lookUp.Count - 1)
                     {
+                        float distance1 = Vector3.Distance(newBall.transform.position, new Vector3(lookUp[0].transform.position.x, newBall.transform.position.y, lookUp[0].transform.position.z));
+
+                        if (distance1 < GameManager.Instance.ballSpawnDistance)
+                        {
+                            checkedCount = 0;
+                            break;
+                        }
                         Debug.Log("Ball Can Move, Current Count Is: " + checkedCount);
                         currentBallMovement.ActivateSplineFollow(true);
                         finished = true;
@@ -75,17 +92,6 @@ public class PumpStart : MonoBehaviour
                         checkedCount = 0;
                         break;
                     }
-                }
-
-                float distance = Vector3.Distance(newBall.transform.position, lookUp[i].transform.position);
-                print("Current distance is: " + distance);
-                if (distance >= GameManager.Instance.ballSpawnDistance)
-                {
-                    checkedCount += 1;
-                }
-                else
-                {
-                    checkedCount -= 1;
                 }
 
                 yield return null;

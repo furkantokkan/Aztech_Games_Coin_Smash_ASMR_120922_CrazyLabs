@@ -16,7 +16,6 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.tag == "Ball")
         {
-            Debug.Log(other.gameObject.name + "Is hit that: " + gameObject.name);
             BallMovement ballMovement = other.GetComponent<BallMovement>();
             ballMovement.KillTheCurrentMoveTween();
             ballMovement.GetBackSequence();
