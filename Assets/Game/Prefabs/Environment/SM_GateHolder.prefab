@@ -106,6 +106,7 @@ MonoBehaviour:
   turnBackTime: 0.3
   easeType: 10
   getBackEaseType: 30
+  Effect: {fileID: 1744236060858781861, guid: 75fbf50ebacacad47a46d92d6f6696fd, type: 3}
 --- !u!65 &234882521491519529
 BoxCollider:
   m_ObjectHideFlags: 0
