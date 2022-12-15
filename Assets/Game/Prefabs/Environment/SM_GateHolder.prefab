@@ -103,8 +103,8 @@ MonoBehaviour:
   turnValue: 75
   turnTime: 0.3
   turnBackTime: 0.18
-  easeType: 22
-  getBackEaseType: 1
+  easeType: 8
+  getBackEaseType: 30
 --- !u!65 &234882521491519529
 BoxCollider:
   m_ObjectHideFlags: 0
