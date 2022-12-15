@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1014251464}
     m_Modifications:
-    - target: {fileID: 932959427402336163, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 932959427402336189, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4203866231296464236, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
       propertyPath: m_Name
       value: UpgradeButtons
@@ -225,14 +217,6 @@ PrefabInstance:
     - target: {fileID: 4203866231296464237, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6316503777810548454, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 643
-      objectReference: {fileID: 0}
-    - target: {fileID: 6316503777810548454, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bccd7af3c454b4a88a1e266e6197fc9c, type: 3}
@@ -928,18 +912,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 659799028985031148, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 858293100420698808, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 858293100420763688, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7100567794535516102, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
       propertyPath: m_Name
       value: Platform

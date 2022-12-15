@@ -54,19 +54,23 @@ public class FirePlatform : MonoBehaviour
     private void SendTheBallToTarget(Transform ball, Transform target)
     {
         BallMovement ballMovement = ball.GetComponent<BallMovement>();
+
         Tween shootTween = ball.DOMove(target.position, 0.3f, false).OnStart(delegate
         {
             Debug.Log("Set Fire Speed To Trail");
             ballMovement.SetTrailTime(ballMovement.GetTrailTime(true));
             ballMovement.PreventOverrideTrailTime(true);
+            ballMovement.PreventOverrideFollowMode(true);
         }).OnComplete(delegate
         {
             Debug.Log("Set Slow Speed To Trail");
             ballMovement.PreventOverrideTrailTime(false);
+            ballMovement.PreventOverrideFollowMode(false);
         }).OnKill(delegate
         {
             Debug.Log("Set Slow Speed To Trail");
             ballMovement.PreventOverrideTrailTime(false);
+            ballMovement.PreventOverrideFollowMode(false);
         });
         ballMovement.SetCurrentMoveTween(shootTween);
     }

@@ -16,10 +16,15 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI level;
     [SerializeField] private TextMeshProUGUI price;
 
+    private IInteractable interaction;
+
     private CanvasGroup group;
 
     private Tween punchTween;
-
+    private void Awake()
+    {
+        interaction = GetComponent<IInteractable>();
+    }
     private void Start()
     {
         Initialize();
@@ -42,7 +47,7 @@ public class UpgradeButton : MonoBehaviour
 
     public void SetupUI()
     {
-        bool interactable = EconomyManager.Instance.GetCurrentMoney() >= item.CurrentPrice && item.currentLevel < item.maxLevel;
+        bool interactable = EconomyManager.Instance.GetCurrentMoney() >= item.CurrentPrice && item.currentLevel < item.maxLevel && interaction.CanInteract();
         group.interactable = interactable;
         group.alpha = interactable ? 1f : inactiveAlpha;
         level.text = item.currentLevel.ToString();

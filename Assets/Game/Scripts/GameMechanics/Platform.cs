@@ -20,11 +20,6 @@ public class Platform : MonoBehaviour
 
     public static event Action<GameObject> OnNewBallSpawned;
 
-    private void Awake()
-    {
-
-    }
-
     public SplineComputer GetCurrentSplineComputer()
     {
         return currentSpline;
@@ -111,13 +106,13 @@ public class Platform : MonoBehaviour
             }
         }
     }
-    public void SpawnBallToPath()
-    {
-        //float splineLength = _spline.CalculateLength();
-        //double travel = _spline.Travel(0.0, splineLength / distance, Spline.Direction.Forward);
-        //Vector3 nextPos = _spline.EvaluatePosition(travel);
-        //Debug.DrawRay(nextPos, Vector3.up, Color.red, 10f);
-    }
+    //public void SpawnBallToPath()
+    //{
+    //    //float splineLength = _spline.CalculateLength();
+    //    //double travel = _spline.Travel(0.0, splineLength / distance, Spline.Direction.Forward);
+    //    //Vector3 nextPos = _spline.EvaluatePosition(travel);
+    //    //Debug.DrawRay(nextPos, Vector3.up, Color.red, 10f);
+    //}
     public void OnBallEndReach(Transform ball)
     {
         firePlatform.Shoot(ball, moneyFloor.GetRandomActiveCoin());

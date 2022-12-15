@@ -7,7 +7,7 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     [SerializeField] private TrailRenderer myTrail;
-    [SerializeField] private SplineFollower _follower;
+    [SerializeField] private SplineFollower follower;
     [SerializeField] private float fastTrailTime = 1.5f;
     [SerializeField] private float ShootTrailTime = 0.5f;
     [SerializeField] private float slowTrailTime = 0f;
@@ -20,17 +20,26 @@ public class BallMovement : MonoBehaviour
     public Platform Platform { set { platform = value; } }
 
     private bool preventOverrideTrail = false;
+    private bool preventOverrideFollowMode = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        _follower.spline = platform.GetCurrentSplineComputer();
-        _follower.onEndReached += OnEndOfThePath;
-        _follower.followSpeed = trailFollowSpeed;
+        follower.spline = platform.GetCurrentSplineComputer();
+        follower.onEndReached += OnEndOfThePath;
+        follower.followSpeed = trailFollowSpeed;
     }
     private void OnDisable()
     {
-        _follower.onEndReached -= OnEndOfThePath;
+        follower.onEndReached -= OnEndOfThePath;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+
+        }
     }
 
     // Update is called once per frame
@@ -83,7 +92,7 @@ public class BallMovement : MonoBehaviour
         {
             transform.position = platform.GetWarpHole().position;
             SetStartPosition(0);
-            SetSpline(platform.GetCurrentSplineComputer());
+            SetSpline(platform.GetCurrentSplineComputer(), true);
             ActivateSplineFollow(true);
             GetComponent<SphereCollider>().isTrigger = true;
         });
@@ -91,6 +100,10 @@ public class BallMovement : MonoBehaviour
     public void PreventOverrideTrailTime(bool value)
     {
         preventOverrideTrail = value;
+    }
+    public void PreventOverrideFollowMode(bool value)
+    {
+        preventOverrideFollowMode = value;
     }
     public void SetTrailTime(float time)
     {
@@ -118,12 +131,16 @@ public class BallMovement : MonoBehaviour
     #region Spline
     public void ActivateSplineFollow(bool followMode = true)
     {
-        _follower.follow = followMode;
+        if (preventOverrideFollowMode)
+        {
+            return;
+        }
+        follower.follow = followMode;
     }
 
     public void SetStartPosition(double pos)
     {
-        _follower.startPosition = pos;
+        follower.startPosition = pos;
     }
 
     public void OnEndOfThePath(double value)
@@ -141,13 +158,16 @@ public class BallMovement : MonoBehaviour
     //       _follower.followSpeed = current;
     //   });
     //}
-    public void SetSpline(SplineComputer splineComputer)
+    public void SetSpline(SplineComputer splineComputer, bool rebuild)
     {
-        _follower.spline = splineComputer;
-        SplineSample result = new SplineSample();
-        result = splineComputer.Project(_follower.transform.position, 0, 1);
-        _follower.RebuildImmediate();
-        _follower.Restart(result.percent);
+        follower.spline = splineComputer;
+        if (rebuild)
+        {
+            SplineSample result = new SplineSample();
+            result = splineComputer.Project(transform.position, 0, 1);
+            follower.RebuildImmediate();
+            follower.Restart(result.percent);
+        }
     }
     #endregion
 }

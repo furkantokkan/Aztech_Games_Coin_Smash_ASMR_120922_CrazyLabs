@@ -48,6 +48,13 @@ public class GameManager : MonoBehaviour
         platformData.Initialize();
         mergeData.Initialize();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnPlatformLevelUp();
+        }
+    }
     void Start()
     {
         platformData.OnLevelUp += OnPlatformLevelUp;
@@ -147,6 +154,10 @@ public class GameManager : MonoBehaviour
     {
         canAddBall = value;
     }
+    public bool GetCanAddBall()
+    {
+        return canAddBall;
+    }
     public void ActivateInput(bool value = true)
     {
         takeInput = value;
@@ -156,9 +167,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("OnBallLevelUp");
         platform.SpawnNewBall(PoolItems.Ball1);
     }
+
     public void OnPlatformLevelUp()
     {
         maxBallCount += ballCountIncrease;
+        platform.ActivateNewPlatformLevel(2);
+        foreach (BallMovement ball in ActiveBalls)
+        {
+            ball.ActivateSplineFollow(false);
+            ball.SetSpline(platform.GetCurrentSplineComputer(), false);
+            ball.ActivateSplineFollow(true);
+        }
     }
     private void OnLevelStart()
     {

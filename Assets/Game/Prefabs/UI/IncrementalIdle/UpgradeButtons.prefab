@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 932959425642860012}
   - component: {fileID: 932959425642860011}
   - component: {fileID: 3937742255135046882}
+  - component: {fileID: 4493688200738364519}
   m_Layer: 5
   m_Name: Pin
   m_TagString: Untagged
@@ -440,6 +441,18 @@ MonoBehaviour:
   inactiveAlpha: 0.5
   level: {fileID: 932959425770452521}
   price: {fileID: 932959426436343010}
+--- !u!114 &4493688200738364519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932959425642859921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53418dd439681948a835a15b3f90086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932959425770452523
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +853,7 @@ GameObject:
   - component: {fileID: 932959426796554516}
   - component: {fileID: 932959426796554515}
   - component: {fileID: 3937742255841875204}
+  - component: {fileID: 145615927}
   m_Layer: 5
   m_Name: Ball
   m_TagString: Untagged
@@ -994,6 +1008,18 @@ MonoBehaviour:
   inactiveAlpha: 0.5
   level: {fileID: 932959425334062150}
   price: {fileID: 932959426959005365}
+--- !u!114 &145615927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932959426796554521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb3ba11afd935047afb88eaad30638f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932959426912173730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,6 +1329,7 @@ GameObject:
   - component: {fileID: 932959427402336190}
   - component: {fileID: 932959427402336189}
   - component: {fileID: 3937742255135046881}
+  - component: {fileID: 7607557645876593362}
   m_Layer: 5
   m_Name: Platform
   m_TagString: Untagged
@@ -1458,6 +1485,18 @@ MonoBehaviour:
   inactiveAlpha: 0.5
   level: {fileID: 4203866230609482584}
   price: {fileID: 4203866229503007740}
+--- !u!114 &7607557645876593362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932959427402336163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ba78bce7d40384389714c7d4cb7e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932959427462583045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,6 +2276,7 @@ GameObject:
   - component: {fileID: 8679950944877022111}
   - component: {fileID: 1356953100661196389}
   - component: {fileID: 498681236794909248}
+  - component: {fileID: 6553865225105856172}
   m_Layer: 5
   m_Name: Merge
   m_TagString: Untagged
@@ -2263,7 +2303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 938.37, y: -395}
+  m_AnchoredPosition: {x: 643, y: -61}
   m_SizeDelta: {x: 304, y: 467}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &218071095824119643
@@ -2391,6 +2431,18 @@ MonoBehaviour:
   inactiveAlpha: 0.5
   level: {fileID: 2081369354187703104}
   price: {fileID: 4030512055305612165}
+--- !u!114 &6553865225105856172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886203224409462412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb70daeb483175744a739d83d5275b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7160148262044410696
 GameObject:
   m_ObjectHideFlags: 0

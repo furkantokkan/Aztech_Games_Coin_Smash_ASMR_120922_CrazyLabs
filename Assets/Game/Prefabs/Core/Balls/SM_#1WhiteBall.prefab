@@ -348,10 +348,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTrail: {fileID: 2624319589477751293}
-  _follower: {fileID: -5044590843199248366}
+  follower: {fileID: -5044590843199248366}
   fastTrailTime: 1.5
   ShootTrailTime: 0.5
   slowTrailTime: 0
+  trailFollowSpeed: 3.5
 --- !u!54 &998525829679917882
 Rigidbody:
   m_ObjectHideFlags: 0
