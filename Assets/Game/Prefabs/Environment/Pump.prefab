@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5257925102003179955}
   - component: {fileID: 5391903575826021141}
+  - component: {fileID: -2845010155184503607}
   m_Layer: 0
   m_Name: Pump
   m_TagString: Untagged
@@ -85,3 +86,16 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0.94491476}
     m_Extent: {x: 1, y: 1.2160938, z: 2.0380068}
   m_DirtyAABB: 0
+--- !u!114 &-2845010155184503607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060995969060283675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db8637993767ca4199d79ee8847bd3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1

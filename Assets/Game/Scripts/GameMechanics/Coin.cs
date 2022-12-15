@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour
             ballMovement.KillTheCurrentMoveTween();
             ballMovement.GetBackSequence();
             other.GetComponent<SphereCollider>().isTrigger = false;
-
+            EconomyManager.Instance.EarnMoney(10);
             //mySequence.Append(other.transform.DOJump(GameManager.Instance.platform.GetWarpHole().position, 1f, 1, 1, false).SetEase(Ease.Linear));
 
             //other.transform.DOJump(GameManager.Instance.platform.GetMoneyPlatformEdge().position, 1f, 1, 1f, false).OnComplete(delegate
