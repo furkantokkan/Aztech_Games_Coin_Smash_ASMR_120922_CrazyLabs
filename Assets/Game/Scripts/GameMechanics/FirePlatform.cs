@@ -47,8 +47,6 @@ public class FirePlatform : MonoBehaviour
                     parrentWeapon.DOLocalRotate(new Vector3(90f, 0f, 0f), resetAnimationTime, RotateMode.Fast);
                 });
             });
-
-
     }
 
     private void SendTheBallToTarget(Transform ball, Transform target)
@@ -73,5 +71,6 @@ public class FirePlatform : MonoBehaviour
             ballMovement.PreventOverrideFollowMode(false);
         });
         ballMovement.SetCurrentMoveTween(shootTween);
+        GetComponent<AudioSource>().Play();
     }
 }

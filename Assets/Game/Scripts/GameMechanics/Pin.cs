@@ -19,6 +19,7 @@ public class Pin : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
+            GetComponent<AudioSource>().Play();
             ballTween?.Kill();
             ballTween = arm.DOLocalRotate(new Vector3(0f, 0f, turnValue), turnTime, RotateMode.Fast).SetEase(easeType).OnComplete(delegate
             {
