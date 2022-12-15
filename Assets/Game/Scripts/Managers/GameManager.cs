@@ -15,10 +15,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float gameSpeedTime = 1.7f;
     [SerializeField] private float fastGameSpeedTime = 2f;
     [SerializeField] private float distanceBetweenBalss = 2.5f;
-    [SerializeField] private float maxBallCount = 8;
-    [SerializeField] private float maxUnlockAblePinCount = 3;
-    [SerializeField] private float pinCountMultipiler = 2;
-    [SerializeField] private float ballCountIncrease = 2;
+    [SerializeField] private int maxBallCount = 8;
+    [SerializeField] private int maxUnlockablePinCount = 3;
+    [SerializeField] private int pinCountIncrese = 3;
+    [SerializeField] private int ballCountIncrease = 2;
     [SerializeField] private UpgradeItemData ballData;
     [SerializeField] private UpgradeItemData mergeData;
     [SerializeField] private UpgradeItemData platformData;
@@ -51,19 +51,20 @@ public class GameManager : MonoBehaviour
         ballData.Initialize();
         platformData.Initialize();
         mergeData.Initialize();
+        pinData.Initialize();
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnPlatformLevelUp();
+            OnPinLevelUp();
         }
     }
     void Start()
     {
         platformData.OnLevelUp += OnPlatformLevelUp;
         ballData.OnLevelUp += OnBallLevelUp;
-
+        pinData.OnLevelUp += OnPinLevelUp;
         InputManager.Instance.onTouchStart += ListenInput;
         EconomyManager.Instance.EarnMoney(100000);
         Initialize();
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
     {
         platformData.OnLevelUp -= OnPlatformLevelUp;
         ballData.OnLevelUp -= OnBallLevelUp;
+        pinData.OnLevelUp -= OnPinLevelUp;
         InputManager.Instance.onTouchStart += ListenInput;
     }
 
@@ -85,7 +87,8 @@ public class GameManager : MonoBehaviour
         int ballCount = PlayerPrefs.GetInt(GameConst.BALL_COUNT_KEY, 0);
         int platformCount = PlayerPrefs.GetInt(GameConst.PLATFORM_COUNT_KEY, 0);
 
-        maxBallCount += platformData.currentLevel * ballCountIncrease;
+        maxBallCount += platformData.currentLevel <= 1 ? 0 : platformData.currentLevel * ballCountIncrease;
+        maxUnlockablePinCount += pinData.currentLevel <= 1 ? 0 : pinData.currentLevel * pinCountIncrese;
 
         //spawn ball
         platform.StartSpawnBalls(8);
@@ -170,6 +173,15 @@ public class GameManager : MonoBehaviour
 
         return false;
     }
+    public bool GetCanAddPins()
+    {
+        if (pinData.currentLevel <= maxUnlockablePinCount)
+        {
+            return true;
+        }
+
+        return false;
+    }
     public void ActivateInput(bool value = true)
     {
         takeInput = value;
@@ -178,10 +190,20 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("OnBallLevelUp");
         platform.SpawnNewBall(PoolItems.Ball1);
+        updateUI?.Invoke();
     }
+
+    public void OnPinLevelUp()
+    {
+        platform.UnlockPins(pinData.currentLevel - 1);
+        updateUI?.Invoke();
+    }
+
+  
 
     public void OnPlatformLevelUp()
     {
+        maxUnlockablePinCount += pinCountIncrese;
         maxBallCount += ballCountIncrease;
         platform.ActivateNewPlatformLevel(platformData.currentLevel);
         foreach (BallMovement ball in ActiveBalls)
@@ -190,6 +212,8 @@ public class GameManager : MonoBehaviour
             ball.SetSpline(platform.GetCurrentSplineComputer(), false);
             ball.ActivateSplineFollow(true);
         }
+        OnPinLevelUp();
+        updateUI?.Invoke();
     }
     private void OnLevelStart()
     {

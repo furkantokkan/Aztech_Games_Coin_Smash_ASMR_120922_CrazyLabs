@@ -6,6 +6,6 @@ public class PinButton : MonoBehaviour, IInteractable
 {
     public bool CanInteract()
     {
-        return true;
+        return GameManager.Instance.GetCanAddPins();
     }
 }

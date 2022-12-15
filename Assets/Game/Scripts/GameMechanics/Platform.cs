@@ -107,6 +107,20 @@ public class Platform : MonoBehaviour
             }
         }
     }
+    public void UnlockPins(int level)
+    {
+        for (int i = 0; i < platformPins.Count; i++)
+        {
+            if (i < level)
+            {
+                platformPins[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                platformPins[i].gameObject.SetActive(false);
+            }
+        }
+    }
     //public void SpawnBallToPath()
     //{
     //    //float splineLength = _spline.CalculateLength();

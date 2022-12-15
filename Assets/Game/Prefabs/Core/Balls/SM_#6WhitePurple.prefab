@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 159744179780914871}
   - component: {fileID: 4692745237590832049}
   - component: {fileID: 2324173603453861642}
+  - component: {fileID: 817257490160234970}
   m_Layer: 0
   m_Name: SM_#6WhitePurple
   m_TagString: Ball
@@ -369,3 +370,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &817257490160234970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245823715360082153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1371a95ea56ee488b6ca030147c938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

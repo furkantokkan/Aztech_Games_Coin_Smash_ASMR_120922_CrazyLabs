@@ -38,7 +38,7 @@ public class UpgradeItemData : ScriptableObject
 
     public void Initialize()
     {
-        currentLevel = PlayerPrefs.GetInt(name + "lvl", 0);
+        currentLevel = PlayerPrefs.GetInt(name + "lvl", 1);
         currentPrice = PlayerPrefs.GetFloat(name + "Price", startPrice);
         value = Mathf.Lerp(minValue, maxValue, valueCurve.Evaluate(currentLevel / (float)maxLevel));
     }
