@@ -18,9 +18,18 @@ public class Platform : MonoBehaviour
     [SerializeField] private float startYOffset;
     [SerializeField] private float endOffset = 23f;
 
+    public static event Action<GameObject> OnNewBallSpawned;
+
     private void Awake()
     {
 
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnNewBall(PoolItems.Ball1);
+        }
     }
     public SplineComputer GetCurrentSplineComputer()
     {
@@ -70,16 +79,28 @@ public class Platform : MonoBehaviour
 
         for (int i = 0; i < ballCount; i++)
         {
-            double travel = currentSpline.Travel(0.221f, i * distance, Spline.Direction.Forward);
+            double travel = currentSpline.Travel(GameConst.START_VALUE_KEY, i * distance, Spline.Direction.Forward);
             Vector3 pos = currentSpline.EvaluatePosition(travel);
             GameObject ball = Pool.instance.Get(PoolItems.Ball1);
             ball.transform.position = pos;
             BallMovement ballMovement = ball.GetComponent<BallMovement>();
             ballMovement.Platform = this;
             ballMovement.SetStartPosition(travel);
+            ballMovement.ActivateSplineFollow(true);
             ball.gameObject.SetActive(true);
             GameManager.Instance.ActiveBalls.Add(ballMovement);
         }
+    }
+    public void SpawnNewBall(PoolItems ballType)
+    {
+        GameObject ball = Pool.instance.Get(ballType);
+        ball.gameObject.SetActive(true);
+        BallMovement ballMovement = ball.GetComponent<BallMovement>();
+        ballMovement.Platform = this;
+        ballMovement.SetStartPosition(GameConst.START_VALUE_KEY);
+        ballMovement.ActivateSplineFollow(false);
+        OnNewBallSpawned?.Invoke(ball);
+        GameManager.Instance.ActiveBalls.Add(ballMovement);
     }
     public void ActivateNewPlatformLevel(int level)
     {

@@ -33,7 +33,7 @@ public class EconomyManager : MonoBehaviour
         return currentMoney;
     }
 
-    public void AddMoney(int amount)
+    public void EarnMoney(int amount)
     {
         currentMoney += amount;
         PlayerPrefs.SetInt(GameConst.MONEY_KEY, currentMoney);

@@ -11,6 +11,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float fastTrailTime = 1.5f;
     [SerializeField] private float ShootTrailTime = 0.5f;
     [SerializeField] private float slowTrailTime = 0f;
+    [SerializeField] private float trailFollowSpeed = 3.5f;
 
     private Platform platform;
 
@@ -25,8 +26,7 @@ public class BallMovement : MonoBehaviour
     {
         _follower.spline = platform.GetCurrentSplineComputer();
         _follower.onEndReached += OnEndOfThePath;
-        _follower.followSpeed = 3f;
-        ActivateSplineFollow(true);
+        _follower.followSpeed = trailFollowSpeed;
     }
     private void OnDisable()
     {

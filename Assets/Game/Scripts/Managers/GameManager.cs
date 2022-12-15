@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Design")]
     public Platform platform;
+    public float ballSpawnDistance = 4f;
     [SerializeField] private float gameSpeedTime = 1.7f;
     [SerializeField] private float fastGameSpeedTime = 2f;
     [SerializeField] private float distanceBetweenBalss = 2.5f;
@@ -21,8 +22,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UpgradeItemData pinData;
 
     public List<BallMovement> ActiveBalls = new List<BallMovement>();
-
-    private float _spawnTimer;
 
     //DEFAULT GAMEPLAY INTERVAL ==== 2.5F
     //BALL 2 REPLACED
@@ -47,15 +46,13 @@ public class GameManager : MonoBehaviour
         platformData.Initialize();
         mergeData.Initialize();
     }
-    private void Update()
-    {
-        print(Time.timeScale);
-    }
     void Start()
     {
         platformData?.Initialize();
         platformData.OnLevelUp += OnPlatformLevelUp;
+        ballData.OnLevelUp += OnBallLevelUp;
         InputManager.Instance.onTouchStart += ListenInput;
+        EconomyManager.Instance.EarnMoney(100000);
         Initialize();
     }
     private void OnDisable()
@@ -145,6 +142,10 @@ public class GameManager : MonoBehaviour
     public void ActivateInput(bool value = true)
     {
         takeInput = value;
+    }
+    public void OnBallLevelUp()
+    {
+        platform.SpawnNewBall(PoolItems.Ball1);
     }
     public void OnPlatformLevelUp()
     {
