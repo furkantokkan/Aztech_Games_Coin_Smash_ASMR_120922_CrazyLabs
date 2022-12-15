@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Design")]
     public Platform platform;
-    public Transform[] megrePoints;
-    public Transform middleMergePoint;
     public float ballSpawnDistance = 4f;
     [SerializeField] private float gameSpeedTime = 1.7f;
     [SerializeField] private float fastGameSpeedTime = 2f;
@@ -69,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnBallLevelUp();
+            Merge();
         }
     }
     void Start()
@@ -115,6 +113,43 @@ public class GameManager : MonoBehaviour
         canAddBall = true;
 
         updateUI?.Invoke();
+    }
+
+    public void Merge()
+    {
+        if (ActiveBalls.Count > 0)
+        {
+            //wait for merge end
+            Debug.Log("Merge Started");
+            for (int i = 0; i < 10; i++)
+            {
+                List<BallMovement> currentBalls = new List<BallMovement>();
+
+                for (int k = 0; k < ActiveBalls.Count; k++)
+                {
+                    if ((int)ActiveBalls[k].GetComponent<PoolElement>().value == i)
+                    {
+                        Debug.Log("Ball Added");
+                        currentBalls.Add(ActiveBalls[k]);
+                    }
+                }
+
+                if (currentBalls.Count >= 3)
+                {
+                    List<BallMovement> mergeBalls = new List<BallMovement>();
+                    mergeBalls.Add(currentBalls[0]);
+                    mergeBalls.Add(currentBalls[1]);
+                    mergeBalls.Add(currentBalls[2]);
+                    for (int z = 0; z < mergeBalls.Count; z++)
+                    {
+                        ActiveBalls.Remove(mergeBalls[z]);
+                    }
+                    Debug.Log("Activate Merge");
+                    BallAnimationSystem.Instance.ActivateMerge(mergeBalls.ToArray());
+                    break;
+                }
+            }
+        }
     }
 
     private void ListenInput()
@@ -204,8 +239,6 @@ public class GameManager : MonoBehaviour
         platform.UnlockPins(pinData.currentLevel - 1);
         updateUI?.Invoke();
     }
-
-  
 
     public void OnPlatformLevelUp()
     {

@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class MergeHandler : MonoBehaviour
 {
-   [SerializeField] private PoolItems evolveToThis;
+   [SerializeField] public PoolItems evolveToThis;
+
+    public void StartMerge()
+    {
+
+    }
 }

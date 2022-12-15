@@ -51,6 +51,15 @@ public class BallMovement : MonoBehaviour
         follower.onEndReached -= OnEndOfThePath;
     }
 
+    internal void MergeAction()
+    {
+        KillTheCurrentMoveTween();
+        Vector3 beforeCloseFollow = transform.position;
+        preventOverrideFollowMode = false;
+        ActivateSplineFollow(false);
+        transform.position = beforeCloseFollow;
+    }
+
     // Update is called once per frame
     public void ActivateTrail(bool isActive)
     {
