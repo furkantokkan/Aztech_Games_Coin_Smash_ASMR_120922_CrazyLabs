@@ -7,6 +7,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     public List<GameObject> platformLevels = new List<GameObject>();
+    public List<GameObject> platformPins = new List<GameObject>();
 
     [SerializeField] private SplineComputer currentSpline;
     [SerializeField] private FirePlatform firePlatform;

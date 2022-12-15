@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float fastGameSpeedTime = 2f;
     [SerializeField] private float distanceBetweenBalss = 2.5f;
     [SerializeField] private float maxBallCount = 8;
+    [SerializeField] private float maxUnlockAblePinCount = 3;
+    [SerializeField] private float pinCountMultipiler = 2;
     [SerializeField] private float ballCountIncrease = 2;
     [SerializeField] private UpgradeItemData ballData;
     [SerializeField] private UpgradeItemData mergeData;
