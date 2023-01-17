@@ -310,22 +310,22 @@ MonoBehaviour:
     forward: {x: 0, y: 0, z: 1}
     color: {r: 1, g: 1, b: 1, a: 1}
     size: 1
-    percent: 0
+    percent: 0.22580645161290322
   _finalResult:
     position: {x: 0, y: 0, z: 0}
     up: {x: 0, y: 1, z: 0}
     forward: {x: 0, y: 0, z: 1}
     color: {r: 1, g: 1, b: 1, a: 1}
     size: 1
-    percent: 0
+    percent: 0.22580645161290322
   wrapMode: 0
   followMode: 0
   autoStartPosition: 0
-  follow: 1
+  follow: 0
   preserveUniformSpeedWithOffset: 0
   _followSpeed: 1
   _followDuration: 1
-  _startPosition: 0
+  _startPosition: 0.22580645161290322
   _speedModifier:
     blend: 1
     keys: []
@@ -383,3 +383,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evolveToThis: 1
+  canMerge: 1

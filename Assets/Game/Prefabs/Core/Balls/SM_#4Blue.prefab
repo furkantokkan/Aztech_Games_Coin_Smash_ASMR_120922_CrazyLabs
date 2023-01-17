@@ -383,3 +383,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evolveToThis: 4
+  canMerge: 1

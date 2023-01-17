@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Merge();
+            StartMerge();
         }
     }
     void Start()
@@ -113,8 +113,7 @@ public class GameManager : MonoBehaviour
 
         updateUI?.Invoke();
     }
-
-    public void Merge()
+    public bool CheckCanMerge()
     {
         if (ActiveBalls.Count > 0)
         {
@@ -126,7 +125,35 @@ public class GameManager : MonoBehaviour
 
                 for (int k = 0; k < ActiveBalls.Count; k++)
                 {
-                    if ((int)ActiveBalls[k].GetComponent<PoolElement>().value == i)
+                    if ((int)ActiveBalls[k].GetComponent<PoolElement>().value == i && ActiveBalls[k].GetComponent<MergeHandler>().canMerge)
+                    {
+                        Debug.Log("Ball Added");
+                        currentBalls.Add(ActiveBalls[k]);
+                    }
+                }
+
+                if (currentBalls.Count >= 3)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+    public void StartMerge()
+    {
+        if (ActiveBalls.Count > 0)
+        {
+            //wait for merge end
+            Debug.Log("Merge Started");
+            for (int i = 0; i < 10; i++)
+            {
+                List<BallMovement> currentBalls = new List<BallMovement>();
+
+                for (int k = 0; k < ActiveBalls.Count; k++)
+                {
+                    if ((int)ActiveBalls[k].GetComponent<PoolElement>().value == i && ActiveBalls[k].GetComponent<MergeHandler>().canMerge)
                     {
                         Debug.Log("Ball Added");
                         currentBalls.Add(ActiveBalls[k]);
@@ -216,6 +243,15 @@ public class GameManager : MonoBehaviour
     public bool GetCanAddPins()
     {
         if (pinData.currentLevel <= maxUnlockablePinCount)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    public bool GetCanMergeBalls()
+    {
+        if (!BallAnimationSystem.Instance.onMergeProcess && CheckCanMerge()) 
         {
             return true;
         }

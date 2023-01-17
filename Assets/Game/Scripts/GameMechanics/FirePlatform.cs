@@ -22,6 +22,7 @@ public class FirePlatform : MonoBehaviour
         float targetAmount = 100f;
 
         parrentWeapon.transform.DOLookAt(target.position, animationTime, AxisConstraint.Z, Vector3.up);
+        ball.GetComponent<MergeHandler>().canMerge = false;
 
         DOTween.To(() => motion, x => motion = x, targetAmount, animationTime).OnUpdate(delegate
             {

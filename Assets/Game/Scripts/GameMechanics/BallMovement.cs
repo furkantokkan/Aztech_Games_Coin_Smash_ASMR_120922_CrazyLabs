@@ -129,6 +129,7 @@ public class BallMovement : MonoBehaviour
             SetSpline(platform.GetCurrentSplineComputer(), true);
             ActivateSplineFollow(true);
             GetComponent<SphereCollider>().isTrigger = true;
+            GetComponent<MergeHandler>().canMerge = true;
         });
     }
     public void PreventOverrideTrailTime(bool value)

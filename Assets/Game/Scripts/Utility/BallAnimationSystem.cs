@@ -9,20 +9,27 @@ public class BallAnimationSystem : MonoBehaviour
     private static BallAnimationSystem _instance;
     public static BallAnimationSystem Instance { get { return _instance; } }
 
+    internal bool onMergeProcess;
 
     public Transform Path1;
     public Transform Path2;
     public Transform Path3;
 
-    public Animator Animator;
-    public Transform AnimationParent;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float animationSpeed = 2f;
+    [SerializeField] private float getBackTime = 5f;
+    [SerializeField] private float pathFinishTime = 3f;
+    [SerializeField] private float angeYOffset = 4f;
+    [SerializeField] private float angeXOffset = 4f;
 
-    public float AnimationSpeed;
     public Transform BallSpawnPosition;
 
-    private Vector3[] Path1Positions = new Vector3[2];
-    private Vector3[] Path2Positions = new Vector3[2];
-    private Vector3[] Path3Positions = new Vector3[2];
+    private Vector3[] Path1Positions = new Vector3[3];
+    private Vector3[] Path2Positions = new Vector3[3];
+    private Vector3[] Path3Positions = new Vector3[3];
+    private Vector3[] GetBackPath = new Vector3[3];
+
+    private BallMovement[] ballsArray;
 
     private void Awake()
     {
@@ -31,52 +38,88 @@ public class BallAnimationSystem : MonoBehaviour
             _instance = this;
         }
     }
+    private void Update()
+    {
+        if (Path1Positions[0] == Vector3.zero)
+        {
+            return;
+        }
+        Debug.DrawLine(Path1Positions[0], Path1Positions[1]);
+    }
     public void ActivateMerge(BallMovement[] balls)
     {
+        onMergeProcess = true;
+        ballsArray = balls;
 
         for (int i = 0; i < balls.Length; i++)
         {
-            balls[i].MergeAction();
+            ballsArray[i].MergeAction();
         }
 
-        Path1Positions[0] = balls[0].transform.position;
-        Path2Positions[0] = balls[1].transform.position;
-        Path3Positions[0] = balls[2].transform.position;
+        Path1Positions[0] = ballsArray[0].transform.position;
+        Path2Positions[0] = ballsArray[1].transform.position;
+        Path3Positions[0] = ballsArray[2].transform.position;
+        GetBackPath[0] = BallSpawnPosition.position;
 
-        Path1Positions[1] = Path1.position;
-        Path2Positions[1] = Path2.position;
-        Path3Positions[1] = Path3.position;
+        Path1Positions[1] = Lerp(ballsArray[0].transform.position, Path1.position, 0.53f) + new Vector3(0f, angeYOffset, 0f);
+        Path2Positions[1] = Lerp(ballsArray[1].transform.position, Path2.position, 0.53f) + new Vector3(angeXOffset, angeYOffset, 0f);
+        Path3Positions[1] = Lerp(ballsArray[2].transform.position, Path3.position, 0.53f) + new Vector3(-angeXOffset, angeYOffset, 0f);
+        GetBackPath[1] = Lerp(BallSpawnPosition.position, PumpStart.Instance.transform.position, 0.53f) + new Vector3(0f, angeYOffset, 0f); ;
 
-        Sequence ballAnimations = DOTween.Sequence();
+        Path1Positions[2] = Path1.position;
+        Path2Positions[2] = Path2.position;
+        Path3Positions[2] = Path3.position;
+        GetBackPath[2] = PumpStart.Instance.transform.position;
 
-        ballAnimations.Join(balls[0].transform.DOPath(Path1Positions, AnimationSpeed, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None));
-        ballAnimations.Join(balls[1].transform.DOPath(Path2Positions, AnimationSpeed, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None));
-        ballAnimations.Join(balls[2].transform.DOPath(Path3Positions, AnimationSpeed, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None));
-        ballAnimations.OnComplete(() =>
+        Sequence ballPathAnimations = DOTween.Sequence();
+
+        ballPathAnimations.Join(ballsArray[0].transform.DOPath(Path1Positions, pathFinishTime, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None));
+        ballPathAnimations.Join(ballsArray[1].transform.DOPath(Path2Positions, pathFinishTime, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None));
+        ballPathAnimations.Join(ballsArray[2].transform.DOPath(Path3Positions, pathFinishTime, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None));
+        ballPathAnimations.OnComplete(() =>
         {
-            BallSpawnPosition.transform.DORotate(new Vector3(360f, 360f, 360f), 1.5f, RotateMode.FastBeyond360).SetLoops(1).OnStart(delegate
-            {
-                balls[0].transform.DOMove(BallSpawnPosition.position, 1f, false);
-                balls[1].transform.DOMove(BallSpawnPosition.position, 1f, false);
-                balls[2].transform.DOMove(BallSpawnPosition.position, 1f, false);
-            }).OnComplete(delegate
-             {
-                 BallMovement currentBall = Pool.instance.Get(balls[0].GetComponent<MergeHandler>().evolveToThis).GetComponent<BallMovement>();
-                 currentBall.GetComponent<SplineFollower>().enabled = false;
-                 currentBall.gameObject.SetActive(true);
-                 currentBall.transform.position = BallSpawnPosition.position;
-                 currentBall.transform.DOMove(PumpStart.Instance.transform.position, 2f, false).OnComplete(delegate
-                 {
-                     currentBall.gameObject.SetActive(false);
-                     GameManager.Instance.ActiveBalls.Remove(currentBall);
-                     GameManager.Instance.platform.SpawnNewBall(balls[0].GetComponent<MergeHandler>().evolveToThis);
-                 });
-                 for (int i = 0; i < balls.Length; i++)
-                 {
-                     balls[i].gameObject.SetActive(false);
-                 }
-             });
+            ballsArray[0].transform.position = Path1.position;
+            ballsArray[1].transform.position = Path2.position;
+            ballsArray[2].transform.position = Path3.position;
 
+            ballsArray[0].transform.SetParent(Path1);
+            ballsArray[1].transform.SetParent(Path2);
+            ballsArray[2].transform.SetParent(Path3);
+            animator.SetBool("Rotate", true);
+            animator.speed = animationSpeed;
         });
+    }
+    private void GetBackSequence()
+    {
+
+        //ballRotateAnimations.Join(Path1.transform.DOMove(BallSpawnPosition.position, getBackTime, false));
+        //ballRotateAnimations.Join(Path2.transform.DOMove(BallSpawnPosition.position, getBackTime, false));
+        //ballRotateAnimations.Join(Path3.transform.DOMove(BallSpawnPosition.position, getBackTime, false));
+
+        //ballRotateAnimations.OnComplete(() =>
+        //{
+        Debug.Log("Get Back To Platform");
+        animator.SetBool("Rotate", false);
+
+        BallMovement currentBall = Pool.instance.Get(ballsArray[0].GetComponent<MergeHandler>().evolveToThis).GetComponent<BallMovement>();
+        currentBall.GetComponent<SplineFollower>().enabled = false;
+        currentBall.gameObject.SetActive(true);
+        currentBall.transform.position = BallSpawnPosition.position;
+
+        currentBall.transform.DOPath(GetBackPath, pathFinishTime, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None).OnComplete(delegate
+        {
+            onMergeProcess = false;
+        });
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].transform.SetParent(Pool.instance.transform);
+            ballsArray[i].gameObject.SetActive(false);
+        }
+        //});
+    }
+    Vector3 Lerp(Vector3 start, Vector3 end, float percent)
+    {
+        return (start + percent * (end - start));
     }
 }
