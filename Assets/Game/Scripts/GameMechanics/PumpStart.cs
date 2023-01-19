@@ -21,13 +21,20 @@ public class PumpStart : MonoBehaviour
     void Start()
     {
         Platform.OnNewBallSpawned += OnAddNewBall;
+        Platform.OnNewBallAdded += OnAddNewBall;
+    }
+    private void OnDisable()
+    {
+        Platform.OnNewBallSpawned -= OnAddNewBall;
+        Platform.OnNewBallAdded -= OnAddNewBall;
     }
 
-    private void OnAddNewBall(GameObject ball)
+    public void OnAddNewBall(GameObject ball)
     {
         StartCoroutine(WaitForOtherBalls(ball));
         ball.transform.position = transform.position;
         GameManager.Instance.SetCanAddBall(false);
+        GameManager.Instance.SetCanMerge(false);
 
         float motion = 100f;
         float targetAmount = 0f;
@@ -64,6 +71,14 @@ public class PumpStart : MonoBehaviour
             BallMovement currentBallMovement = newBall.GetComponent<BallMovement>();
             lookUp.AddRange(GameManager.Instance.ActiveBalls);
             lookUp.Remove(currentBallMovement);
+            if (lookUp.Count <= 1)
+            {
+                currentBallMovement.ActivateSplineFollow(true);
+                GameManager.Instance.SetCanAddBall(true);
+                GameManager.Instance.SetCanMerge(true);
+                finished = true;
+                break;
+            }
             print(lookUp.Count);
             for (int i = 0; i < lookUp.Count; i++)
             {
@@ -84,16 +99,10 @@ public class PumpStart : MonoBehaviour
 
                     if (checkedCount >= lookUp.Count - 1)
                     {
-                        float distance1 = Vector3.Distance(newBall.transform.position, new Vector3(lookUp[0].transform.position.x, newBall.transform.position.y, lookUp[0].transform.position.z));
-
-                        if (distance1 < GameManager.Instance.ballSpawnDistance)
-                        {
-                            checkedCount = 0;
-                            break;
-                        }
                         Debug.Log("Ball Can Move, Current Count Is: " + checkedCount);
                         currentBallMovement.ActivateSplineFollow(true);
                         GameManager.Instance.SetCanAddBall(true);
+                        GameManager.Instance.SetCanMerge(true);
                         finished = true;
                         yield break;
                     }

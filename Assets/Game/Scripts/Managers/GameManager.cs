@@ -69,6 +69,10 @@ public class GameManager : MonoBehaviour
         {
             StartMerge();
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            OnBallLevelUp();
+        }
     }
     void Start()
     {
@@ -95,7 +99,7 @@ public class GameManager : MonoBehaviour
         //late
         platform.ActivateNewPlatformLevel(platformData.currentLevel);
         platform.UnlockPins(pinData.currentLevel - 1);
-        platform.StartSpawnBalls(8);
+        platform.StartSpawnBalls(3);
 
         ActivateInput(true);
 
@@ -231,6 +235,10 @@ public class GameManager : MonoBehaviour
     {
         canAddBall = value;
     }
+    public void SetCanMerge(bool value)
+    {
+        canMerge = value;
+    }
     public bool GetCanAddBall()
     {
         if (ActiveBalls.Count < maxBallCount && canAddBall)
@@ -251,7 +259,7 @@ public class GameManager : MonoBehaviour
     }
     public bool GetCanMergeBalls()
     {
-        if (!BallAnimationSystem.Instance.onMergeProcess && CheckCanMerge()) 
+        if (!BallAnimationSystem.Instance.onMergeProcess && CheckCanMerge() && canMerge) 
         {
             return true;
         }

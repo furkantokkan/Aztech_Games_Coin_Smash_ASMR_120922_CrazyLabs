@@ -19,12 +19,14 @@ public class Platform : MonoBehaviour
     [SerializeField] private float startYOffset;
     [SerializeField] private float endOffset = 23f;
 
-    public static event Action<GameObject> OnNewBallSpawned;
+    public static Action<GameObject> OnNewBallSpawned;
+    public static event Action<GameObject> OnNewBallAdded;
 
     public SplineComputer GetCurrentSplineComputer()
     {
         if (currentSpline == null)
         {
+            Debug.LogError("Spline is null in platfom");
             return null;
         }
         return currentSpline;
@@ -75,9 +77,10 @@ public class Platform : MonoBehaviour
         {
             double travel = currentSpline.Travel(GameConst.START_VALUE_KEY, i * distance, Spline.Direction.Forward);
             Vector3 pos = currentSpline.EvaluatePosition(travel);
-            GameObject ball = Pool.instance.Get(PoolItems.Ball1);
+            GameObject ball = Pool.instance.Get(PoolItems.Ball2);
             ball.transform.position = pos;
             BallMovement ballMovement = ball.GetComponent<BallMovement>();
+            ballMovement.Initialization();
             ballMovement.Platform = this;
             ballMovement.SetStartPosition(travel);
             ballMovement.ActivateSplineFollow(true);
@@ -89,14 +92,15 @@ public class Platform : MonoBehaviour
     {
         GameObject ball = Pool.instance.Get(ballType);
         ball.gameObject.SetActive(true);
-        BallMovement ballMovement = ball.GetComponent<BallMovement>();
-        ballMovement.Platform = this;
+        ball.GetComponent<BallMovement>().SetSpline(currentSpline, true);
+        ball.GetComponent<BallMovement>().Initialization();
+        ball.GetComponent<BallMovement>().Platform = this;
         SplineSample result = new SplineSample();
         result = currentSpline.Project(GetStartPostion(), 0, 1);
-        ballMovement.SetStartPosition(result.percent);
-        ballMovement.ActivateSplineFollow(false);
+        ball.GetComponent<SplineFollower>().startPosition = result.percent;
+        ball.GetComponent<BallMovement>().ActivateSplineFollow(false);
+        GameManager.Instance.ActiveBalls.Add(ball.GetComponent<BallMovement>());
         OnNewBallSpawned?.Invoke(ball);
-        GameManager.Instance.ActiveBalls.Add(ballMovement);
     }
     public void ActivateNewPlatformLevel(int level)
     {

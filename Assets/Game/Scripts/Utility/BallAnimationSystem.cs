@@ -38,14 +38,6 @@ public class BallAnimationSystem : MonoBehaviour
             _instance = this;
         }
     }
-    private void Update()
-    {
-        if (Path1Positions[0] == Vector3.zero)
-        {
-            return;
-        }
-        Debug.DrawLine(Path1Positions[0], Path1Positions[1]);
-    }
     public void ActivateMerge(BallMovement[] balls)
     {
         onMergeProcess = true;
@@ -89,6 +81,7 @@ public class BallAnimationSystem : MonoBehaviour
             animator.speed = animationSpeed;
         });
     }
+    /*Call Back*/
     private void GetBackSequence()
     {
 
@@ -101,14 +94,14 @@ public class BallAnimationSystem : MonoBehaviour
         Debug.Log("Get Back To Platform");
         animator.SetBool("Rotate", false);
 
-        BallMovement currentBall = Pool.instance.Get(ballsArray[0].GetComponent<MergeHandler>().evolveToThis).GetComponent<BallMovement>();
-        currentBall.GetComponent<SplineFollower>().enabled = false;
+        GameObject currentBall = Pool.instance.Get(ballsArray[0].GetComponent<MergeHandler>().evolveToThis);
         currentBall.gameObject.SetActive(true);
         currentBall.transform.position = BallSpawnPosition.position;
+        currentBall.GetComponent<SplineFollower>().enabled = false;
 
         currentBall.transform.DOPath(GetBackPath, pathFinishTime, PathType.CatmullRom).SetEase(Ease.Linear).SetLookAt(0.05f).SetOptions(false, AxisConstraint.None, AxisConstraint.None).OnComplete(delegate
         {
-            onMergeProcess = false;
+            OnFinishPath(currentBall);
         });
 
         for (int i = 0; i < ballsArray.Length; i++)
@@ -116,7 +109,24 @@ public class BallAnimationSystem : MonoBehaviour
             ballsArray[i].transform.SetParent(Pool.instance.transform);
             ballsArray[i].gameObject.SetActive(false);
         }
-        //});
+    }
+    private void OnFinishPath(GameObject currentBall)
+    {
+        currentBall.GetComponent<SplineFollower>().enabled = true;
+        currentBall.gameObject.SetActive(false);
+
+        GameObject ball = Pool.instance.Get(currentBall.GetComponent<PoolElement>().value);
+        ball.gameObject.SetActive(true);
+        ball.GetComponent<SplineFollower>().spline = GameManager.Instance.platform.GetCurrentSplineComputer();
+        ball.GetComponent<BallMovement>().Initialization();
+        ball.GetComponent<BallMovement>().Platform = GameManager.Instance.platform;
+        SplineSample result = new SplineSample();
+        result = GameManager.Instance.platform.GetCurrentSplineComputer().Project(GameManager.Instance.platform.GetStartPostion(), 0, 1);
+        ball.GetComponent<SplineFollower>().startPosition = result.percent;
+        ball.GetComponent<BallMovement>().ActivateSplineFollow(false);
+        GameManager.Instance.ActiveBalls.Add(ball.GetComponent<BallMovement>());
+        Platform.OnNewBallSpawned?.Invoke(ball);
+        onMergeProcess = false;
     }
     Vector3 Lerp(Vector3 start, Vector3 end, float percent)
     {

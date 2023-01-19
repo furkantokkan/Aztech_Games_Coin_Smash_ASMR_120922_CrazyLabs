@@ -52,7 +52,7 @@ public class Coin : MonoBehaviour
             item.SetActive(true);
             item.GetComponent<Rigidbody>().useGravity = true;
             item.GetComponent<Rigidbody>().isKinematic = false;
-            item.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * 125f, ForceMode.Impulse);
+            item.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * 100f, ForceMode.Impulse);
             item.transform.DOScale(0.1f, notVisibleTime).SetEase(Ease.InCirc).SetDelay(0.12f);
         }
 
@@ -64,6 +64,7 @@ public class Coin : MonoBehaviour
             item.GetComponent<Rigidbody>().useGravity = false;
             item.GetComponent<Rigidbody>().isKinematic = true;
             item.transform.localScale = Vector3.one;
+            item.transform.position = Vector3.zero;
         }
         MakeVisible();
     }

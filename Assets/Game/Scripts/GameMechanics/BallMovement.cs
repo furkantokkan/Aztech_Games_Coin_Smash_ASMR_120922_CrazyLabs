@@ -27,28 +27,20 @@ public class BallMovement : MonoBehaviour
 
     // Start is called before the first frame update
 
-    IEnumerator Start()
+    public void Initialization()
     {
-        do
-        {
-            try
-            {
-                follower.spline = platform.GetCurrentSplineComputer();
-            }
-            catch 
-            {
-
-            }
-            yield return null;
-        } while (follower.spline == null);
-
+        Debug.Log("Code Working");
+        follower = GetComponent<SplineFollower>();
+        platform = GameManager.Instance.platform;
         follower.onEndReached += OnEndOfThePath;
-        follower.followSpeed = trailFollowSpeed;
         follower.onMotionApplied += OnBallStartToMove;
+        follower.followSpeed = trailFollowSpeed;
     }
+
     private void OnDisable()
     {
         follower.onEndReached -= OnEndOfThePath;
+        follower.onMotionApplied -= OnBallStartToMove;
     }
 
     private void Update()
@@ -64,6 +56,7 @@ public class BallMovement : MonoBehaviour
         Vector3 beforeCloseFollow = transform.position;
         preventOverrideFollowMode = false;
         ActivateSplineFollow(false);
+        GetComponent<SplineFollower>().enabled = false;
         transform.position = beforeCloseFollow;
     }
 
