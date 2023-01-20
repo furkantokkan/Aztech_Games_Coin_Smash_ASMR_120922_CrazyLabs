@@ -218,22 +218,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3513400181316958624, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1859271510}
-    - target: {fileID: 3513400181978185375, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1859271510}
-    - target: {fileID: 6773152022044854130, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1859271510}
-    - target: {fileID: 6773152022149073221, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1859271510}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
 --- !u!1 &126315646
@@ -274,7 +258,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1683064851}
   m_Follow: {fileID: 1683064851}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 66
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -687,7 +671,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 66
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1068,6 +1052,7 @@ MonoBehaviour:
   platformData: {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}
   pinData: {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
   ActiveBalls: []
+  virtualCamera: {fileID: 126315647}
 --- !u!4 &1652821095
 Transform:
   m_ObjectHideFlags: 0

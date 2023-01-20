@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dreamteck.Splines;
 using System;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UpgradeItemData pinData;
 
     public List<BallMovement> ActiveBalls = new List<BallMovement>();
-
+    public CinemachineVirtualCamera virtualCamera;
     public UpgradeItemData PlatformData => platformData;
 
     //DEFAULT GAMEPLAY INTERVAL ==== 2.5F
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
         ballData.OnLevelUp += OnBallLevelUp;
         pinData.OnLevelUp += OnPinLevelUp;
         InputManager.Instance.onTouchStart += ListenInput;
+        virtualCamera.m_Lens.FieldOfView = 50 + maxBallCount;
         Initialize();
     }
     private void OnDisable()
@@ -287,6 +289,7 @@ public class GameManager : MonoBehaviour
     {
         maxUnlockablePinCount += pinCountIncrese;
         maxBallCount += ballCountIncrease;
+        virtualCamera.m_Lens.FieldOfView = 50 + maxBallCount;
         platform.ActivateNewPlatformLevel(platformData.currentLevel);
         foreach (BallMovement ball in ActiveBalls)
         {

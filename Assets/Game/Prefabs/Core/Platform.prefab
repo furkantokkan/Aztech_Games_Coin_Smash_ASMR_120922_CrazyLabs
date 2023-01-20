@@ -71,6 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683064851}
+  - component: {fileID: 2005331379}
   m_Layer: 0
   m_Name: Cam POS
   m_TagString: Untagged
@@ -93,6 +94,19 @@ Transform:
   m_Father: {fileID: 7341240565858969258}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -43.784, z: 0}
+--- !u!114 &2005331379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683064850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ca9949996530f4f943fb28379546e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 200
 --- !u!1 &91036394133725456
 GameObject:
   m_ObjectHideFlags: 0
