@@ -42,14 +42,7 @@ public class BallMovement : MonoBehaviour
         follower.onEndReached -= OnEndOfThePath;
         follower.onMotionApplied -= OnBallStartToMove;
     }
-
-    private void Update()
-    {
-        if (UIManager.Instance.material)
-            GetComponent<Renderer>().material = UIManager.Instance.FirstMaterials[0];
-        else GetComponent<Renderer>().material = UIManager.Instance.SecondMaterials[0];
-    }
-
+    
     internal void MergeAction()
     {
         KillTheCurrentMoveTween();
