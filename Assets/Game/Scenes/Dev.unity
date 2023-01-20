@@ -398,7 +398,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126315646}
-  m_LocalRotation: {x: -5.0309986e-23, y: 0.973249, z: -0.22975291, w: 1.7763568e-15}
+  m_LocalRotation: {x: -0.0000000068471717, y: 0.973249, z: -0.22975294, w: -0.000000029005083}
   m_LocalPosition: {x: 6.9756675, y: 7.1546183, z: 29.45919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -604,6 +604,22 @@ MonoBehaviour:
   - prefab: {fileID: 6553281454223762155, guid: 9437f2ee4be9c3642902eb3bdfbf87f8, type: 3}
     amount: 5
     id: 5
+    expandAble: 1
+  - prefab: {fileID: 6553281454223762155, guid: 46461daced9a6c54d9d5cdbf0b2583eb, type: 3}
+    amount: 5
+    id: 6
+    expandAble: 1
+  - prefab: {fileID: 6553281454223762155, guid: b48881b940d6f184f9e2d315f003a089, type: 3}
+    amount: 5
+    id: 7
+    expandAble: 1
+  - prefab: {fileID: 6553281454223762155, guid: 2d519e945c309ba499d16faad6189ac2, type: 3}
+    amount: 5
+    id: 8
+    expandAble: 1
+  - prefab: {fileID: 6553281454223762155, guid: 919f2925c522c2945917d44fb5c13b49, type: 3}
+    amount: 5
+    id: 9
     expandAble: 1
   SpawnedItems: []
 --- !u!4 &381329853
@@ -978,7 +994,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -5.0309986e-23, y: 0.973249, z: -0.22975291, w: 1.7763568e-15}
+  m_LocalRotation: {x: -0.0000000068471717, y: 0.973249, z: -0.22975294, w: -0.000000029005083}
   m_LocalPosition: {x: 8.543274, y: 19.977222, z: 44.379337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
