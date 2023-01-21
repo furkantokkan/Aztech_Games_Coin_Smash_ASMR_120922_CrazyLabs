@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UpgradeItemData mergeData;
     [SerializeField] private UpgradeItemData platformData;
     [SerializeField] private UpgradeItemData pinData;
+    [SerializeField] private UpgradeItemData nextLevelData;
 
     public List<BallMovement> ActiveBalls = new List<BallMovement>();
     public CinemachineVirtualCamera virtualCamera;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
         platformData.Initialize();
         mergeData.Initialize();
         pinData.Initialize();
+        nextLevelData.Initialize();
 
         //early
         int ballCount = PlayerPrefs.GetInt(GameConst.BALL_COUNT_KEY, 0);
@@ -63,6 +65,27 @@ public class GameManager : MonoBehaviour
         maxBallCount += platformData.currentLevel <= 1 ? 0 : platformData.currentLevel * ballCountIncrease;
         maxUnlockablePinCount += pinData.currentLevel <= 1 ? 0 : pinData.currentLevel * pinCountIncrese;
         //spawn ball
+    }
+
+    void Start()
+    {
+        platformData.OnLevelUp += OnPlatformLevelUp;
+        ballData.OnLevelUp += OnBallLevelUp;
+        pinData.OnLevelUp += OnPinLevelUp;
+        mergeData.OnLevelUp += StartMerge;
+        nextLevelData.OnLevelUp += OnNextLevel;
+        InputManager.Instance.onTouchStart += ListenInput;
+        virtualCamera.m_Lens.FieldOfView = 50 + maxBallCount;
+        Initialize();
+    }
+    private void OnDisable()
+    {
+        platformData.OnLevelUp -= OnPlatformLevelUp;
+        ballData.OnLevelUp -= OnBallLevelUp;
+        pinData.OnLevelUp -= OnPinLevelUp;
+        mergeData.OnLevelUp -= StartMerge;
+        nextLevelData.OnLevelUp -= OnNextLevel;
+        InputManager.Instance.onTouchStart -= ListenInput;
     }
     private void Update()
     {
@@ -75,23 +98,6 @@ public class GameManager : MonoBehaviour
             OnBallLevelUp();
         }
     }
-    void Start()
-    {
-        platformData.OnLevelUp += OnPlatformLevelUp;
-        ballData.OnLevelUp += OnBallLevelUp;
-        pinData.OnLevelUp += OnPinLevelUp;
-        InputManager.Instance.onTouchStart += ListenInput;
-        virtualCamera.m_Lens.FieldOfView = 50 + maxBallCount;
-        Initialize();
-    }
-    private void OnDisable()
-    {
-        platformData.OnLevelUp -= OnPlatformLevelUp;
-        ballData.OnLevelUp -= OnBallLevelUp;
-        pinData.OnLevelUp -= OnPinLevelUp;
-        InputManager.Instance.onTouchStart += ListenInput;
-    }
-
     public void SetTime(float timeScaleValue)
     {
         Time.timeScale = timeScaleValue;
@@ -300,9 +306,8 @@ public class GameManager : MonoBehaviour
         OnPinLevelUp();
         updateUI?.Invoke();
     }
-    private void OnLevelStart()
+    private void OnNextLevel()
     {
 
     }
-
 }
