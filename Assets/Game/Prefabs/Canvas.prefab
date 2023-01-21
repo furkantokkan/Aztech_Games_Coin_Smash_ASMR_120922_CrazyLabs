@@ -59,10 +59,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}
   - {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
   - {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
+  - {fileID: 11400000, guid: bacecce794839724bbbb4701dcc709fd, type: 2}
+  - {fileID: 11400000, guid: ccf0f5af1d73ad64b852e4a24a1fd6d2, type: 2}
   upgradeButtons:
   - {fileID: 3513400180892831069}
   - {fileID: 3513400180962049826}
   - {fileID: 3513400182446836541}
+  - {fileID: 5196685014976861881}
+  - {fileID: 7048034995529173025}
 --- !u!225 &762578150326185135
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5587,7 +5591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9c21423e449864598b0831d4a4a2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
+  item: {fileID: 11400000, guid: bacecce794839724bbbb4701dcc709fd, type: 2}
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
