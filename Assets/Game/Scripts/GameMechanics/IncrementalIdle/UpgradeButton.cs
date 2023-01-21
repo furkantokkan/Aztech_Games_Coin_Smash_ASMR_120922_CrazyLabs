@@ -34,13 +34,12 @@ public class UpgradeButton : MonoBehaviour
     {
         EconomyManager.Instance.onSpendMoney -= UpdateButton;
         GameManager.Instance.updateUI -= UpdateButton;
-        BallMovement.onBallsStartToMove -= UpdateButton;
     }
     public void Initialize()
     {
         group = GetComponent<CanvasGroup>();
         EconomyManager.Instance.onSpendMoney += UpdateButton;
-        BallMovement.onBallsStartToMove += UpdateButton;
+        BallMovement.onBallsStartToMove += OnBallStartToMove;
         GameManager.Instance.updateUI += UpdateButton;
         UpdateButton();
     }
@@ -48,6 +47,12 @@ public class UpgradeButton : MonoBehaviour
     public void UpdateButton()
     {
         SetupUI();
+    }
+
+    private void OnBallStartToMove()
+    {
+        UpdateButton();
+        BallMovement.onBallsStartToMove -= OnBallStartToMove;
     }
 
     public void SetupUI()

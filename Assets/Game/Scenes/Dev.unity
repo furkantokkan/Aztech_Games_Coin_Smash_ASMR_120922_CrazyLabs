@@ -1051,6 +1051,7 @@ MonoBehaviour:
   mergeData: {fileID: 11400000, guid: ccf0f5af1d73ad64b852e4a24a1fd6d2, type: 2}
   platformData: {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}
   pinData: {fileID: 11400000, guid: c971751ac8fc4f44b86ce6b7b9b74b17, type: 2}
+  nextLevelData: {fileID: 11400000, guid: bacecce794839724bbbb4701dcc709fd, type: 2}
   ActiveBalls: []
   virtualCamera: {fileID: 126315647}
 --- !u!4 &1652821095

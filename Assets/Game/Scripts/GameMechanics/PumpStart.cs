@@ -82,40 +82,32 @@ public class PumpStart : MonoBehaviour
             print(lookUp.Count);
             for (int i = 0; i < lookUp.Count; i++)
             {
-                float distance = Vector3.Distance(newBall.transform.position, new Vector3(lookUp[i].transform.position.x, newBall.transform.position.y, lookUp[i].transform.position.z));
+                float distance = Vector3.Distance(currentBallMovement.transform.position, new Vector3(lookUp[i].transform.position.x, lookUp[i].transform.position.y, lookUp[i].transform.position.z));
                 if (distance >= GameManager.Instance.ballSpawnDistance)
                 {
                     checkedCount += 1;
                 }
-                else
-                {
-                    checkedCount = 0;
-                }
 
-
-                if (i >= lookUp.Count - 1)
-                {
-                    Debug.Log("End Of List, Checked Count: " + checkedCount);
-
-                    if (checkedCount >= lookUp.Count - 1)
-                    {
-                        Debug.Log("Ball Can Move, Current Count Is: " + checkedCount);
-                        currentBallMovement.ActivateSplineFollow(true);
-                        GameManager.Instance.SetCanAddBall(true);
-                        GameManager.Instance.SetCanMerge(true);
-                        finished = true;
-                        yield break;
-                    }
-                    else
-                    {
-                        Debug.Log("List is broked, current count is: " + checkedCount);
-                        checkedCount = 0;
-                        break;
-                    }
-                }
-
+                Debug.Log("Ball Can't Move, Current Count Is: " + checkedCount + " Current Index Is: " + i);
                 yield return null;
             }
+
+            if (checkedCount >= lookUp.Count)
+            {
+                Debug.Log("Ball Can Move, Current Count Is: " + checkedCount);
+                currentBallMovement.ActivateSplineFollow(true);
+                GameManager.Instance.SetCanAddBall(true);
+                GameManager.Instance.SetCanMerge(true);
+                finished = true;
+                yield break;
+            }
+            else
+            {
+                Debug.Log("List is broked, current count is: " + checkedCount);
+                checkedCount = 0;
+                yield return null;
+            }
+
         }
     }
 }

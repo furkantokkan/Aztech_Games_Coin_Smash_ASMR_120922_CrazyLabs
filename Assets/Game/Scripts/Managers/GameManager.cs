@@ -130,7 +130,6 @@ public class GameManager : MonoBehaviour
         if (ActiveBalls.Count > 0)
         {
             //wait for merge end
-            Debug.Log("Merge Started");
             for (int i = 0; i < 10; i++)
             {
                 List<BallMovement> currentBalls = new List<BallMovement>();
@@ -139,7 +138,6 @@ public class GameManager : MonoBehaviour
                 {
                     if ((int)ActiveBalls[k].GetComponent<PoolElement>().value == i && ActiveBalls[k].GetComponent<MergeHandler>().canMerge)
                     {
-                        Debug.Log("Ball Added");
                         currentBalls.Add(ActiveBalls[k]);
                     }
                 }
@@ -184,6 +182,7 @@ public class GameManager : MonoBehaviour
                     }
                     Debug.Log("Activate Merge");
                     BallAnimationSystem.Instance.ActivateMerge(mergeBalls.ToArray());
+                    updateUI?.Invoke();
                     break;
                 }
             }
@@ -308,6 +307,6 @@ public class GameManager : MonoBehaviour
     }
     private void OnNextLevel()
     {
-
+        updateUI?.Invoke();
     }
 }
