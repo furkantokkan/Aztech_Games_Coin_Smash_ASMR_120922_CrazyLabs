@@ -37,14 +37,7 @@ public class Coin : MonoBehaviour
             StartCoroutine(DestructionProcess());
         }
     }
-
-    private void Update()
-    {
-        if (UIManager.Instance.material)
-            GetComponent<Renderer>().material = UIManager.Instance.FirstMaterials[2];
-        else GetComponent<Renderer>().material = UIManager.Instance.SecondMaterials[2];
-    }
-
+    
     private IEnumerator DestructionProcess()
     {
         foreach (GameObject item in childs)

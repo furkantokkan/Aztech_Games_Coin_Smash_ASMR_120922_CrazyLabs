@@ -7,7 +7,6 @@ using UnityEngine;
 public class Pin : MonoBehaviour
 {
     [SerializeField] private Transform arm;
-    [SerializeField] private bool isPositive = true;
     [SerializeField] private float turnValue = 75f;
     [SerializeField] private float turnTime = 0.3f;
     [SerializeField] private float turnBackTime = 0.1f;
@@ -32,12 +31,5 @@ public class Pin : MonoBehaviour
             });
             EconomyManager.Instance.EarnMoney(index+1);
         }
-    }
-
-    private void Update()
-    {
-        if (UIManager.Instance.material)
-            GetComponent<Renderer>().material = UIManager.Instance.FirstMaterials[1];
-        else GetComponent<Renderer>().material = UIManager.Instance.SecondMaterials[1];
     }
 }

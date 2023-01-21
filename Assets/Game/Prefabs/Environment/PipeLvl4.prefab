@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 5876247366054802898}
   - component: {fileID: 7076373296349511140}
   - component: {fileID: 1628935032222413723}
-  - component: {fileID: 7670573947053766104}
   m_Layer: 0
   m_Name: PipeLvl4
   m_TagString: Untagged
@@ -168,16 +167,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7670573947053766104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4509551261835043556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2db8637993767ca4199d79ee8847bd3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 3
