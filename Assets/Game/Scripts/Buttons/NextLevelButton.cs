@@ -6,6 +6,6 @@ public class NextLevelButton : MonoBehaviour, IInteractable
 {
     public bool CanInteract()
     {
-        return false;
+        return GameManager.Instance.GetCanMergeBalls();
     }
 }

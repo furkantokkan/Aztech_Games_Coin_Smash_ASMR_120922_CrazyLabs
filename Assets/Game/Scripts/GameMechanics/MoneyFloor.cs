@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MoneyFloor : MonoBehaviour
 {
+    private static MoneyFloor _instance;
+    public static MoneyFloor Instance { get { return _instance; } }
+
     public List<Transform> coins = new List<Transform>();
     private List<Transform> activeCoins = new List<Transform>();
     [SerializeField] private List<Transform> childs = new List<Transform>();
@@ -11,11 +14,17 @@ public class MoneyFloor : MonoBehaviour
 
     [SerializeField] Transform platformToMove;
 
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+    }
     private void Start()
     {
         Coin.onCoinInvisible += RemoveFromList;
         Coin.onCoinVisible += AddToList;
-        ActivateTargetToShoot(0, 0);
     }
     private void OnDisable()
     {

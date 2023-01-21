@@ -8,4 +8,5 @@ public static class GameConst
     public const string PLATFORM_COUNT_KEY = "PlatformCount";
     public const string MONEY_KEY = "Money";
     public const float START_VALUE_KEY = 0.221f;
+    public const int MAX_WONDER_INDEX_PER_COIN = 4;
 }

@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3513400180892831069, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: inactiveAlpha
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3513400180962049826, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: inactiveAlpha
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 3513400181307051655, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
@@ -225,18 +217,6 @@ PrefabInstance:
     - target: {fileID: 3513400181307051659, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3513400182446836541, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: inactiveAlpha
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5196685014976861881, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: inactiveAlpha
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7048034995529173025, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: inactiveAlpha
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
@@ -1196,6 +1176,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5141170523928912660, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7100567794535516102, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
       propertyPath: m_Name
       value: Platform

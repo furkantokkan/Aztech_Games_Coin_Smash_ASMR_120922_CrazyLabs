@@ -59,8 +59,6 @@ public class GameManager : MonoBehaviour
         nextLevelData.Initialize();
 
         //early
-        int ballCount = PlayerPrefs.GetInt(GameConst.BALL_COUNT_KEY, 0);
-        int platformCount = PlayerPrefs.GetInt(GameConst.PLATFORM_COUNT_KEY, 0);
 
         maxBallCount += platformData.currentLevel <= 1 ? 0 : platformData.currentLevel * ballCountIncrease;
         maxUnlockablePinCount += pinData.currentLevel <= 1 ? 0 : pinData.currentLevel * pinCountIncrese;
@@ -107,6 +105,7 @@ public class GameManager : MonoBehaviour
         //late
         platform.ActivateNewPlatformLevel(platformData.currentLevel);
         platform.UnlockPins(pinData.currentLevel - 1);
+        MoneyFloor.Instance.ActivateTargetToShoot(nextLevelData.currentLevel - 1, 0);
         platform.StartSpawnBalls(3);
 
         ActivateInput(true);
@@ -309,6 +308,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnNextLevel()
     {
+        MoneyFloor.Instance.ActivateTargetToShoot(nextLevelData.currentLevel - 1, 0);
         updateUI?.Invoke();
     }
 }
