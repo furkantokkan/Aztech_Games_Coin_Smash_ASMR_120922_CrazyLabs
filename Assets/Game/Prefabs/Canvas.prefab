@@ -1010,7 +1010,7 @@ MonoBehaviour:
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
-  inactiveAlpha: 0.5
+  inactiveAlpha: 0.4
   price: {fileID: 3513400182026277649}
   spriteMaskObject: {fileID: 2954069363961072267}
 --- !u!114 &3513400180892831072
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
-  inactiveAlpha: 0.5
+  inactiveAlpha: 0.4
   price: {fileID: 3513400182815787116}
   spriteMaskObject: {fileID: 856104519628685399}
 --- !u!114 &3513400180962049829
@@ -3699,7 +3699,7 @@ MonoBehaviour:
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
-  inactiveAlpha: 0.5
+  inactiveAlpha: 0.4
   price: {fileID: 3513400182479268905}
   spriteMaskObject: {fileID: 4866294261068829674}
 --- !u!114 &3513400182446836672
@@ -4727,7 +4727,7 @@ MonoBehaviour:
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
-  inactiveAlpha: 0.5
+  inactiveAlpha: 0.4
   price: {fileID: 5775056279361139403}
   spriteMaskObject: {fileID: 2779811484935112954}
 --- !u!114 &6154699519364300760
@@ -5599,7 +5599,7 @@ MonoBehaviour:
   punch: {x: 0.15, y: 0.15}
   punchVibrato: 6
   punchDuration: 0.5
-  inactiveAlpha: 0.5
+  inactiveAlpha: 0.4
   price: {fileID: 3575732762674449257}
   spriteMaskObject: {fileID: 5466409639765728954}
 --- !u!114 &7244480818442167072
