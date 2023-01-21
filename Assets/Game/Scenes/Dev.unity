@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 461532574294754522, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: itemDatas.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 461532574294754522, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: itemDatas.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ccf0f5af1d73ad64b852e4a24a1fd6d2, type: 2}
+    - target: {fileID: 461532574294754522, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: itemDatas.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: bacecce794839724bbbb4701dcc709fd, type: 2}
+    - target: {fileID: 461532574294754522, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: upgradeButtons.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 461532574294754522, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: upgradeButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 84602291}
+    - target: {fileID: 461532574294754522, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: upgradeButtons.Array.data[4]
+      value: 
+      objectReference: {fileID: 84602292}
+    - target: {fileID: 762578151857286487, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 62.44922
+      objectReference: {fileID: 0}
     - target: {fileID: 3513400180928431787, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -258,6 +286,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5196685014976861881, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: bacecce794839724bbbb4701dcc709fd, type: 2}
     - target: {fileID: 6773152022044854130, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -266,8 +298,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1859271510}
+    - target: {fileID: 7048034995529173025, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: ccf0f5af1d73ad64b852e4a24a1fd6d2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+--- !u!114 &84602291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7048034995529173025, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+  m_PrefabInstance: {fileID: 84602290}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9c21423e449864598b0831d4a4a2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &84602292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5196685014976861881, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+  m_PrefabInstance: {fileID: 84602290}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9c21423e449864598b0831d4a4a2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &126315646
 GameObject:
   m_ObjectHideFlags: 0

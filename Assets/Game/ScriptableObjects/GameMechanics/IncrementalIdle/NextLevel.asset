@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b2a9f85ccd34634b928a624983a27ae, type: 3}
-  m_Name: Merge
+  m_Name: NextLevel
   m_EditorClassIdentifier: 
-  name: Merge
-  value: 10
+  name: NextLevel
+  value: 1
   valueCurve:
     serializedVersion: 2
     m_Curve:
@@ -38,10 +38,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  minValue: 15
-  maxValue: 30
-  currentLevel: 0
-  maxLevel: 5
+  minValue: 1
+  maxValue: 8
+  currentLevel: 1
+  maxLevel: 8
   startPrice: 20
   costPerUpdate: 100
   coefficient: 0.1
