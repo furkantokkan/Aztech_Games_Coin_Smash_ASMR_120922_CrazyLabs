@@ -21,20 +21,19 @@ public class PumpStart : MonoBehaviour
     void Start()
     {
         Platform.OnNewBallSpawned += OnAddNewBall;
-        Platform.OnNewBallAdded += OnAddNewBall;
     }
     private void OnDisable()
     {
         Platform.OnNewBallSpawned -= OnAddNewBall;
-        Platform.OnNewBallAdded -= OnAddNewBall;
     }
 
     public void OnAddNewBall(GameObject ball)
     {
-        StartCoroutine(WaitForOtherBalls(ball));
-        ball.transform.position = transform.position;
         GameManager.Instance.SetCanAddBall(false);
         GameManager.Instance.SetCanMerge(false);
+        ball.transform.position = transform.position;
+
+        StartCoroutine(WaitForOtherBalls(ball));
 
         float motion = 100f;
         float targetAmount = 0f;

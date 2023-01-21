@@ -59,15 +59,15 @@ public class UpgradeButton : MonoBehaviour
     {
         bool interactable = EconomyManager.Instance.GetCurrentMoney() >= item.CurrentPrice && item.currentLevel < item.maxLevel && interaction.CanInteract();
         group.interactable = interactable;
-        if (interactable)
-        {
-            spriteMaskObject.SetActive(false);
-        }
-        else
-        {
-            spriteMaskObject.SetActive(true);
-        }
-        //group.alpha = interactable ? 1f : inactiveAlpha;
+        //if (interactable)
+        //{
+        //    spriteMaskObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    spriteMaskObject.SetActive(true);
+        //}
+        group.alpha = interactable ? 1f : inactiveAlpha;
         price.text = item.currentLevel < item.maxLevel ? ((int)item.CurrentPrice).ToString() : "Max";
     }
 

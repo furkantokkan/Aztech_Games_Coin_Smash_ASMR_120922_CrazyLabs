@@ -9,8 +9,6 @@ public class BallAnimationSystem : MonoBehaviour
     private static BallAnimationSystem _instance;
     public static BallAnimationSystem Instance { get { return _instance; } }
 
-    internal bool onMergeProcess;
-
     public Transform Path1;
     public Transform Path2;
     public Transform Path3;
@@ -40,7 +38,6 @@ public class BallAnimationSystem : MonoBehaviour
     }
     public void ActivateMerge(BallMovement[] balls)
     {
-        onMergeProcess = true;
         ballsArray = balls;
 
         for (int i = 0; i < balls.Length; i++)
@@ -126,7 +123,6 @@ public class BallAnimationSystem : MonoBehaviour
         ball.GetComponent<BallMovement>().ActivateSplineFollow(false);
         GameManager.Instance.ActiveBalls.Add(ball.GetComponent<BallMovement>());
         Platform.OnNewBallSpawned?.Invoke(ball);
-        onMergeProcess = false;
     }
     Vector3 Lerp(Vector3 start, Vector3 end, float percent)
     {

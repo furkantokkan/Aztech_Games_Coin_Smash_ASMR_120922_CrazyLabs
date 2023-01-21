@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
         updateUI?.Invoke();
     }
-    public bool CheckCanMerge()
+    public bool CheckCanMergeBalls()
     {
         if (ActiveBalls.Count > 0)
         {
@@ -182,6 +182,8 @@ public class GameManager : MonoBehaviour
                     }
                     Debug.Log("Activate Merge");
                     BallAnimationSystem.Instance.ActivateMerge(mergeBalls.ToArray());
+                    SetCanAddBall(false);
+                    SetCanMerge(false);
                     updateUI?.Invoke();
                     break;
                 }
@@ -266,7 +268,7 @@ public class GameManager : MonoBehaviour
     }
     public bool GetCanMergeBalls()
     {
-        if (!BallAnimationSystem.Instance.onMergeProcess && CheckCanMerge() && canMerge) 
+        if (CheckCanMergeBalls() && canMerge) 
         {
             return true;
         }

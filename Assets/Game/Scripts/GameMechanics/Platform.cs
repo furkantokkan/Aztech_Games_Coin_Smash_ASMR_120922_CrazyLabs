@@ -20,7 +20,6 @@ public class Platform : MonoBehaviour
     [SerializeField] private float endOffset = 23f;
 
     public static Action<GameObject> OnNewBallSpawned;
-    public static event Action<GameObject> OnNewBallAdded;
 
     public SplineComputer GetCurrentSplineComputer()
     {
