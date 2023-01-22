@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
     public Platform platform;
     public float ballSpawnDistance = 4f;
     [SerializeField] private float gameSpeedTime = 1.7f;
-    [SerializeField] private float fastGameSpeedTime = 2f;
-    [SerializeField] private float distanceBetweenBalss = 2.5f;
+    [SerializeField] private float FastTime = 1.6f;
     [SerializeField] private int maxBallCount = 8;
     [SerializeField] private int maxUnlockablePinCount = 3;
     [SerializeField] private int pinCountIncrese = 3;
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UpgradeItemData pinData;
     [SerializeField] private UpgradeItemData nextLevelData;
 
-    public List<BallMovement> ActiveBalls = new List<BallMovement>();
+    public List<BallMovement> ActiveBalls;
     public CinemachineVirtualCamera virtualCamera;
     public UpgradeItemData PlatformData => platformData;
 
@@ -240,7 +239,7 @@ public class GameManager : MonoBehaviour
     private void SpeedUp()
     {
         canSpeedUp = false;
-        SetTime(1.6f);
+        SetTime(FastTime);
         if (ActiveBalls.Count > 0)
         {
             foreach (BallMovement ball in ActiveBalls)

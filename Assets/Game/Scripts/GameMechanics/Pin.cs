@@ -29,7 +29,7 @@ public class Pin : MonoBehaviour
             {
                 arm.DOLocalRotate(Vector3.zero, turnBackTime, RotateMode.Fast).SetEase(getBackEaseType);
             });
-            EconomyManager.Instance.EarnMoney(index+1);
+            EconomyManager.Instance.EarnMoney((index+1)*2);
         }
     }
 }

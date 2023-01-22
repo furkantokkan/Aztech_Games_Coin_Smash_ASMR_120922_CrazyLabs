@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ball
   m_EditorClassIdentifier: 
   name: Ball
-  value: 1.9333334
+  value: 6.6
   valueCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,9 +40,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   minValue: 1
   maxValue: 15
-  currentLevel: 1
+  currentLevel: 6
   maxLevel: 15
-  startPrice: 20
-  costPerUpdate: 100
+  startPrice: 5
+  costPerUpdate: 60
   coefficient: 0.1
   fixedNumber: 1.7
