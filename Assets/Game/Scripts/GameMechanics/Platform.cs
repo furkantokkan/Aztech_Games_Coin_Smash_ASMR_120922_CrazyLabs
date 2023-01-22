@@ -21,6 +21,8 @@ public class Platform : MonoBehaviour
 
     public static Action<GameObject> OnNewBallSpawned;
 
+    public static Action<SplineComputer> OnSplineComputerChange;
+
     public SplineComputer GetCurrentSplineComputer()
     {
         if (currentSpline == null)
@@ -79,6 +81,7 @@ public class Platform : MonoBehaviour
             GameObject ball = Pool.instance.Get(PoolItems.Ball2);
             ball.transform.position = pos;
             BallMovement ballMovement = ball.GetComponent<BallMovement>();
+            ballMovement.SetSpline(currentSpline, true);
             ballMovement.Initialization();
             ballMovement.Platform = this;
             ballMovement.SetStartPosition(travel);
@@ -109,6 +112,7 @@ public class Platform : MonoBehaviour
             {
                 platformLevels[i].gameObject.SetActive(true);
                 currentSpline = platformLevels[i].GetComponentInChildren<SplineComputer>();
+                OnSplineComputerChange?.Invoke(currentSpline);
             }
             else
             {
@@ -129,6 +133,7 @@ public class Platform : MonoBehaviour
                 platformPins[i].gameObject.SetActive(false);
             }
         }
+
     }
     //public void SpawnBallToPath()
     //{

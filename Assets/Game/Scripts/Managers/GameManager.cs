@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        BallMovement.onBallsStartToMove += OnBallStartToMove;
         platformData.OnLevelUp += OnPlatformLevelUp;
         ballData.OnLevelUp += OnBallLevelUp;
         pinData.OnLevelUp += OnPinLevelUp;
@@ -106,8 +107,14 @@ public class GameManager : MonoBehaviour
         platform.ActivateNewPlatformLevel(platformData.currentLevel);
         platform.UnlockPins(pinData.currentLevel - 1);
         MoneyFloor.Instance.ActivateTargetToShoot(nextLevelData.currentLevel - 1, 0);
-        platform.StartSpawnBalls(3);
 
+        canMerge = true;
+        canSpeedUp = true;
+        canAddBall = true;
+
+        updateUI?.Invoke();
+
+        platform.StartSpawnBalls(3);
         ActivateInput(true);
 
         if (ActiveBalls.Count > 0)
@@ -117,12 +124,15 @@ public class GameManager : MonoBehaviour
                 ball.ActivateTrail(false);
             }
         }
+    }
+    private void OnBallStartToMove()
+    {
+        foreach (BallMovement item in GameManager.Instance.ActiveBalls)
+        {
+            item.SetSpline(platform.GetCurrentSplineComputer(), false);
+        }
 
-        canMerge = true;
-        canSpeedUp = true;
-        canAddBall = true;
-
-        updateUI?.Invoke();
+        BallMovement.onBallsStartToMove -= OnBallStartToMove;
     }
     public bool CheckCanMergeBalls()
     {

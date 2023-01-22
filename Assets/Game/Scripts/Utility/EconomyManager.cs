@@ -40,6 +40,11 @@ public class EconomyManager : MonoBehaviour
         onAddMoney?.Invoke();
     }
 
+    [ContextMenu("Add Money")]
+    public void AddMoney()
+    {
+        EarnMoney(1000);
+    }
     public void SpendMoney(int amount)
     {
         currentMoney -= amount;

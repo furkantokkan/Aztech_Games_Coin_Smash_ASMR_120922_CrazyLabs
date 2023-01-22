@@ -13,6 +13,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float ShootTrailTime = 0.5f;
     [SerializeField] private float slowTrailTime = 0f;
     [SerializeField] private float trailFollowSpeed = 3.5f;
+    [SerializeField] private Vector3 rotationAngle = Vector3.up;
 
     private Platform platform;
 
@@ -25,8 +26,9 @@ public class BallMovement : MonoBehaviour
 
     public static event Action onBallsStartToMove;
 
-    // Start is called before the first frame update
+    private Tween rot;
 
+    // Start is called before the first frame update
     public void Initialization()
     {
         Debug.Log("Code Working");
@@ -42,7 +44,7 @@ public class BallMovement : MonoBehaviour
         follower.onEndReached -= OnEndOfThePath;
         follower.onMotionApplied -= OnBallStartToMove;
     }
-    
+
     internal void MergeAction()
     {
         KillTheCurrentMoveTween();
