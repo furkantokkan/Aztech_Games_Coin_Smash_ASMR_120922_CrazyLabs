@@ -2033,8 +2033,8 @@ MonoBehaviour:
   fastTrailTime: 1.5
   ShootTrailTime: 0.5
   slowTrailTime: 0
-  trailFollowSpeed: 3.5
-  rotationAngle: {x: 120, y: 0, z: 0}
+  trailFollowSpeed: 5
+  rotationAngle: {x: 190, y: 0, z: 0}
 --- !u!54 &998525829679917882
 Rigidbody:
   m_ObjectHideFlags: 0

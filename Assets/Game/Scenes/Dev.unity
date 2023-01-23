@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402516, g: 0.4931643, b: 0.57223207, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402477, g: 0.49316406, b: 0.5722312, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1683064851}
   m_Follow: {fileID: 1683064851}
   m_Lens:
-    FieldOfView: 58
+    FieldOfView: 67
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -679,7 +679,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 58
+  field of view: 67
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1048,8 +1048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 1588093767}
   ballSpawnDistance: 5
-  gameSpeedTime: 0.9
-  FastTime: 1.8
+  gameSpeedTime: 0.8
+  FastTime: 1.7
   maxBallCount: 8
   maxUnlockablePinCount: 3
   pinCountIncrese: 3
