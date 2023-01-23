@@ -13,7 +13,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float ShootTrailTime = 0.5f;
     [SerializeField] private float slowTrailTime = 0f;
     [SerializeField] private float trailFollowSpeed = 3.5f;
-    [SerializeField] private Vector3 rotationAngle = Vector3.up;
+    [SerializeField] private Vector3 rotationAngle = Vector3.left;
 
     private Platform platform;
 
@@ -26,12 +26,9 @@ public class BallMovement : MonoBehaviour
 
     public static event Action onBallsStartToMove;
 
-    private Tween rot;
-
     // Start is called before the first frame update
     public void Initialization()
     {
-        Debug.Log("Code Working");
         follower = GetComponent<SplineFollower>();
         platform = GameManager.Instance.platform;
         follower.onEndReached += OnEndOfThePath;
@@ -44,7 +41,13 @@ public class BallMovement : MonoBehaviour
         follower.onEndReached -= OnEndOfThePath;
         follower.onMotionApplied -= OnBallStartToMove;
     }
-
+    private void Update()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            follower.motion.rotationOffset += rotationAngle * Time.deltaTime;
+        }
+    }
     internal void MergeAction()
     {
         KillTheCurrentMoveTween();
