@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.updateUI += UpdateRevenueText;
+        BallMovement.onBallsStartToMove += UpdateRevenueText;
     }
     private void OnDisable()
     {
@@ -68,6 +69,8 @@ public class UIManager : MonoBehaviour
         revenue *= pinAmount;
 
         revenueText.text = "$" + (revenue).ToString() + " /sec";
+
+        BallMovement.onBallsStartToMove -= UpdateRevenueText;
     }
     public void Taptic()
     {

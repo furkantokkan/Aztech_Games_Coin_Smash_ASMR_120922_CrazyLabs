@@ -433,6 +433,10 @@ MonoBehaviour:
     amount: 5
     id: 9
     expandAble: 1
+  - prefab: {fileID: 1744236060858781861, guid: 75fbf50ebacacad47a46d92d6f6696fd, type: 3}
+    amount: 10
+    id: 10
+    expandAble: 1
   SpawnedItems: []
 --- !u!4 &381329853
 Transform:
