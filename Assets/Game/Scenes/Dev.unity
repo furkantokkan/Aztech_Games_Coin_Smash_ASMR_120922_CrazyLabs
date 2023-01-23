@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402516, g: 0.4931643, b: 0.57223207, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402477, g: 0.49316406, b: 0.5722312, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1683064851}
   m_Follow: {fileID: 1683064851}
   m_Lens:
-    FieldOfView: 66
+    FieldOfView: 58
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -671,7 +671,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 66
+  field of view: 58
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -853,7 +853,7 @@ MonoBehaviour:
   Path2: {fileID: 913261590}
   Path3: {fileID: 1054239965}
   animator: {fileID: 1175920036}
-  animationSpeed: 1.5
+  animationSpeed: 5
   getBackTime: 5
   pathFinishTime: 1.3
   angeYOffset: 4
@@ -1040,13 +1040,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 1588093767}
   ballSpawnDistance: 5
-  gameSpeedTime: 1.5
-  fastGameSpeedTime: 2
-  distanceBetweenBalss: 3
+  gameSpeedTime: 0.9
+  FastTime: 1.8
   maxBallCount: 8
   maxUnlockablePinCount: 3
   pinCountIncrese: 3
-  ballCountIncrease: 2
+  ballCountIncrease: 3
   ballData: {fileID: 11400000, guid: 05b161a6d43fc4a47965ca515989aac1, type: 2}
   mergeData: {fileID: 11400000, guid: ccf0f5af1d73ad64b852e4a24a1fd6d2, type: 2}
   platformData: {fileID: 11400000, guid: 2ee34deca5b3b51479cbb2024a143c8f, type: 2}

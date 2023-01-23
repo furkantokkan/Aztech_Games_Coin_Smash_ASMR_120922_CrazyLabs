@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NextLevel
   m_EditorClassIdentifier: 
   name: NextLevel
-  value: 4
+  value: 1.3333334
   valueCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,9 +40,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   minValue: 0
   maxValue: 4
-  currentLevel: 3
+  currentLevel: 1
   maxLevel: 3
-  startPrice: 20
-  costPerUpdate: 100
+  startPrice: 5000
+  costPerUpdate: 10000
   coefficient: 0.1
   fixedNumber: 1.7

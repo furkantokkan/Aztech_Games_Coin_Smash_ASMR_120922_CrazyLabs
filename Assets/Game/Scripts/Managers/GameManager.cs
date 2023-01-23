@@ -14,10 +14,9 @@ public class GameManager : MonoBehaviour
     public Platform platform;
     public float ballSpawnDistance = 4f;
     [SerializeField] private float gameSpeedTime = 1.7f;
-    [SerializeField] private float fastGameSpeedTime = 2f;
-    [SerializeField] private float distanceBetweenBalss = 2.5f;
-    private int maxBallCount = 8;
-    private int maxUnlockablePinCount = 3;
+    [SerializeField] private float FastTime = 1.6f;
+    [SerializeField] private int maxBallCount = 8;
+    [SerializeField] private int maxUnlockablePinCount = 3;
     [SerializeField] private int pinCountIncrese = 3;
     [SerializeField] private int ballCountIncrease = 2;
     [SerializeField] private UpgradeItemData ballData;
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UpgradeItemData pinData;
     [SerializeField] private UpgradeItemData nextLevelData;
 
-    public List<BallMovement> ActiveBalls = new List<BallMovement>();
+    public List<BallMovement> ActiveBalls;
     public CinemachineVirtualCamera virtualCamera;
     public UpgradeItemData PlatformData => platformData;
 
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour
     private bool canMerge;
     private bool takeInput;
 
-    public event Action updateUI;
+    public event Action updateUI; 
 
     private static readonly string _directory = "/SaveData/";
     private static readonly string _fileName = "BallData.txt";
@@ -60,7 +59,6 @@ public class GameManager : MonoBehaviour
 
         //early
 
-
         maxBallCount += platformData.currentLevel <= 1 ? 0 : platformData.currentLevel * ballCountIncrease;
         maxUnlockablePinCount += pinData.currentLevel <= 1 ? 0 : pinData.currentLevel * pinCountIncrese;
         //spawn ball
@@ -75,7 +73,7 @@ public class GameManager : MonoBehaviour
         mergeData.OnLevelUp += StartMerge;
         nextLevelData.OnLevelUp += OnNextLevel;
         InputManager.Instance.onTouchStart += ListenInput;
-        virtualCamera.m_Lens.FieldOfView = 50 + ActiveBalls.Count;
+        virtualCamera.m_Lens.FieldOfView = 50 + maxBallCount;
         Initialize();
     }
     private void OnDisable()
@@ -241,7 +239,7 @@ public class GameManager : MonoBehaviour
     private void SpeedUp()
     {
         canSpeedUp = false;
-        SetTime(1.6f);
+        SetTime(FastTime);
         if (ActiveBalls.Count > 0)
         {
             foreach (BallMovement ball in ActiveBalls)
@@ -278,7 +276,7 @@ public class GameManager : MonoBehaviour
     }
     public bool GetCanMergeBalls()
     {
-        if (CheckCanMergeBalls() && canMerge)
+        if (CheckCanMergeBalls() && canMerge) 
         {
             return true;
         }

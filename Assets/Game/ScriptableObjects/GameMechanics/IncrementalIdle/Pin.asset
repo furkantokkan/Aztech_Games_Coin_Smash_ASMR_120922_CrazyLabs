@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pin
   m_EditorClassIdentifier: 
   name: Pin
-  value: 21.045454
+  value: 7.681818
   valueCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,9 +40,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   minValue: 1
   maxValue: 22
-  currentLevel: 21
+  currentLevel: 7
   maxLevel: 22
   startPrice: 20
-  costPerUpdate: 100
+  costPerUpdate: 150
   coefficient: 0.1
   fixedNumber: 1.7
