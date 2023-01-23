@@ -5,4 +5,8 @@ using UnityEngine;
 public interface IInteractable
 {
     bool CanInteract();
+
+    int MaxLimit();
+
+    int ControlValue();
 }

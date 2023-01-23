@@ -8,4 +8,14 @@ public class BallButton : MonoBehaviour, IInteractable
     {
         return GameManager.Instance.GetCanAddBall();
     }
+
+    public int ControlValue()
+    {
+        return GameManager.Instance.ActiveBalls.Count;
+    }
+
+    public int MaxLimit()
+    {
+        return GameManager.Instance.GetMaxBallCount();
+    }
 }

@@ -8,4 +8,14 @@ public class PlatformButton : MonoBehaviour, IInteractable
     {
         return true;
     }
+
+    public int ControlValue()
+    {
+        return -1;
+    }
+
+    public int MaxLimit()
+    {
+        return -1;
+    }
 }
