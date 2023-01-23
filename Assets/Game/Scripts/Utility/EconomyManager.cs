@@ -43,7 +43,7 @@ public class EconomyManager : MonoBehaviour
     [ContextMenu("Add Money")]
     public void AddMoney()
     {
-        EarnMoney(1000);
+        EarnMoney(100000);
     }
     public void SpendMoney(int amount)
     {

@@ -8,6 +8,7 @@ public class Platform : MonoBehaviour
 {
     public List<GameObject> platformLevels = new List<GameObject>();
     public List<GameObject> platformPins = new List<GameObject>();
+    public List<GameObject> activePins = new List<GameObject>();
 
     [SerializeField] private SplineComputer currentSpline;
     [SerializeField] private FirePlatform firePlatform;
@@ -132,10 +133,13 @@ public class Platform : MonoBehaviour
     }
     public void UnlockPins(int level)
     {
+        activePins.Clear();
+
         for (int i = 0; i < platformPins.Count; i++)
         {
             if (i < level)
             {
+                activePins.Add(platformPins[i].gameObject);
                 platformPins[i].gameObject.SetActive(true);
             }
             else

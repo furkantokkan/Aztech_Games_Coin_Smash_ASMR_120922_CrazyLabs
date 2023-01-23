@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour
     public Sprite[] TapticSprites;
     public Image muteImage;
     public Image tapticımage;
+    [SerializeField] private TextMeshProUGUI revenueText;
     bool mute = false;
     bool taptic = false;
 
@@ -23,6 +25,14 @@ public class UIManager : MonoBehaviour
         {
             _instance = this;
         }
+    }
+    private void Start()
+    {
+        GameManager.Instance.updateUI += UpdateRevenueText;
+    }
+    private void OnDisable()
+    {
+        GameManager.Instance.updateUI -= UpdateRevenueText;
     }
 
     public void Settings()
@@ -38,7 +48,27 @@ public class UIManager : MonoBehaviour
         mute = !mute;
         AudioListener.pause = !mute;
     }
+    public void UpdateRevenueText()
+    {
+        StartCoroutine(CalculateRevenuePerSec());
+    }
+    private IEnumerator CalculateRevenuePerSec()
+    {
+        float revenue = 0f;
+        int pinAmount = GameManager.Instance.platform.activePins.Count + 2;
 
+        foreach (BallMovement item in GameManager.Instance.ActiveBalls)
+        {
+            PoolItems poolItems = item.GetComponent<PoolElement>().value;
+            int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems) + 1;
+            revenue += index;
+            yield return null;
+        }
+
+        revenue *= pinAmount;
+
+        revenueText.text = "$" + (revenue).ToString() + " /sec";
+    }
     public void Taptic()
     {
         tapticımage.sprite = IconChanger(TapticSprites[0], TapticSprites[1], taptic);

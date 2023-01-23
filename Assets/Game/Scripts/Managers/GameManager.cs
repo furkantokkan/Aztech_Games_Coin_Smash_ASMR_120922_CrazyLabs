@@ -64,8 +64,16 @@ public class GameManager : MonoBehaviour
 
         //early
 
-        maxBallCount += platformData.currentLevel <= 1 ? 0 : platformData.currentLevel * ballCountIncrease;
-        maxUnlockablePinCount += pinData.currentLevel <= 1 ? 0 : pinData.currentLevel * pinCountIncrese;
+        maxBallCount += platformData.currentLevel <= 1 ? 1 : platformData.currentLevel * ballCountIncrease;
+
+        if (platformData.currentLevel == 2)
+        {
+            maxUnlockablePinCount = 6;
+        }
+        else
+        {
+            maxUnlockablePinCount = pinData.currentLevel <= 1 ? 5 : (platformData.currentLevel * pinCountIncrese);
+        }
         //spawn ball
     }
 
@@ -284,7 +292,9 @@ public class GameManager : MonoBehaviour
     }
     public bool GetCanAddPins()
     {
-        if (pinData.currentLevel <= maxUnlockablePinCount)
+        int pinCount = platform.activePins.Count + 2;
+
+        if (pinCount < maxUnlockablePinCount)
         {
             return true;
         }
@@ -319,7 +329,15 @@ public class GameManager : MonoBehaviour
 
     public void OnPlatformLevelUp()
     {
-        maxUnlockablePinCount += pinCountIncrese;
+        if (platformData.currentLevel == 2)
+        {
+            maxUnlockablePinCount = 6;
+        }
+        else
+        {
+            maxUnlockablePinCount += pinCountIncrese;
+        }
+
         maxBallCount += ballCountIncrease;
         virtualCamera.m_Lens.FieldOfView = 50 + maxBallCount;
         platform.ActivateNewPlatformLevel(platformData.currentLevel);
