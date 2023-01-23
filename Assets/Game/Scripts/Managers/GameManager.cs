@@ -4,6 +4,7 @@ using UnityEngine;
 using Dreamteck.Splines;
 using System;
 using Cinemachine;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,10 +38,14 @@ public class GameManager : MonoBehaviour
     private bool canMerge;
     private bool takeInput;
 
-    public event Action updateUI; 
+    public event Action updateUI;
 
     private static readonly string _directory = "/SaveData/";
     private static readonly string _fileName = "BallData.txt";
+
+    private BallData data = new BallData();
+
+    private List<PoolItems> saveDataForBalls = new List<PoolItems>();
 
     Coroutine speedUpRoutine;
 
@@ -113,7 +118,17 @@ public class GameManager : MonoBehaviour
 
         updateUI?.Invoke();
 
-        platform.StartSpawnBalls(3);
+        if (LoadData() == null)
+        {
+            platform.StartSpawnBalls(null, 3);
+        }
+        else
+        {
+            saveDataForBalls = LoadData();
+            data.BallIds = saveDataForBalls;
+            platform.StartSpawnBalls(saveDataForBalls, saveDataForBalls.Count);
+        }
+
         ActivateInput(true);
 
         if (ActiveBalls.Count > 0)
@@ -186,10 +201,12 @@ public class GameManager : MonoBehaviour
                     mergeBalls.Add(currentBalls[2]);
                     for (int z = 0; z < mergeBalls.Count; z++)
                     {
+                        RemoveBallFromData(mergeBalls[z].GetComponent<PoolElement>().value);
                         ActiveBalls.Remove(mergeBalls[z]);
                     }
                     Debug.Log("Activate Merge");
                     BallAnimationSystem.Instance.ActivateMerge(mergeBalls.ToArray());
+                    GameManager.Instance.AddBallToData(mergeBalls[0].GetComponent<MergeHandler>().evolveToThis);
                     SetCanAddBall(false);
                     SetCanMerge(false);
                     updateUI?.Invoke();
@@ -276,7 +293,7 @@ public class GameManager : MonoBehaviour
     }
     public bool GetCanMergeBalls()
     {
-        if (CheckCanMergeBalls() && canMerge) 
+        if (CheckCanMergeBalls() && canMerge)
         {
             return true;
         }
@@ -319,5 +336,45 @@ public class GameManager : MonoBehaviour
     {
         MoneyFloor.Instance.ActivateTargetToShoot(nextLevelData.currentLevel - 1, 0);
         updateUI?.Invoke();
+    }
+    public void AddBallToData(PoolItems ballID)
+    {
+        data.AddItem(ballID);
+
+        DataSaving();
+    }
+    public void RemoveBallFromData(PoolItems ballID)
+    {
+        data.RemoveItem(ballID);
+
+        DataSaving();
+    }
+    public void DataSaving()
+    {
+        string dir = Application.persistentDataPath + _directory;
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        string json = JsonUtility.ToJson(data);
+        Debug.Log($"If you want to delete save data go to {dir} and delete BallData");
+        File.WriteAllText(dir + _fileName, json);
+    }
+    public List<PoolItems> LoadData()
+    {
+        string fullPath = Application.persistentDataPath + _directory + _fileName;
+
+        if (File.Exists(fullPath))
+        {
+            string json = File.ReadAllText(fullPath);
+            BallData balls = JsonUtility.FromJson<BallData>(json);
+            return balls.BallIds;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

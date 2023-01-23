@@ -66,7 +66,7 @@ public class Platform : MonoBehaviour
     //    currentSpline.SetPoint(IndexToAdd, splinePoint);
     //    onPathUpdateFinished?.Invoke(true);
     //}
-    public void StartSpawnBalls(int ballCount)
+    public void StartSpawnBalls(List<PoolItems> ballList, int ballCount = 3)
     {
         float splineLength = currentSpline.CalculateLength() - endOffset;
         print(splineLength);
@@ -78,7 +78,16 @@ public class Platform : MonoBehaviour
         {
             double travel = currentSpline.Travel(GameConst.START_VALUE_KEY, i * distance, Spline.Direction.Forward);
             Vector3 pos = currentSpline.EvaluatePosition(travel);
-            GameObject ball = Pool.instance.Get(PoolItems.Ball2);
+            GameObject ball;
+            if (ballList == null ||ballList.Count == 0)
+            {
+                ball = Pool.instance.Get(PoolItems.Ball1);
+                GameManager.Instance.AddBallToData(PoolItems.Ball1);
+            }
+            else
+            {
+                ball = Pool.instance.Get(ballList[i]);
+            }
             ball.transform.position = pos;
             BallMovement ballMovement = ball.GetComponent<BallMovement>();
             ballMovement.SetSpline(currentSpline, true);
@@ -102,6 +111,7 @@ public class Platform : MonoBehaviour
         ball.GetComponent<SplineFollower>().startPosition = result.percent;
         ball.GetComponent<BallMovement>().ActivateSplineFollow(false);
         GameManager.Instance.ActiveBalls.Add(ball.GetComponent<BallMovement>());
+        GameManager.Instance.AddBallToData(ballType);
         OnNewBallSpawned?.Invoke(ball);
     }
     public void ActivateNewPlatformLevel(int level)
