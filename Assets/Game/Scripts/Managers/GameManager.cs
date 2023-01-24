@@ -310,6 +310,14 @@ public class GameManager : MonoBehaviour
 
         return false;
     }
+    public int GetMaxBallCount()
+    {
+        return maxBallCount;
+    }
+    public int GetMaxPinCount()
+    {
+        return maxUnlockablePinCount;
+    }
     public void ActivateInput(bool value = true)
     {
         takeInput = value;
@@ -317,6 +325,8 @@ public class GameManager : MonoBehaviour
     public void OnBallLevelUp()
     {
         Debug.Log("OnBallLevelUp");
+        SetCanMerge(false);
+        SetCanAddBall(false);
         platform.SpawnNewBall(PoolItems.Ball1);
         updateUI?.Invoke();
     }

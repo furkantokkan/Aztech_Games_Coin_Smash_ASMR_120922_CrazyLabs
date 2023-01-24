@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Dreamteck.Splines;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,14 +71,7 @@ public class PumpStart : MonoBehaviour
             BallMovement currentBallMovement = newBall.GetComponent<BallMovement>();
             lookUp.AddRange(GameManager.Instance.ActiveBalls);
             lookUp.Remove(currentBallMovement);
-            if (lookUp.Count <= 1)
-            {
-                currentBallMovement.ActivateSplineFollow(true);
-                GameManager.Instance.SetCanAddBall(true);
-                GameManager.Instance.SetCanMerge(true);
-                finished = true;
-                break;
-            }
+
             print(lookUp.Count);
             for (int i = 0; i < lookUp.Count; i++)
             {
@@ -94,6 +88,7 @@ public class PumpStart : MonoBehaviour
             if (checkedCount >= lookUp.Count)
             {
                 Debug.Log("Ball Can Move, Current Count Is: " + checkedCount);
+                currentBallMovement.GetComponent<SplineFollower>().enabled = true;
                 currentBallMovement.ActivateSplineFollow(true);
                 GameManager.Instance.SetCanAddBall(true);
                 GameManager.Instance.SetCanMerge(true);
@@ -105,6 +100,15 @@ public class PumpStart : MonoBehaviour
                 Debug.Log("List is broked, current count is: " + checkedCount);
                 checkedCount = 0;
                 yield return null;
+            }
+
+            if (lookUp.Count <= 1)
+            {
+                currentBallMovement.ActivateSplineFollow(true);
+                GameManager.Instance.SetCanAddBall(true);
+                GameManager.Instance.SetCanMerge(true);
+                finished = true;
+                break;
             }
 
         }

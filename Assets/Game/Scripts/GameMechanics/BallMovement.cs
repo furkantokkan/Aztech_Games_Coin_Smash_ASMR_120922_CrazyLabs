@@ -99,18 +99,21 @@ public class BallMovement : MonoBehaviour
     }
     public void GetBackSequence()
     {
+        KillTheCurrentMoveTween();
         Sequence mySequence = DOTween.Sequence();
         Vector3[] vectorArray = new Vector3[] { platform.GetWarpHoldEdge().position, platform.GetWarpHole().position };
 
         if (Vector3.Distance(transform.position, platform.GetWarpHoldEdge().position) > 4f)
         {
             mySequence.Append(transform.DOJump(platform.GetMoneyPlatformEdge().position, 1f, 1, 0.5f, false).SetEase(Ease.Linear));
-            mySequence.Append(transform.DOLocalJump(new Vector3(platform.GetWarpHoldEdge().position.x, transform.position.y, transform.position.z), 1f, 1, 0.5f, false).SetEase(Ease.Linear));
+            mySequence.Append(transform.DOJump(new Vector3(platform.GetWarpHoldEdge().position.x, transform.position.y -
+                UnityEngine.Random.Range(0.5f, 1f), transform.position.z), 1f, 1, 0.5f, false).SetEase(Ease.Linear));
         }
         else
         {
             mySequence.Append(transform.DOJump(platform.GetMoneyPlatformEdge().position, 1f, 1, 0.5f, false).SetEase(Ease.Linear));
-            mySequence.Append(transform.DOLocalJump(new Vector3(platform.GetWarpHoldEdge().position.x, transform.position.y, transform.position.z), 1.25f, 1, 0.5f, false).SetEase(Ease.Linear));
+            mySequence.Append(transform.DOJump(new Vector3(platform.GetWarpHoldEdge().position.x, transform.position.y - 
+                UnityEngine.Random.Range(0.5f, 1f), transform.position.z), 1.25f, 1, 0.5f, false).SetEase(Ease.Linear));
         }
 
         mySequence.Append(transform.DOPath(vectorArray, 1f, PathType.CatmullRom, PathMode.TopDown2D, 10, Color.green).SetEase(Ease.Linear)).OnComplete(delegate

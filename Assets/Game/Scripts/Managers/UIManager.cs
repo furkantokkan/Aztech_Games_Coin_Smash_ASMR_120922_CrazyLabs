@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.updateUI += UpdateRevenueText;
+        BallMovement.onBallsStartToMove += UpdateRevenueText;
     }
     private void OnDisable()
     {
@@ -57,17 +58,27 @@ public class UIManager : MonoBehaviour
         float revenue = 0f;
         int pinAmount = GameManager.Instance.platform.activePins.Count + 2;
 
-        foreach (BallMovement item in GameManager.Instance.ActiveBalls)
+        yield return new WaitForEndOfFrame();
+
+        if (GameManager.Instance.ActiveBalls.Count > 0)
         {
-            PoolItems poolItems = item.GetComponent<PoolElement>().value;
-            int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems) + 1;
-            revenue += index;
-            yield return null;
+            foreach (BallMovement item in GameManager.Instance.ActiveBalls)
+            {
+                PoolItems poolItems = item.GetComponent<PoolElement>().value;
+                int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems) + 1;
+                revenue += index;
+                yield return null;
+            }
         }
 
         revenue *= pinAmount;
 
         revenueText.text = "$" + (revenue).ToString() + " /sec";
+
+        if (revenue > 0f)
+        {
+            BallMovement.onBallsStartToMove -= UpdateRevenueText;   
+        }
     }
     public void Taptic()
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Merge
   m_EditorClassIdentifier: 
   name: Merge
-  value: 15.0045
+  value: 15.007501
   valueCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,8 +40,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   minValue: 15
   maxValue: 30
-  currentLevel: 3
-  maxLevel: 9999
+  currentLevel: 5
+  maxLevel: 999999
   startPrice: 50
   costPerUpdate: 100
   coefficient: 0.1

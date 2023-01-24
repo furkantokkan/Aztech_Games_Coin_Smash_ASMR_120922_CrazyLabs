@@ -8,4 +8,14 @@ public class NextLevelButton : MonoBehaviour, IInteractable
     {
         return GameManager.Instance.GetCanMergeBalls();
     }
+
+    public int ControlValue()
+    {
+        return -1;
+    }
+
+    public int MaxLimit()
+    {
+        return -1;
+    }
 }

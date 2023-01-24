@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3513400181131995605, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3513400181307051655, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
@@ -262,7 +258,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1683064851}
   m_Follow: {fileID: 1683064851}
   m_Lens:
-    FieldOfView: 58
+    FieldOfView: 67
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -432,6 +428,10 @@ MonoBehaviour:
   - prefab: {fileID: 6553281454223762155, guid: 919f2925c522c2945917d44fb5c13b49, type: 3}
     amount: 5
     id: 9
+    expandAble: 1
+  - prefab: {fileID: 1744236060858781861, guid: 75fbf50ebacacad47a46d92d6f6696fd, type: 3}
+    amount: 10
+    id: 10
     expandAble: 1
   SpawnedItems: []
 --- !u!4 &381329853
@@ -675,7 +675,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 58
+  field of view: 67
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1044,8 +1044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 1588093767}
   ballSpawnDistance: 5
-  gameSpeedTime: 0.9
-  FastTime: 1.8
+  gameSpeedTime: 0.8
+  FastTime: 1.7
   maxBallCount: 8
   maxUnlockablePinCount: 3
   pinCountIncrese: 3
@@ -1231,6 +1231,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4211339619581633137, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4291860597677375073, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1302,6 +1306,10 @@ PrefabInstance:
     - target: {fileID: 8375391244971835033, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059930902979876087, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}
+      propertyPath: endOffset
+      value: 29.79
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e2b6d9c4bed8d4e81b356ec4cbb33b, type: 3}

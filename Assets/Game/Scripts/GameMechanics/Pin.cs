@@ -12,24 +12,26 @@ public class Pin : MonoBehaviour
     [SerializeField] private float turnBackTime = 0.1f;
     [SerializeField] private Ease easeType = Ease.Linear;
     [SerializeField] private Ease getBackEaseType = Ease.Linear;
-    [SerializeField] private GameObject Effect;
     private Tween ballTween;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
-            var _effect = Instantiate(Effect, transform.position + Vector3.up, Quaternion.identity);
+            var _effect = Pool.instance.Get(PoolItems.MoneyVFX);
+            _effect.gameObject.SetActive(true);
+            _effect.transform.position = transform.position + Vector3.up;
+            _effect.transform.rotation = Quaternion.identity;
             PoolItems poolItems = other.GetComponent<PoolElement>().value;
             int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems);
-            _effect.GetComponent<MoneyEffect>().SetMoneyAmountToText(index+1);
+            _effect.GetComponent<MoneyEffect>().SetMoneyAmountToText(index + 1);
             GetComponent<AudioSource>().Play();
             ballTween?.Kill();
             ballTween = arm.DOLocalRotate(new Vector3(0f, 0f, turnValue), turnTime, RotateMode.Fast).SetEase(easeType).OnComplete(delegate
             {
                 arm.DOLocalRotate(Vector3.zero, turnBackTime, RotateMode.Fast).SetEase(getBackEaseType);
             });
-            EconomyManager.Instance.EarnMoney((index+1)*2);
+            EconomyManager.Instance.EarnMoney((index + 1) * 2);
         }
     }
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -4797343666008070879}
   - component: {fileID: 998525829679917882}
   - component: {fileID: 1835343393499671510}
+  - component: {fileID: -6069662972163780098}
   m_Layer: 0
   m_Name: SM_#6WhiteBall
   m_TagString: Ball
@@ -2033,8 +2034,8 @@ MonoBehaviour:
   fastTrailTime: 1.5
   ShootTrailTime: 0.5
   slowTrailTime: 0
-  trailFollowSpeed: 3.5
-  rotationAngle: {x: 120, y: 0, z: 0}
+  trailFollowSpeed: 5
+  rotationAngle: {x: 190, y: 0, z: 0}
 --- !u!54 &998525829679917882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2065,3 +2066,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolveToThis: 6
   canMerge: 1
+--- !u!114 &-6069662972163780098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6553281454223762155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22030231f9fa2045b69bd836668ac36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 1

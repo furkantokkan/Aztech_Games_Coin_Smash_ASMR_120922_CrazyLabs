@@ -10,4 +10,5 @@ public enum PoolItems
     Ball8,
     Ball9,
     Ball10,
+    MoneyVFX
 }

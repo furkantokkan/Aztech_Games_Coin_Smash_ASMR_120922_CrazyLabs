@@ -111,18 +111,18 @@ public class BallAnimationSystem : MonoBehaviour
     {
         currentBall.GetComponent<SplineFollower>().enabled = true;
         currentBall.gameObject.SetActive(false);
-
-        GameObject ball = Pool.instance.Get(currentBall.GetComponent<PoolElement>().value);
-        ball.gameObject.SetActive(true);
-        ball.GetComponent<SplineFollower>().spline = GameManager.Instance.platform.GetCurrentSplineComputer();
-        ball.GetComponent<BallMovement>().Initialization();
-        ball.GetComponent<BallMovement>().Platform = GameManager.Instance.platform;
-        SplineSample result = new SplineSample();
-        result = GameManager.Instance.platform.GetCurrentSplineComputer().Project(GameManager.Instance.platform.GetStartPostion(), 0, 1);
-        ball.GetComponent<SplineFollower>().startPosition = result.percent;
-        ball.GetComponent<BallMovement>().ActivateSplineFollow(false);
-        GameManager.Instance.ActiveBalls.Add(ball.GetComponent<BallMovement>());
-        Platform.OnNewBallSpawned?.Invoke(ball);
+        GameManager.Instance.platform.SpawnNewBall(currentBall.GetComponent<PoolElement>().value);
+        //GameObject ball = Pool.instance.Get(currentBall.GetComponent<PoolElement>().value);
+        //ball.gameObject.SetActive(true);
+        //ball.GetComponent<SplineFollower>().spline = GameManager.Instance.platform.GetCurrentSplineComputer();
+        //ball.GetComponent<BallMovement>().Initialization();
+        //ball.GetComponent<BallMovement>().Platform = GameManager.Instance.platform;
+        //SplineSample result = new SplineSample();
+        //result = GameManager.Instance.platform.GetCurrentSplineComputer().Project(GameManager.Instance.platform.GetStartPostion(), 0, 1);
+        //ball.GetComponent<SplineFollower>().startPosition = result.percent;
+        //ball.GetComponent<BallMovement>().ActivateSplineFollow(false);
+        //GameManager.Instance.ActiveBalls.Add(ball.GetComponent<BallMovement>());
+        //Platform.OnNewBallSpawned?.Invoke(ball);
     }
     Vector3 Lerp(Vector3 start, Vector3 end, float percent)
     {

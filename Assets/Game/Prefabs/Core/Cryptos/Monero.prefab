@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3303753700516291472}
   - component: {fileID: 4995590752253214622}
   - component: {fileID: 7016950925099242355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 510371553166105875}
   - component: {fileID: 2737731080982311326}
   - component: {fileID: 4797159519613154570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 7032255461026713222}
   - component: {fileID: 2553286207280425676}
   - component: {fileID: 1805585241667026856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Monero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 1445973226272972623}
   - component: {fileID: 633467900267438778}
   - component: {fileID: 4786979852620840933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 457227774037383191}
   - component: {fileID: 7470372308731142262}
   - component: {fileID: 657306222939012451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 322094728891446043}
   - component: {fileID: 4083138080219103967}
   - component: {fileID: 7233701801403084810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 8702657832913338703}
   - component: {fileID: 3370872463372686296}
   - component: {fileID: 2221720391042906780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 4831344952029672413}
   - component: {fileID: 4257047622173770565}
   - component: {fileID: 6469196192164333591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}

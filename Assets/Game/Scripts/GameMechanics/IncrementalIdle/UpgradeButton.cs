@@ -22,6 +22,8 @@ public class UpgradeButton : MonoBehaviour
     private CanvasGroup group;
 
     private Tween punchTween;
+
+
     private void Awake()
     {
         interaction = GetComponent<IInteractable>();
@@ -68,7 +70,15 @@ public class UpgradeButton : MonoBehaviour
         //    spriteMaskObject.SetActive(true);
         //}
         group.alpha = interactable ? 1f : inactiveAlpha;
-        price.text = item.currentLevel < item.maxLevel ? ((int)item.CurrentPrice).ToString() : "Max";
+       
+        if (interaction.ControlValue() == -1 && interaction.MaxLimit() == -1)
+        {
+            price.text = item.currentLevel < item.maxLevel ? ((int)item.CurrentPrice).ToString() : "Max";
+        }
+        else
+        {
+            price.text = interaction.ControlValue() < interaction.MaxLimit() ? ((int)item.CurrentPrice).ToString() : "Max";
+        }
     }
 
     public void Upgrade()
