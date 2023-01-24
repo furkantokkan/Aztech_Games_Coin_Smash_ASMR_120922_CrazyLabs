@@ -92,6 +92,7 @@ public class PumpStart : MonoBehaviour
                 currentBallMovement.ActivateSplineFollow(true);
                 GameManager.Instance.SetCanAddBall(true);
                 GameManager.Instance.SetCanMerge(true);
+                GameManager.Instance.updateUI?.Invoke();
                 finished = true;
                 yield break;
             }
@@ -107,6 +108,7 @@ public class PumpStart : MonoBehaviour
                 currentBallMovement.ActivateSplineFollow(true);
                 GameManager.Instance.SetCanAddBall(true);
                 GameManager.Instance.SetCanMerge(true);
+                GameManager.Instance.updateUI?.Invoke();
                 finished = true;
                 break;
             }

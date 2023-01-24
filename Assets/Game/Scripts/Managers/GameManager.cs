@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private bool canMerge;
     private bool takeInput;
 
-    public event Action updateUI;
+    public Action updateUI;
 
     private static readonly string _directory = "/SaveData/";
     private static readonly string _fileName = "BallData.txt";

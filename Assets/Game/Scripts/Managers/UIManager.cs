@@ -62,9 +62,9 @@ public class UIManager : MonoBehaviour
 
         if (GameManager.Instance.ActiveBalls.Count > 0)
         {
-            foreach (BallMovement item in GameManager.Instance.ActiveBalls)
+            for (int i = 0; i < GameManager.Instance.ActiveBalls.Count; i++)
             {
-                PoolItems poolItems = item.GetComponent<PoolElement>().value;
+                PoolItems poolItems = GameManager.Instance.ActiveBalls[i].GetComponent<PoolElement>().value;
                 int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems) + 1;
                 revenue += index;
                 yield return null;
