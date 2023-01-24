@@ -220,6 +220,26 @@ PrefabInstance:
       value: -241.53468
       objectReference: {fileID: 0}
     - target: {fileID: 4487279541305304500, guid: f53b597f48b3f8c4aad8d7567dfb82de, type: 3}
+      propertyPath: m_text
+      value: Pin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487279541305304500, guid: f53b597f48b3f8c4aad8d7567dfb82de, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487279541305304500, guid: f53b597f48b3f8c4aad8d7567dfb82de, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487279541305304500, guid: f53b597f48b3f8c4aad8d7567dfb82de, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487279541305304500, guid: f53b597f48b3f8c4aad8d7567dfb82de, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487279541305304500, guid: f53b597f48b3f8c4aad8d7567dfb82de, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
