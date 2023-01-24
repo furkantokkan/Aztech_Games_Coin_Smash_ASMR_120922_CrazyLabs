@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7032255461026713222}
   - component: {fileID: 2553286207280425676}
   - component: {fileID: 1805585241667026856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bitcoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 8836361372816258005}
   - component: {fileID: 8675785852946677054}
   - component: {fileID: 7647525529406759213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 7867918548304307458}
   - component: {fileID: 3972529482065228659}
   - component: {fileID: 5209812940953318432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 2407276272998549075}
   - component: {fileID: 7301752307916788543}
   - component: {fileID: 8475665032641246747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 8139381200099241348}
   - component: {fileID: 2478537091051640681}
   - component: {fileID: 9146066163392944640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 8347598381125120766}
   - component: {fileID: 4949569234189006541}
   - component: {fileID: 8969130384175845663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 5906966726778422786}
   - component: {fileID: 8580215430886450319}
   - component: {fileID: 3473662091046265463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 2342796171303785833}
   - component: {fileID: 8899072622744483098}
   - component: {fileID: 7160036225800848478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 8894511463507676824}
   - component: {fileID: 3845997748339854745}
   - component: {fileID: 5923873864724228336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}

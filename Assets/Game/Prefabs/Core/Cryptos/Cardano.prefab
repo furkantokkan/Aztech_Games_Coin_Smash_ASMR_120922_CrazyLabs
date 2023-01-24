@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2592861195399184169}
   - component: {fileID: 2359229662823216940}
   - component: {fileID: 6510854944432910272}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 7032255461026713222}
   - component: {fileID: 2553286207280425676}
   - component: {fileID: 1805585241667026856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cardano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 2315558129750731854}
   - component: {fileID: 8731488220620572220}
   - component: {fileID: 274791339605205308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 3741225738528370966}
   - component: {fileID: 3078489803626038766}
   - component: {fileID: 3395978107038477550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 3139382334082267809}
   - component: {fileID: 7871444517021130951}
   - component: {fileID: 4732559790354251356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 1880504882144245742}
   - component: {fileID: 1917406752041446464}
   - component: {fileID: 24342303716362378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 8717141393490886177}
   - component: {fileID: 227623426241663872}
   - component: {fileID: 5760773875385313571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 4540128957547898629}
   - component: {fileID: 4066058999403841067}
   - component: {fileID: 8966795160182521361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 6372644106124793322}
   - component: {fileID: 2853437696279508328}
   - component: {fileID: 3269852261339600752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}

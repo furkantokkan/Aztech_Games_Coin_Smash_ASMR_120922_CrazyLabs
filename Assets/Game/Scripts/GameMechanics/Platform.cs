@@ -69,7 +69,7 @@ public class Platform : MonoBehaviour
     //}
     public void StartSpawnBalls(List<PoolItems> ballList, int ballCount = 3)
     {
-        float splineLength = currentSpline.CalculateLength() - endOffset;
+        float splineLength = currentSpline.CalculateLength(GameConst.START_VALUE_KEY, 0.98);
         print(splineLength);
         float distance = splineLength / ballCount;
 
@@ -78,6 +78,7 @@ public class Platform : MonoBehaviour
         for (int i = 0; i < ballCount; i++)
         {
             double travel = currentSpline.Travel(GameConst.START_VALUE_KEY, i * distance, Spline.Direction.Forward);
+       
             Vector3 pos = currentSpline.EvaluatePosition(travel);
             GameObject ball;
             if (ballList == null ||ballList.Count == 0)
@@ -97,6 +98,10 @@ public class Platform : MonoBehaviour
             ballMovement.SetStartPosition(travel);
             ballMovement.ActivateSplineFollow(true);
             ball.gameObject.SetActive(true);
+            if (travel > 0.99f)
+            {
+                ballMovement.OnEndOfThePath(0);
+            }
             GameManager.Instance.ActiveBalls.Add(ballMovement);
         }
     }
