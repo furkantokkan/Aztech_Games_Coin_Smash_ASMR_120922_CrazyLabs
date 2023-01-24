@@ -11,7 +11,7 @@ public class PinButton : MonoBehaviour, IInteractable
 
     public int ControlValue()
     {
-        return GameManager.Instance.platform.activePins.Count;
+        return GameManager.Instance.platform.activePins.Count + 2;
     }
 
     public int MaxLimit()
