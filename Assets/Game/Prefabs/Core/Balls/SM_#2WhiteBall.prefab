@@ -2065,7 +2065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTrail: {fileID: 2624319589477751293}
   follower: {fileID: -5044590843199248366}
-  fastTrailTime: 1.5
+  fastTrailTime: 0.8
   ShootTrailTime: 0.5
   slowTrailTime: 0
   trailFollowSpeed: 5
