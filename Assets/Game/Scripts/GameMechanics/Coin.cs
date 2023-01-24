@@ -7,7 +7,8 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     [SerializeField] MeshRenderer meshRenderer;
-    [SerializeField] float notVisibleTime = 3f;
+    [SerializeField] float minNotVisibleTime = 3f;
+    [SerializeField] float maxNotVisibleTime = 5f;
     [SerializeField] float force = 85f;
     [SerializeField] private List<GameObject> childs = new List<GameObject>();
 
@@ -62,20 +63,23 @@ public class Coin : MonoBehaviour
 
     private IEnumerator DestructionProcess()
     {
+        float time = UnityEngine.Random.Range(minNotVisibleTime, maxNotVisibleTime);
+
         foreach (GameObject item in childs)
         {
             item.SetActive(true);
             item.GetComponent<Rigidbody>().useGravity = true;
             item.GetComponent<Rigidbody>().isKinematic = false;
             item.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * force, ForceMode.Impulse);
-            destroyProcess = item.transform.DOScale(0.1f, notVisibleTime).SetEase(Ease.InCirc).SetDelay(0.12f);
+            destroyProcess = item.transform.DOScale(0.1f, time / 2).SetEase(Ease.InCirc);
             yield return null;
         }
 
-        yield return new WaitForSeconds(notVisibleTime);
+        yield return new WaitForSeconds(time);
 
         for (int i = 0; i < childs.Count; i++)
         {
+            destroyProcess?.Kill();
             childs[i].SetActive(false);
             childs[i].GetComponent<Rigidbody>().useGravity = false;
             childs[i].GetComponent<Rigidbody>().isKinematic = true;
