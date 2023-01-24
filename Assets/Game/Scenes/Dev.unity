@@ -218,6 +218,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3513400181809247127, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400181809247127, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400181809247127, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171616, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 162.505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171616, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 56.6667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171616, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.885834
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171616, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.7000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171623, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_fontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171623, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_margin.w
+      value: 0.33724022
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171623, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_margin.y
+      value: 0.33615494
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171623, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_margin.z
+      value: 0.28255463
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171623, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513400182383171623, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3d65c43c122cb499137b124eba3d6a, type: 3}
 --- !u!1 &126315646

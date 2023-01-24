@@ -16,7 +16,7 @@ public class CoinText : MonoBehaviour
 
     private void UpdateText()
     {
-        text.text = EconomyManager.Instance.GetCurrentMoney().ToString();
+        text.text = UIManager.Instance.MinimizeTheNumbers(EconomyManager.Instance.GetCurrentMoney());
     }
 
 }

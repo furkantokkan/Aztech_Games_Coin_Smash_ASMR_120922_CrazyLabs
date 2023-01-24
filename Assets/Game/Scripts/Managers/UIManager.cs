@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
 
         revenue *= pinAmount;
 
-        revenueText.text = "$" + (revenue).ToString() + " /sec";
+        revenueText.text = "$" + MinimizeTheNumbers(revenue) + " /sec";
 
         if (revenue > 0f)
         {
@@ -88,5 +88,12 @@ public class UIManager : MonoBehaviour
     Sprite IconChanger(Sprite first, Sprite second,bool state)
     {
         return state ? first : second;
+    }
+    public string MinimizeTheNumbers(float score)
+    {
+        if (score > 100000) return (score / 10000).ToString("F") + "B";
+        else if (score > 10000) return (score / 10000).ToString("F") + "M";
+        else if (score > 1000) return (score / 1000).ToString("F") + "K";
+        else return score.ToString();
     }
 }
