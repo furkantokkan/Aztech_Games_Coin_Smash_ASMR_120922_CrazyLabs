@@ -106,7 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 7032255461026713222}
-  notVisibleTime: 3
+  notVisibleTime: 5
+  force: 85
   childs:
   - {fileID: 5228611677797256763}
   - {fileID: 6757055562495789784}
