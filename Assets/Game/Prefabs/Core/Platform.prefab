@@ -47641,6 +47641,7 @@ MonoBehaviour:
   - {fileID: 7028866505668983480}
   - {fileID: 6248860700176175936}
   - {fileID: 4068572410155212638}
+  activePins: []
   currentSpline: {fileID: 3146317620438880063}
   firePlatform: {fileID: 403071357}
   moneyFloor: {fileID: 1561086704217544938}
@@ -47649,7 +47650,7 @@ MonoBehaviour:
   MoneyPlatformTransform: {fileID: 966668545}
   startXOffset: 0
   startYOffset: 0
-  endOffset: 23
+  endOffset: 29.79
 --- !u!1 &7151709499657506750
 GameObject:
   m_ObjectHideFlags: 0
