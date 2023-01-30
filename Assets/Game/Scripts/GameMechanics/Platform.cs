@@ -97,6 +97,7 @@ public class Platform : MonoBehaviour
             ballMovement.Platform = this;
             ballMovement.SetStartPosition(travel);
             ballMovement.ActivateSplineFollow(true);
+            ballMovement.ActivateTrail(false);
             ball.gameObject.SetActive(true);
             if (travel > 0.99f)
             {

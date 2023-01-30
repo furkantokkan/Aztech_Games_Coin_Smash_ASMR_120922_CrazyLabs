@@ -20,7 +20,7 @@ public class Pin : MonoBehaviour
         {
             var _effect = Pool.instance.Get(PoolItems.MoneyVFX);
             _effect.gameObject.SetActive(true);
-            _effect.transform.position = transform.position + Vector3.up;
+            _effect.transform.position = arm.position + Vector3.up;
             _effect.transform.rotation = Quaternion.identity;
             PoolItems poolItems = other.GetComponent<PoolElement>().value;
             int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems);
@@ -31,7 +31,9 @@ public class Pin : MonoBehaviour
             {
                 arm.DOLocalRotate(Vector3.zero, turnBackTime, RotateMode.Fast).SetEase(getBackEaseType);
             });
-            EconomyManager.Instance.EarnMoney((index + 1) * 3);
+            int value = (index + 1) * 3;
+            EconomyManager.Instance.EarnMoney(value);
+            _effect.GetComponent<MoneyEffect>().SetMoneyAmountToText(value);
         }
     }
 }
