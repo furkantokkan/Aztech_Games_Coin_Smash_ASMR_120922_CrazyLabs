@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
     {
         muteImage.sprite = IconChanger(MutesSprites[0], MutesSprites[1], mute);
         mute = !mute;
-        AudioListener.pause = !mute;
+        AudioListener.pause = mute;
     }
     public void UpdateRevenueText()
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Platform
   m_EditorClassIdentifier: 
   name: Platform
-  value: 3.625
+  value: 4.5
   valueCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,9 +40,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   minValue: 1
   maxValue: 8
-  currentLevel: 3
+  currentLevel: 4
   maxLevel: 8
-  startPrice: 100
-  costPerUpdate: 200
+  startPrice: 200
+  costPerUpdate: 500
   coefficient: 0.1
   fixedNumber: 1.7

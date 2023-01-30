@@ -24,16 +24,15 @@ public class Pin : MonoBehaviour
             _effect.transform.rotation = Quaternion.identity;
             PoolItems poolItems = other.GetComponent<PoolElement>().value;
             int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems);
-            _effect.GetComponent<MoneyEffect>().SetMoneyAmountToText(index + 1);
+            int value = (index + 1) * 5;
+            EconomyManager.Instance.EarnMoney(value);
+            _effect.GetComponent<MoneyEffect>().SetMoneyAmountToText(value);
             GetComponent<AudioSource>().Play();
             ballTween?.Kill();
             ballTween = arm.DOLocalRotate(new Vector3(0f, 0f, turnValue), turnTime, RotateMode.Fast).SetEase(easeType).OnComplete(delegate
             {
                 arm.DOLocalRotate(Vector3.zero, turnBackTime, RotateMode.Fast).SetEase(getBackEaseType);
             });
-            int value = (index + 1) * 3;
-            EconomyManager.Instance.EarnMoney(value);
-            _effect.GetComponent<MoneyEffect>().SetMoneyAmountToText(value);
         }
     }
 }

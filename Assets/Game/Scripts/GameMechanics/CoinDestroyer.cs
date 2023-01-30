@@ -21,7 +21,7 @@ public class CoinDestroyer : MonoBehaviour
             coin.StartDestroyTheCoin();
             PoolItems poolItems = GetComponent<PoolElement>().value;
             int index = Array.IndexOf(Enum.GetValues(poolItems.GetType()), poolItems);
-            EconomyManager.Instance.EarnMoney((index + 1) * 10);
+            EconomyManager.Instance.EarnMoney(index * 10);
         }
     }
     private void OnDrawGizmos()
